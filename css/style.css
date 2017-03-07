@@ -1,0 +1,19 @@
+body{
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.header{
+  text-align:center;
+}
+.header .slogan{
+  margin-top: 0;
+}
+.menu{
+  text-align:center;
+}
+
+.menu ul li{
+  display:inline-block;
+  margin: 0 10px;
+}
