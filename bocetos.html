@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>
-    YourSquare
-  </title>
-  <meta charset="UTF-8">
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-</head>
+<html lang="es">
+  <head>
+    <title>
+      YourSquare
+    </title>
+    <meta charset="UTF-8">
+    <!-- Link CSS -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+  </head>
   <body>
-    <header>
-      <div class="header">
+    <!-- Cabecera  -->
+    <header id="header">
+      <!-- Logo  -->
+      <div class="logo">
         <img src="img/logo.png" alt="YourSquare" title="YourSquare"/>
         <h3 class="slogan">All in one Square</h3>
       </div>
-      <div class="menu">
+      <!-- Main Menu  -->
+      <div class="main-menu">
         <nav>
           <ul>
             <li><a href="index.html">Inicio</a></li>
@@ -26,19 +30,39 @@
         </nav>
       </div>
     </header>
-    <main>	
-	    <h1>Bocetos:</h1>
-	    <div>
-		    <h3>Index-Home-Profile</h3>
-		    <img src="bocetos/Index_Profile.jpg" alt="Index">
-		    <p>Boceto de la página de inicio y perfil para un usuario logeado, si no está logeado se mostrarán aquellos cuadrados más relevantes.</p>
-		    <h3>Edit-Upload</h3>	
-		    <img src="bocetos/Edit-Upload.jpg" alt= "Edit">
-		    <p>Boceto de la página de edición y creación de contenido para subir al perfil. Con opciones para compartir en redes sociales.</p>
-		    <h3>Edit-Guest</h3>	
-		    <img src="bocetos/Edit-Guest.jpg" alt= "Edit">
-		    <p>Boceto de la página de edición y creación de contenido para usuarios no registrados. Si quisiese subir contenido debería registrarse.</p>
-	    </div>
+    <!-- Fin Cabecera -->
+    <!-- Main Content -->
+    <main id="main">
+      <section class="intro">
+        <h1>Bocetos:</h1>
+        <!-- Articulo 1 -->
+        <article>
+          <h3>Index-Home-Profile</h3>
+          <img src="bocetos/Index_Profile.jpg" alt="Index-Home-Profile" title="Index-Home-Profile">
+          <p>Boceto de la página de inicio y perfil para un usuario logeado, si no está logeado se mostrarán aquellos cuadrados más relevantes.</p>
+        </article>
+        <!-- Articulo 2 -->
+        <article>
+          <h3>Edit-Upload</h3>
+          <img src="bocetos/Edit-Upload.jpg" alt="Edit-Upload" title="Edit-Upload">
+          <p>Boceto de la página de edición y creación de contenido para subir al perfil. Con opciones para compartir en redes sociales.</p>
+        </article>
+        <!-- Articulo 3 -->
+        <article>
+          <h3>Edit-Guest</h3>
+          <img src="bocetos/Edit-Guest.jpg" alt="Edit-Guest" title="Edit-Guest">
+          <p>Boceto de la página de edición y creación de contenido para usuarios no registrados. Si quisiese subir contenido debería registrarse.</p>
+        </article>
+      </section>
     </main>
-</body>
+    <!-- Fin Main Content -->
+    <!-- Footer -->
+    <footer id="footer">
+      <address>
+        Por <a href="mailto:info@yoursquare.com">YourSquare</a>
+      </address>
+      <p>Copyright YourSquare 2017</p>
+    </footer>
+    <!-- Fin Footer -->
+  </body>
 </html>

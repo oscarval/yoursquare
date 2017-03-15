@@ -1,23 +1,35 @@
+/* ALL */
 body{
   width: 1024px;
   margin: 0 auto;
 }
 
-.header{
+/* CABECERA */
+#header .logo{
   text-align:center;
 }
-.header .slogan{
+#header .logo .slogan{
   margin-top: 0;
 }
-.menu{
+#header .main-menu{
   text-align:center;
 }
-
-.menu ul li{
+#header .main-menu ul li{
   display:inline-block;
   margin: 0 10px;
 }
 
-.intro{
+/* CONTENT */
+#main .intro{
   text-align:justify;
+  margin:50px;
 }
+#main .intro .miembros{
+	text-align:center;
+}
+
+/* FOOTER */
+#footer{
+	text-align: center;
+}
+
