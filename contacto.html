@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>
-    YourSquare
-  </title>
-  <meta charset="UTF-8">
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-</head>
+<html lang="es">
+  <head>
+    <title>
+      YourSquare
+    </title>
+    <meta charset="UTF-8">
+    <!-- Link CSS -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+  </head>
   <body>
-    <header>
-      <div class="header">
+    <!-- Cabecera  -->
+    <header id="header">
+      <!-- Logo  -->
+      <div class="logo">
         <img src="img/logo.png" alt="YourSquare" title="YourSquare"/>
         <h3 class="slogan">All in one Square</h3>
       </div>
-      <div class="menu">
+      <!-- Main Menu  -->
+      <div class="main-menu">
         <nav>
           <ul>
             <li><a href="index.html">Inicio</a></li>
@@ -26,37 +30,49 @@
         </nav>
       </div>
     </header>
-    <main>
-	    <h1>Formulario de contacto:</h1>
-	    <div>
-		    <form action="mailto:pcapa@ucm.es" method="post">
-			    <div>				
-				    <label>Nombre:</label>
-				    <input id="text_nombre" type="text" name="nombre" placeholder="Introduce tu nombre">
-			    </div>
-
-			    <div>
-				    <label>Email:</label>
-				    <input id="text_email" type="email" name="email" placeholder="Introduce tu email" required>
-			    </div>
-			    <div>
-				    <label>Motivo de consulta:</label>
-				    <input type="radio" name="option" value="Evaluación"> Evaluación
-				    <input type="radio" name="option" value="Sugerencias"> Sugerencias
-				    <input type="radio" name="option" value="Críticas"> Críticas
-			    </div>
-			    <div>
-				    <label>Consulta:</label>
-				    <textarea name="Consulta" placeholder="Escriba aquí su consulta"> </textarea>
-			    </div>
-          <div>
-				    <input type="checkbox" name="terminos" value="terminos" required> Marque esta casilla para verificar que ha leído nuestros términos y condiciones
-			    </div>
-			    <div>
-				    <input type="submit" value="Enviar">
-			    </div>
-		    </form>
-	    </div>
-  </main>
-</body>
+    <!-- Fin Cabecera -->
+    <!-- Main Content -->
+    <main id="main">
+      <section class="intro">
+        <h1>Formulario de contacto:</h1>
+        <div>
+          <form action="mailto:pcapa@ucm.es" method="post" id="contacto">
+            <div class="row-label">
+              <label>Nombre:</label>
+              <input id="text_nombre" type="text" name="nombre" placeholder="Introduce tu nombre">
+            </div>
+            <div class="row-label">
+              <label>Email:</label>
+              <input id="text_email" type="email" name="email" placeholder="Introduce tu email" required>
+            </div>
+            <div class="motivos row-label">
+              <label>Motivo de consulta:</label>
+              <input type="radio" name="option" value="Evaluación"> Evaluación
+              <input type="radio" name="option" value="Sugerencias"> Sugerencias
+              <input type="radio" name="option" value="Críticas"> Críticas
+            </div>
+            <div class="row-label">
+              <label>Consulta:</label>
+              <textarea name="Consulta" placeholder="Escriba aquí su consulta"> </textarea>
+            </div>
+            <div class="row-label">
+              <input type="checkbox" name="terminos" value="terminos" required> Marque esta casilla para verificar que ha leído nuestros términos y condiciones
+            </div>
+            <div class="row-label">
+              <input type="submit" value="Enviar">
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- Fin Main Content -->
+    <!-- Footer -->
+    <footer id="footer">
+      <address>
+        Por <a href="mailto:info@yoursquare.com">YourSquare</a>
+      </address>
+      <p>Copyright YourSquare 2017</p>
+    </footer>
+    <!-- Fin Footer -->
+  </body>
 </html>

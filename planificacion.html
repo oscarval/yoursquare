@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <title>
-    YourSquare
-  </title>
-  <meta charset="UTF-8">
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-</head>
+  <head>
+    <title>
+      YourSquare
+    </title>
+    <meta charset="UTF-8">
+    <!-- Link CSS -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+  </head>
   <body>
-    <header>
-      <div class="header">
+    <!-- Cabecera  -->
+    <header id="header">
+      <!-- Logo  -->
+      <div class="logo">
         <img src="img/logo.png" alt="YourSquare" title="YourSquare"/>
         <h3 class="slogan">All in one Square</h3>
       </div>
-      <div class="menu">
+      <!-- Main Menu  -->
+      <div class="main-menu">
         <nav>
           <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="detalles.html">Detalles</a></li>
-            <li><a href="Bocetos.html">Bocetos</a></li>
+            <li><a href="bocetos.html">Bocetos</a></li>
             <li><a href="miembros.html">Miembros</a></li>
             <li><a href="planificacion.html">Planificación</a></li>
             <li><a href="contacto.html">Contacto</a></li>
@@ -26,44 +30,60 @@
         </nav>
       </div>
     </header>
-    <main>
-      <section>
-          <h4>Tareas a realizar:</h4>
-          <p>
-            <ol>
-              <li>Definición total de proyecto</li>
-              <li>Diseño y maquetación de la index provisional estática</li>
-              <li>Definición de total de la base de datos</li>
-              <li>Implementación total de la base de datos</li>
-              <li>Implementación parcial cliente-servidor</li>
-              <li>Implementación total cliente-servidor</li>
-              <li>Realización de pruebas</li>
-              <li>Validación del proyecto y presentación al profesor</li>
-              <li>Cerveza Final</li>
-            </ol>
-          </p>
-          <h4>Reparto de tareas:</h4>
-          <p>Como ahora estamos aún con la definción del proyecto global, no podemos asignar una tarea específica a cada miembro porque a medida que nos adentremos en el proyecto saldrán nueva tareas.</p>
-          <h4>Plazos:</h4>
-          <table class="plazos" >
+    <!-- Fin Cabecera -->
+    <!-- Main Content -->
+    <main id="main">
+      <section class="intro">
+        <h1>Planificación:</h1>
+        <article>
+          <header>
+            <h3>Tareas a realizar:</h3>
+          </header>
+          <ol>
+            <li>Definición total de proyecto</li>
+            <li>Diseño y maquetación de la index provisional estática</li>
+            <li>Definición de total de la base de datos</li>
+            <li>Implementación total de la base de datos</li>
+            <li>Implementación parcial cliente-servidor</li>
+            <li>Implementación total cliente-servidor</li>
+            <li>Realización de pruebas</li>
+            <li>Validación del proyecto y presentación al profesor</li>
+            <li>Cerveza Final</li>
+          </ol>
+        </article>
+        <article>
+          <header>
+            <h3>Reparto de tareas:</h3>
+            <p>Como ahora estamos aún con la definción del proyecto global, no podemos asignar una tarea específica a cada miembro porque a medida que nos adentremos en el proyecto saldrán nueva tareas.</p>
+          </header>
+        </article>
+        <article>
+          <header>
+            <h3>Plazos:</h3>
+          </header>
+          <table class="plazos">
             <tbody>
               <tr>
                 <th>Etapa</th>
                 <th>Fecha de entrega</th>
                 <th>Descripción</th>
+                <th>Fases</th>
               </tr>
               <tr>
                 <td>Etapa 0</td>
                 <td>05/03/2017</td>
                 <td>Formación de los grupos y propuesta inicial de proyecto (Sales Pitch) en forma de documento pdf breve</td>
+                <td rowspan="2">FASE INICIAL</td>
               </tr>
               <tr>
-                <td colspan="3">Discusión con el profesor designado como tutor de proyecto sobre el alcance y características que debería incluir el programa.</td>
+                <td>En Laboratorio</td>
+                <td colspan="2">Discusión con el profesor designado como tutor de proyecto sobre el alcance y características que debería incluir el programa.</td>
               </tr>
               <tr>
                 <td>Practica 1</td>
                 <td>15/03/2017</td>
                 <td>Descripción detallada del proyecto, en forma de página web simple con varios documentos descriptivos</td>
+                <td rowspan="2">FASE INTERMEDIA</td>
               </tr>
               <tr>
                 <td>Practica 2</td>
@@ -74,6 +94,7 @@
                 <td>Practica 3</td>
                 <td>03/05/2017</td>
                 <td>Diseño de la base de datos, arquitectura del lado del servidor y prototipo funcional de parte de la aplicación. Versión mínima del proyecto (el alcance de la aplicación será acordado con el tutor del proyecto)</td>
+                <td rowspan="2">FASE FINAL</td>
               </tr>
               <tr>
                 <td>Entrega Final</td>
@@ -82,7 +103,17 @@
               </tr>
             </tbody>
           </table>
+        </article>
       </section>
     </main>
+    <!-- Fin Main Content -->
+    <!-- Footer -->
+    <footer id="footer">
+      <address>
+        Por <a href="mailto:info@yoursquare.com">YourSquare</a>
+      </address>
+      <p>Copyright YourSquare 2017</p>
+    </footer>
+    <!-- Fin Footer -->
   </body>
 </html>

@@ -27,9 +27,28 @@ body{
 #main .intro .miembros{
 	text-align:center;
 }
+/* tabla planificacion */
+table{
+    border-collapse:collapse;
+}
+table td, table th {
+padding:5px;
+}
+/* formulario contacto */
+#contacto .row-label{
+  margin: 10px 0;
+}
+#contacto label{
+  min-width: 120px;
+}
+#contacto input, #contacto textarea{
+  display:block;
+}
+#contacto .motivos input{
+  display:inline;
+}
 
 /* FOOTER */
 #footer{
 	text-align: center;
 }
-
