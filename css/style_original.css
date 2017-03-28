@@ -1,0 +1,54 @@
+/* ALL */
+body{
+  width: 1024px;
+  margin: 0 auto;
+}
+
+/* CABECERA */
+#header .logo{
+  text-align:center;
+}
+#header .logo .slogan{
+  margin-top: 0;
+}
+#header .main-menu{
+  text-align:center;
+}
+#header .main-menu ul li{
+  display:inline-block;
+  margin: 0 10px;
+}
+
+/* CONTENT */
+#main .intro{
+  text-align:justify;
+  margin:50px;
+}
+#main .intro .miembros{
+	text-align:center;
+}
+/* tabla planificacion */
+table{
+    border-collapse:collapse;
+}
+table td, table th {
+padding:5px;
+}
+/* formulario contacto */
+#contacto .row-label{
+  margin: 10px 0;
+}
+#contacto label{
+  min-width: 120px;
+}
+#contacto input, #contacto textarea{
+  display:block;
+}
+#contacto .motivos input{
+  display:inline;
+}
+
+/* FOOTER */
+#footer{
+	text-align: center;
+}

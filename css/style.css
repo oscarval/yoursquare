@@ -1,17 +1,47 @@
 /* ALL */
 body{
-  width: 1024px;
+  width: 900px;
   margin: 0 auto;
 }
 
 /* CABECERA */
 #header .logo{
   text-align:center;
+  float:left;
+  width: 200px;
+}
+#header .logo img{
+  max-width: 180px;
 }
 #header .logo .slogan{
   margin-top: 0;
+  font-size: 12px;
 }
+#header .busqueda{
+  float:left;
+  width: 400px;
+}
+#search-form{
+  margin-top:30px;
+  text-align: center;
+}
+#search-form input{
+  width:250px;
+}
+#header .usuario{
+  float:right;
+  width: 300px;
+}
+#header .usuario ul li{
+  display: inline-block;
+}
+#header .usuario img{
+  width:50px;
+}
+
+
 #header .main-menu{
+  clear:both;
   text-align:center;
 }
 #header .main-menu ul li{
@@ -20,35 +50,33 @@ body{
 }
 
 /* CONTENT */
-#main .intro{
-  text-align:justify;
-  margin:50px;
+#sidebar-left{
+  width:190px;
+  float:left;
+  margin: 0 5px;
+  height: auto;
 }
-#main .intro .miembros{
-	text-align:center;
+#main{
+  width:490px;
+  float:left;
+  margin: 0 5px;
+  height: auto;
 }
-/* tabla planificacion */
-table{
-    border-collapse:collapse;
+#main-withoutsidebar-right{
+  width:680px;
+  float:left;
+  margin: 0 5px;
+  height: auto;
 }
-table td, table th {
-padding:5px;
+#sidebar-right{
+  width:190px;
+  float:right;
+  margin: 0 5px;
 }
-/* formulario contacto */
-#contacto .row-label{
-  margin: 10px 0;
-}
-#contacto label{
-  min-width: 120px;
-}
-#contacto input, #contacto textarea{
-  display:block;
-}
-#contacto .motivos input{
-  display:inline;
-}
+
 
 /* FOOTER */
 #footer{
+  clear:both;
 	text-align: center;
 }
