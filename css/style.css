@@ -60,7 +60,7 @@ body{
   width:490px;
   float:left;
   margin: 0 5px;
-  height: auto;
+  min-height: 800px;
 }
 #main-withoutsidebar-right{
   width:680px;
@@ -72,6 +72,10 @@ body{
   width:190px;
   float:right;
   margin: 0 5px;
+}
+
+.square{
+  font-style: italic;
 }
 
 

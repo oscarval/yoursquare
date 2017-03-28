@@ -1,0 +1,33 @@
+#sidebar-left .title-sidebar-left{
+  text-align: center;
+}
+
+#wrapper-square{
+  height: auto;
+  border:2px solid grey;
+  border-radius: 10px;
+  background : transparent url('../img/bosque.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+
+#wrapper-square .content-background-square{
+  min-height:400px;
+  opacity: 0.9;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+#wrapper-square .content-intro-square h1,#wrapper-square .content-intro-square p{
+  color: #009900;
+  cursor:pointer;
+}
+#wrapper-square .content-intro-square h1:active,#wrapper-square .content-intro-square h1:visited{
+  border:1px solid grey;
+}
