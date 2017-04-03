@@ -1,8 +1,34 @@
 #sidebar-left .title-sidebar-left{
   text-align: center;
 }
+#main .intro .tooltip{
+  font-family: 'Calibri';
+  font-style: italic;
+  color: #6EDAB6;
+  text-decoration: underline;
+}
+#wrapper-square.nuevo{
+  height: auto;
+  border:2px solid grey;
+  border-radius: 10px;
+  background-color: transparent;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
-#wrapper-square{
+#wrapper-square.bambu{
+  height: auto;
+  border:2px solid grey;
+  border-radius: 10px;
+  background : transparent url('../img/bambu.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#wrapper-square.bosque{
   height: auto;
   border:2px solid grey;
   border-radius: 10px;
@@ -11,23 +37,44 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
+}
+#wrapper-square.punteado{
+  border:2px dotted grey;
+}
+#wrapper-square.sinborde{
+  border:2px none grey;
+}
+#wrapper-square.lineal{
+  border:2px solid grey;
+  border-radius: 0px;
 }
 
 
 #wrapper-square .content-background-square{
   min-height:400px;
-  opacity: 0.9;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   border: none;
+  font-size:20px;
 }
 
 #wrapper-square .content-intro-square h1,#wrapper-square .content-intro-square p{
-  color: #009900;
   cursor:pointer;
+  text-align: center;
 }
-#wrapper-square .content-intro-square h1:active,#wrapper-square .content-intro-square h1:visited{
-  border:1px solid grey;
+#wrapper-square.bambu .content-intro-square h1{
+  color: #ff0000;
+}
+#wrapper-square.bosque .content-intro-square h1{
+  color: #ff0000;
+  font-family: 'Arial';
+}
+#wrapper-square.bambu .content-intro-square p{
+  color: #3760AF;
+  text-align: center;
+}
+#wrapper-square.bosque .content-intro-square p{
+  color: #F7FE07;
+  text-align: center;
 }
