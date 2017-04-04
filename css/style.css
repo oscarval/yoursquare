@@ -5,6 +5,9 @@ body{
   font-family:'PT Sans', sans-serif;
   background-color:#b3e5fc;
 }
+input{
+  border-radius: 5px;
+}
 
 /* CABECERA */
 
@@ -88,6 +91,12 @@ body{
   margin: 0 5px;
   height: auto;
 }
+#main-withoutsidebar{
+  width:900px;
+  float:left;
+  margin: 0 0;
+  height: auto;
+}
 #sidebar-right{
   width:180px;
   float:right;
@@ -95,6 +104,10 @@ body{
   min-height: 800px;
   padding-left:10px;
   background-color:#90a4ae;
+}
+
+.intro .center{
+  text-align:center;
 }
 
 .square{

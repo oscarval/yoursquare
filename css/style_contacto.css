@@ -1,0 +1,30 @@
+#contacto{
+    background-color: #fff;
+    font-size:15px;
+    padding: 0 40px;
+    height: auto;
+}
+
+#contacto label{
+    display: inline-block;
+    width:20%;
+    padding:10px;
+}
+#contacto input[type="text"],#contacto input[type="email"]{
+    width:250px;
+    height: 20px;
+}
+#contacto textarea{
+  width: 250px;
+  min-height:50px;
+}
+#contacto .button_enviar{
+  margin:20px;
+  padding: 20px;
+}
+#contacto .enviar{
+  padding: 10px;
+  width: 100px;
+  background-color: #4fc3f7;
+  border-color: #4fc3f7;
+}

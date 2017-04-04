@@ -5,16 +5,33 @@
       YourSquare
     </title>
     <meta charset="UTF-8">
-    <!-- Link CSS -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!-- Link CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style_contacto.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- Cabecera  -->
     <header id="header">
-      <!-- Logo  -->
+	  <!-- Logo  -->
       <div class="logo">
-        <img src="img/logo.png" alt="YourSquare" title="YourSquare"/>
+        <!--<img src="img/logo.png" alt="YourSquare" title="YourSquare"/>-->
+          <span id="LOGO"> YOURSQUARE</span>
         <h3 class="slogan">All in one Square</h3>
+      </div>
+      <div class="busqueda">
+        <form id="search-form" name="search" accept-charset="UTF-8">
+          <input class="search-field" type="search" name="search-field" />
+          <button class="button-search">Buscar</button>
+        </form>
+      </div>
+      <div class="usuario">
+        <ul>
+            <span class="icon">📭</span>
+          <span class="icon">
+🙌
+</span>
+          <li>Bienvenido</li>
+        </ul>
       </div>
       <!-- Main Menu  -->
       <div class="main-menu">
@@ -31,12 +48,13 @@
       </div>
     </header>
     <!-- Fin Cabecera -->
-    <!-- Main Content -->
-    <main id="main">
-      <section class="intro">
-        <h1>Formulario de contacto:</h1>
+  	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
+      <main id="main-withoutsidebar">
+      <!-- <main id="main"> -->
+  	  <section class="intro">
         <div>
-          <form action="mailto:pcapa@ucm.es" method="post" id="contacto">
+          <form action="mailto:pcapa@ucm.es" method="post" id="contacto" >
+            <h1 class="center">Formulario de contacto</h1>
             <div class="row-label">
               <label>Nombre:</label>
               <input id="text_nombre" type="text" name="nombre" placeholder="Introduce tu nombre">
@@ -58,13 +76,13 @@
             <div class="row-label">
               <input type="checkbox" name="terminos" value="terminos" required> Marque esta casilla para verificar que ha leído nuestros términos y condiciones
             </div>
-            <div class="row-label">
-              <input type="submit" value="Enviar">
+            <div class="row-label button_enviar center">
+              <input type="submit" value="Enviar" class="enviar">
             </div>
           </form>
         </div>
-      </section>
-    </main>
+  	  </section>
+      </main>
     <!-- Fin Main Content -->
     <!-- Footer -->
     <footer id="footer">
