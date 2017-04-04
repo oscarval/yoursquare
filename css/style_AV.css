@@ -80,6 +80,12 @@
 }
 
 /*Barra lateral de herramientas*/
+#herramientas{
+  padding:0;
+}
+#herramientas ul{
+ padding-left:10px;
+}
 #herramientas li{
   list-style-type: none;
 }
