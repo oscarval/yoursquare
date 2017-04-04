@@ -6,7 +6,7 @@
     </title>
     <meta charset="UTF-8">
 	<!-- Link CSS -->
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style_mensajes.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- Cabecera  -->
@@ -46,33 +46,31 @@
 	<!-- Fin Cabecera -->
   <!-- sidebar izquierdo -->
     <aside id="sidebar-left">
-      <form action="/action_page.php">
-	  <div class="form-login">
-		<label><b>Username</b></label>
-		<input type="text" placeholder="Enter Username" name="uname" required>
-
-		<label><b>Password</b></label>
-		<input type="password" placeholder="Enter Password" name="psw" required>
-
-		<button type="submit">Login</button>
-		<input type="checkbox" checked="checked"> Remember me
-	  </div>
-</form>
+      <form id="searchform">
+	  <input type="search" placeholder="Buscar mensaje..."/>
+	  <button type="submit">Buscar</button>
+	  </form>
+	  <h2> Carpetas </h2>
+	  <a href="Nuevo_Mensaje.html"> Nuevo Mensaje </a><br>
+	  <br>
+	  <a href="Bandeja_Entrada.html"> Bandeja de entrada </a><br>
+	  <br>
+	  <a href="Mensajes_Enviados.html"> Mensajes enviados </a><br>
+	  <br>
     </aside>
 	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
     <main id="main-withoutsidebar-right">
-		<div class="container">
-		  <div class="item">1</div>
-		  <div class="item">2</div>
-		  <div class="item">3</div>
-		  <div class="item">4</div>
-		  <div class="item">5</div>
-		  <div class="item">6</div>
-		  <div class="item">7</div>
-		  <div class="item">8</div>
-		  <div class="item">9</div>
-		</div>
     <!-- <main id="main"> -->
+	  <section class="intro">
+	  <fieldset>
+		<h2> Bandeja de entrada </h2>
+		<form>
+		<button type="submit">Eliminar</button><br><br>
+		<input type="checkbox" name="Mensaje_1" ><a href="Mensaje.html">De:Usuario1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asunto:Hola &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp fecha: 28/03/17</a><br> 
+		<input type="checkbox" name="Mensaje_2" ><a href="Mensaje.html">De:Usuario2 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asunto:Adios &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp fecha: 28/03/17</a><br> 
+		</form>
+	  </fieldset>
+	  </section>
     </main>
 	<!-- Fin Main Content -->
   <!-- Sidebar de la derecha - comentar si no se quiere-->

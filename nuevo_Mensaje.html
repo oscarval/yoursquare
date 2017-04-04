@@ -6,7 +6,7 @@
     </title>
     <meta charset="UTF-8">
 	<!-- Link CSS -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style_mensajes.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- Cabecera  -->
@@ -46,15 +46,31 @@
 	<!-- Fin Cabecera -->
   <!-- sidebar izquierdo -->
     <aside id="sidebar-left">
-      caje de la izquierda
+      <form id="searchform">
+	  <input type="search" placeholder="Buscar mensaje..."/>
+	  <button type="submit">Buscar</button>
+	  </form>
+	  <h2> Carpetas </h2>
+	  <a href="Nuevo_Mensaje.html"> Nuevo Mensaje </a><br>
+	  <br>
+	  <a href="Bandeja_Entrada.html"> Bandeja de entrada </a><br>
+	  <br>
+	  <a href="Mensajes_Enviados.html"> Mensajes enviados </a><br>
+	  <br>
     </aside>
 	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
     <main id="main-withoutsidebar-right">
     <!-- <main id="main"> -->
 	  <section class="intro">
-		<h1>YourSquare</h1>
-		<p>YourSquare te permite crear pequeños contenidos con ideas, pensamientos, relatos, literatura, frases o lo que más te guste, dándole el formato que más te guste de una manera fácil, rápida e intuitiva. Además, podrás compartirlo en tus redes sociales favoritas, obtener críticas o comentarios de otros usuarios, obtener valoraciones y estar al día de los mejores “Squares” de nuestros usuarios, así como los recomendados según tus gustos.También podrás seguir a otros usuarios con gustos parecidos a los tuyos y sumergirte en diferentes comunidades.</p>
-		<p>Cuantas más valoraciones o visualizaciones obtengas, tendrás mayores opciones para personalizar tus “Squares” como bonos Premium, tales como (Descargar en formato html, PDF, obtener insignias, nuevas opciones de personalización etc).</p>
+		<fieldset>
+		<legend>Mensaje nuevo:</legend>
+		Para: <input type="destinatario" size="50"><br><br>
+		Asunto: <input type="Asunto" size="50"><br><br>
+		<textarea name="mensaje" rows="30" cols="70">
+		</textarea>
+		<br>
+		<input type="submit" value="Enviar">
+		</fieldset>
 	  </section>
     </main>
 	<!-- Fin Main Content -->

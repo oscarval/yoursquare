@@ -6,7 +6,7 @@
     </title>
     <meta charset="UTF-8">
 	<!-- Link CSS -->
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style_mensajes.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- Cabecera  -->
@@ -46,33 +46,35 @@
 	<!-- Fin Cabecera -->
   <!-- sidebar izquierdo -->
     <aside id="sidebar-left">
-      <form action="/action_page.php">
-	  <div class="form-login">
-		<label><b>Username</b></label>
-		<input type="text" placeholder="Enter Username" name="uname" required>
-
-		<label><b>Password</b></label>
-		<input type="password" placeholder="Enter Password" name="psw" required>
-
-		<button type="submit">Login</button>
-		<input type="checkbox" checked="checked"> Remember me
-	  </div>
-</form>
+      <form id="searchform">
+	  <input type="search" placeholder="Buscar mensaje..."/>
+	  <button type="submit">Buscar</button>
+	  </form>
+	  <h2> Carpetas </h2>
+	  <a href="Nuevo_Mensaje.html"> Nuevo Mensaje </a><br>
+	  <br>
+	  <a href="Bandeja_Entrada.html"> Bandeja de entrada </a><br>
+	  <br>
+	  <a href="Mensajes_Enviados.html"> Mensajes enviados </a><br>
+	  <br>
     </aside>
 	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
     <main id="main-withoutsidebar-right">
-		<div class="container">
-		  <div class="item">1</div>
-		  <div class="item">2</div>
-		  <div class="item">3</div>
-		  <div class="item">4</div>
-		  <div class="item">5</div>
-		  <div class="item">6</div>
-		  <div class="item">7</div>
-		  <div class="item">8</div>
-		  <div class="item">9</div>
-		</div>
     <!-- <main id="main"> -->
+	  <section class="intro">
+		<fieldset>
+		<h1> Hola </h1>
+		<p> mar 28/03/2017 6:00 <p>
+		<p> De: Usuario1 <p>
+		<p> Para: MiUsuario <p>
+		<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estandar de las 
+		industrias desde el ano 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usa una galeria de textos y los mezclo
+		de tal manera que logro hacer un libro de textos especimen. No solo sobrevivio 500 anos, sino que tambien ingreso como texto de relleno en documentos
+		electronicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creacion de las hojas "Letraset", las cuales contenian pasajes
+		de Lorem Ipsum, y mas recientemente con software de autoedicion, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
+		<p>
+		</fieldset>
+	  </section>
     </main>
 	<!-- Fin Main Content -->
   <!-- Sidebar de la derecha - comentar si no se quiere-->
