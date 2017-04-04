@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>
+      YourSquare
+    </title>
+    <meta charset="UTF-8">
+	<!-- Link CSS -->
+    <link href="css/styleXuebo.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!-- Cabecera  -->
+    <header id="header">
+	  <!-- Logo  -->
+      <div class="logo">
+        <img src="img/logo.png" alt="YourSquare" title="YourSquare"/>
+        <h3 class="slogan">All in one Square</h3>
+      </div>
+      <div class="busqueda">
+        <form id="search-form" name="search" accept-charset="UTF-8">
+          <input class="search-field" type="search" name="search-field" />
+          <button class="button-search">Buscar</button>
+        </form>
+      </div>
+	  <!-- Main Menu  -->
+      <div class="main-menu">
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="detalles.html">Detalles</a></li>
+            <li><a href="bocetos.html">Bocetos</a></li>
+            <li><a href="miembros.html">Miembros</a></li>
+            <li><a href="planificacion.html">Planificación</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+	<!-- Fin Cabecera -->
+  <!-- sidebar izquierdo -->
+    <aside id="sidebar-left">
+      <form action="index_logged.html">
+          <div class="form_container">
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit">Login</button>
+            <input type="checkbox" checked="checked"> Remember me
+          </div>
+
+          <div>
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
+        <h3>Los mejores SQUARES</h3>
+            <ul>
+                <li><a href="index_guest.html?tema=Poesia">Poesia</a></li>
+                <li><a href="index_guest.html?tema=Noticias">Noticias</a></li>
+                <li><a href="index_guest.html?tema=Música">Música</a></li>
+                <li><a href="index_guest.html?tema=Código">Código</a></li>
+                <li><a href="index_guest.html?tema=Pintura">Pintura</a></li>
+                <li><a href="index_guest.html?tema=Viaje">Viaje</a></li>
+            </ul>
+        <a href="create_square_bambu.html" class="button_createSquare">Crear Square!</a>
+    </aside>
+	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
+    <main id="main-withoutsidebar-right">
+    <!-- <main id="main"> -->
+	  <section class="intro">
+		<div class="container">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+        </div>
+	  </section>
+    </main>
+	<!-- Fin Main Content -->
+  <!-- Sidebar de la derecha - comentar si no se quiere-->
+    <!-- <aside id="sidebar-right">
+      caje de la derecha
+    </aside> -->
+	<!-- Footer -->
+    <footer id="footer">
+      <address>
+        Por <a href="mailto:info@yoursquare.com">YourSquare</a>
+      </address>
+      <p>Copyright YourSquare 2017</p>
+    </footer>
+	<!-- Fin Footer -->
+  </body>
+</html>
