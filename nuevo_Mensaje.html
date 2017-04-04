@@ -46,17 +46,16 @@
 	<!-- Fin Cabecera -->
   <!-- sidebar izquierdo -->
     <aside id="sidebar-left">
-      <form id="searchform">
-	  <input type="search" placeholder="Buscar mensaje..."/>
-	  <button type="submit">Buscar</button>
-	  </form>
-	  <h2> Carpetas </h2>
-	  <a href="Nuevo_Mensaje.html"> Nuevo Mensaje </a><br>
-	  <br>
-	  <a href="Bandeja_Entrada.html"> Bandeja de entrada </a><br>
-	  <br>
-	  <a href="Mensajes_Enviados.html"> Mensajes enviados </a><br>
-	  <br>
+		  <form id="searchform">
+		  <input type="search" placeholder="Buscar mensaje..."/>
+		  <button type="submit">Buscar</button>
+		  </form>
+		  <h2> Carpetas </h2>
+		<ul class="Subcarpetas">
+			<li><a href="Nuevo_Mensaje.html"> Nuevo Mensaje </a></li>
+			<li><a href="Bandeja_Entrada.html"> Bandeja de entrada </a></li>
+			<li><a href="Mensajes_Enviados.html"> Mensajes enviados </a></li>
+		</ul>
     </aside>
 	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
     <main id="main-withoutsidebar-right">
@@ -64,12 +63,13 @@
 	  <section class="intro">
 		<fieldset>
 		<legend>Mensaje nuevo:</legend>
-		Para: <input type="destinatario" size="50"><br><br>
-		Asunto: <input type="Asunto" size="50"><br><br>
+		<form>
+			Para: <input type="text" name="Destinatario" size="50"><br><br>
+			Asunto: <input type="text" name="Asunto" size="50"><br><br>
 		<textarea name="mensaje" rows="30" cols="70">
-		</textarea>
-		<br>
-		<input type="submit" value="Enviar">
+		</textarea><br><br>
+			<input type="submit" value="Enviar">
+		</form>
 		</fieldset>
 	  </section>
     </main>

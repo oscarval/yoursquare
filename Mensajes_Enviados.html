@@ -46,30 +46,29 @@
 	<!-- Fin Cabecera -->
   <!-- sidebar izquierdo -->
     <aside id="sidebar-left">
-      <form id="searchform">
-	  <input type="search" placeholder="Buscar mensaje..."/>
-	  <button type="submit">Buscar</button>
-	  </form>
-	  <h2> Carpetas </h2>
-	  <a href="Nuevo_Mensaje.html"> Nuevo Mensaje </a><br>
-	  <br>
-	  <a href="Bandeja_Entrada.html"> Bandeja de entrada </a><br>
-	  <br>
-	  <a href="Mensajes_Enviados.html"> Mensajes enviados </a><br>
-	  <br>
+		  <form id="searchform">
+		  <input type="search" placeholder="Buscar mensaje..."/>
+		  <button type="submit">Buscar</button>
+		  </form>
+		  <h2> Carpetas </h2>
+		<ul class="Subcarpetas">
+			<li><a href="Nuevo_Mensaje.html"> Nuevo Mensaje </a></li>
+			<li><a href="Bandeja_Entrada.html"> Bandeja de entrada </a></li>
+			<li><a href="Mensajes_Enviados.html"> Mensajes enviados </a></li>
+		</ul>
     </aside>
 	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
     <main id="main-withoutsidebar-right">
     <!-- <main id="main"> -->
 	  <section class="intro">
 		<fieldset>
-		<h2> Mensajes Enviados </h2>
-		<form>
-		<button type="submit">Eliminar</button><br><br>
-		<input type="checkbox" name="Mensaje_1" ><a href="Mensaje.html">Para:Usuario1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Titulo:Adios &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp fecha: 29/03/17</a><br> 
-		<input type="checkbox" name="Mensaje_2" ><a href="Mensaje.html">Para:Usuario2 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Titulo:Hola &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp fecha: 29/03/17</a><br> 
-		</form>
-	  </fieldset>
+			<h2> Mensajes Enviados </h2>
+			<form>
+			<button type="submit">Eliminar</button><br>
+			<input type="checkbox" name="Mensaje_1" ><a href="Mensaje.html">Para:Usuario1 Titulo:Adios fecha: 29/03/17</a><br>
+			<input type="checkbox" name="Mensaje_2" ><a href="Mensaje.html">Para:Usuario2 Titulo:Hola fecha: 29/03/17</a><br>
+			</form>
+			</fieldset>
 	  </section>
     </main>
 	<!-- Fin Main Content -->
