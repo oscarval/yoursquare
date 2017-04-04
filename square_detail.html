@@ -7,11 +7,7 @@
     <meta charset="UTF-8">
 	<!-- Link CSS -->
   <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">    <link href="css/style.css" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
-    <link href="css/style-user.css" rel="stylesheet" type="text/css" />
-=======
->>>>>>> 9ae9a400e3fe89793f67fc15448c5a778177945a
-    <link href="css/style_AV.css" rel="stylesheet" type="text/css" />
+    <link href="css/style_XBZ.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- Cabecera  -->
@@ -58,37 +54,37 @@
       <button onclick="javascript:location.href='create_square_guardar.html'">Guardar Square</button>
       <ul id="herramientas">
         <li>
-          <p class="seccion_h">Fondos</p>
+          <p>Fondos</p>
           <ul>
             <li>
               <label>Imágenes:</label>
-              <select id="fondo-background-square" onchange="javascript:location.href='create_square_bambu.html'">
-                <option value="bosque.css" selected>Bosque</option>
-                <option value="bambu.css">Bambú</option>
+              <select id="fondo-background-square" onchange="javascript:location.href='create_square_bosque.html'">
+                <option value="bosque.css">Bosque</option>
+                <option value="bambu.css" selected>Bambú</option>
                 <option value="montanas.css">Montañas</option>
                 <option value="mar.css">Mar</option>
               </select>
-              
+              <button class="fondo-reset-img">Reset</button>
             </li>
             <li>
               <label>Color:</label>
-              <input type="color" id="fondo-color" value="#F7FE07">
-              
+              <input type="color" id="fondo-color" value="#3760AF">
+              <button lass="fondo-reset-color">Reset</button>
             </li>
             <li>
               <label>Bordes:</label>
-              <select id="fondo-borde-square" onchange="javascript:location.href='create_square_bosque.html'">
-                <option value="redondeado" class="redondeado">Redondeado</option>
+              <select id="fondo-borde-square" onchange="javascript:location.href='create_square_bambu_punteado.html'">
+                <option value="redondeado" selected class="redondeado">Redondeado</option>
                 <option value="lineal" class="lineal">Lineal</option>
                 <option value="punteado" class="punteado">Punteado</option>
-                <option value="sinborde" selected class="sinborde">Sin Borde</option>
+                <option value="sinborde" class="sinborde">Sin Borde</option>
               </select>
-              
+              <button class="fondo-reset-borde">Reset</button>
             </li>
           </ul>
         </li>
         <li>
-          <p class="seccion_h">Cabeceras</p>
+          <p>Cabeceras</p>
           <ul>
             <li>
               <label>Tamaños:</label>
@@ -98,30 +94,36 @@
                 <option value="header3" class="header3">Cabecera 3</option>
                 <option value="header4" class="header4">Cabecera 4</option>
               </select>
-              
+              <button class="cabecera-reset-size">Reset</button>
             </li>
           </ul>
         </li>
         <li>
-          <p class="seccion_h">Fuentes</p>
+          <p>Fuentes</p>
           <ul>
             <li>
-              <label>Tamaños:</label>
+              <label>Familias:</label>
               <select id="fuente-font-text">
                 <option value="fuente1" class="fuente1">Arial</option>
                 <option value="fuente2" class="fuente2">Times Roman</option>
                 <option value="fuente3" class="fuente3">Comic Sans MS</option>
                 <option value="fuente4" class="fuente4">Calibri</option>
               </select>
-              
+              <button class="fuente-reset-font">Reset</button>
+            </li>
+            <li>
+              <label>Tamaño:</label>
+              <input type="range" id="size" value="12" min="12" max="20" step="1" />
+              <button class="fuente-reset-size">Reset</button>
             </li>
           </ul>
         </li>
         <li>
-          <p class="seccion_h">Texto</p>
+          <p>Texto</p>
           <label>Inserta el texto de tu <span class="square">Square</span>:</label>
-          <textarea id="texto-text"></textarea>
-          
+          <textarea id="texto-text" rows="4">Nuevo texto insertado por parte del usuario</textarea>
+          <button class="texto-insert-text" onclick="javascript:location.href='create_square_bambu_insertar.html'">Insertar</button>
+          <button class="texto-reset-text">Reset</button>
         </li>
       </ul>
     </aside>
@@ -129,11 +131,8 @@
     <!-- <main id="main-withoutsidebar-right"> -->
     <main id="main">
   	  <section class="intro">
-    		<h1>Crea y edita tu <span class="square">Square</span> a tu gusto</h1>
-    		<p>Utiliza las herramientas que te ofrecemos para crear tu <span class="square">Square</span> facilmente. Arrastra a tu <span class="square">Square</span> los objetos que necesitas</p>
-        <p>Aquí se ha seleccionado de Fonde la imagen de Bosque, se ha aplicado el color a los párrafos y se ha cambiado la fuente a Arial</p>
-        <p class="tooltip">Selecciona Fondo Bambú para regresar a la inicial</p>
-        <div id="wrapper-square" class="bosque sinborde">
+    		<div class="imgcontainer"><img src="img/img_avatar2.png" alt="Avatar" class="avatar"><span id="nombrePerfil">xuebozhu</span><span id="fechaPerfil">4 de Marzo de 2017</span></div>
+        <div id="wrapper-square" class="bambu">
           <div class="content-background-square">
             <div class="content-intro-square">
                 <h1>Título de tu Square</h1>

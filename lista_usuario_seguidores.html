@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>
+      YourSquare
+    </title>
+    <meta charset="UTF-8">
+	<!-- Link CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style-user.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!-- Cabecera  -->
+    <header id="header">
+	  <!-- Logo  -->
+      <div class="logo">
+        <!--<img src="img/logo.png" alt="YourSquare" title="YourSquare"/>-->
+          <span id="LOGO"> YOURSQUARE</span>
+        <h3 class="slogan">All in one Square</h3>
+      </div>
+      <div class="busqueda">
+        <form id="search-form" name="search" accept-charset="UTF-8">
+          <input class="search-field" type="search" name="search-field" />
+          <button class="button-search">Buscar</button>
+        </form>
+      </div>
+      <div class="usuario">
+        <ul>
+            <a href="Bandeja_Entrada.html"><span class="icon">📭</span></a>
+            <a href="usuario.html"><span class="icon">🙎</span></a>
+
+          <li>Bienvenido</li>
+        </ul>
+      </div>
+	  <!-- Main Menu  -->
+      <div class="main-menu">
+        <nav>
+          <ul>
+            <li><a href="index_guest.html">Inicio</a></li>
+            <li><a href="create_square_bambu.html">Crea tu Square</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+	<!-- Fin Cabecera -->
+  <!-- sidebar izquierdo -->
+    <aside id="sidebar-left">
+        <h3>Filtrar:</h3>
+        <select>
+  <option value="Mas amigos en comun">Mas amigos en comun</option>
+  <option value="Mas nuevos">Mas nuevos</option>
+    <option value="Mas antiguos">Mas antiguos</option>
+  <option value="Mas cercanos">Mas cercanos</option>
+</select> 
+
+<button>Gente de tu zona</button>
+
+    </aside>
+	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
+    <main id="main-withoutsidebar-right">
+    <!-- <main id="main"> -->
+	  <section class="center-user">
+		<h1>Personas que te siguen</h1>
+    <div = "usuario-listado">
+        <h3><img alt="User" src="img/img_avatar2.png"/> xuebozhu: 2312migos en comun</h3>
+    </div>
+
+    <div = "usuario-listado">
+        <h3><img alt="User" src="img/img_avatar2.png"/> DominikF: 202 amigos en comun</h3>
+    </div>
+
+    <div = "usuario-listado">
+        <h3><img alt="User" src="img/img_avatar2.png"/> alexis69: 12 amigos en comun</h3>
+    </div>
+
+  <div = "usuario-listado">
+        <h3><img alt="User" src="img/img_avatar2.png"/> JCSwag: 232 amigos en comun</h3>
+    </div>
+
+      <div = "usuario-listado">
+        <h3><img alt="User" src="img/img_avatar2.png"/> pabloFPGA: 2 amigos en comun</h3>
+    </div>
+    </div>
+		  </section>
+    </main>
+	<!-- Fin Main Content -->
+  <!-- Sidebar de la derecha - comentar si no se quiere-->
+    <!-- <aside id="sidebar-right">
+      caje de la derecha
+    </aside> -->
+	<!-- Footer -->
+    <footer id="footer">
+      <address>
+        Por <a href="mailto:info@yoursquare.com">YourSquare</a>
+      </address>
+      <p>Copyright YourSquare 2017</p>
+    </footer>
+	<!-- Fin Footer -->
+  </body>
+</html>
