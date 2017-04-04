@@ -78,3 +78,8 @@
   color: #F7FE07;
   text-align: center;
 }
+
+/*Barra lateral de herramientas*/
+#herramientas li{
+  list-style-type: none;
+}

@@ -49,7 +49,7 @@
     <aside id="sidebar-left">
       <h3 class="title-sidebar-left">Herramientas</h3>
       <button onclick="javascript:location.href='create_square_guardar.html'">Guardar Square</button>
-      <ul>
+      <ul id="herramientas">
         <li>
           <p>Fondos</p>
           <ul>
@@ -99,7 +99,7 @@
           <p>Fuentes</p>
           <ul>
             <li>
-              <label>Tamaños:</label>
+              <label>Familias:</label>
               <select id="fuente-font-text">
                 <option value="fuente1" class="fuente1">Arial</option>
                 <option value="fuente2" class="fuente2">Times Roman</option>
@@ -107,6 +107,11 @@
                 <option value="fuente4" class="fuente4">Calibri</option>
               </select>
               <button class="fuente-reset-font">Reset</button>
+            </li>
+            <li>
+              <label>Tamaño:</label>
+              <input type="range" id="size" value="12" min="12" max="20" step="1" />
+              <button class="fuente-reset-size">Reset</button>
             </li>
           </ul>
         </li>
