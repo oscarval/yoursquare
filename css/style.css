@@ -5,12 +5,15 @@ body{
   font-family:'PT Sans', sans-serif;
   background-color:#b3e5fc;
 }
+input{
+  border-radius: 5px;
+}
 
 /* CABECERA */
 
 #header {
     background-color: #212121;
-    color: #4fc3f7; 
+    color: #4fc3f7;
     padding-bottom:5px;
 }
 #header #LOGO{
@@ -72,7 +75,7 @@ body{
   width:190px;
   float:left;
   margin: 5px 5px 0px 0px;
-  height: 500px;
+  min-height: 800px;
   padding-left:10px;
   background-color:#90a4ae;
 }
@@ -88,10 +91,23 @@ body{
   margin: 0 5px;
   height: auto;
 }
+#main-withoutsidebar{
+  width:900px;
+  float:left;
+  margin: 0 0;
+  height: auto;
+}
 #sidebar-right{
-  width:190px;
+  width:180px;
   float:right;
-  margin: 0 5px;
+  margin: 5px 5px 0px 0px;
+  min-height: 800px;
+  padding-left:10px;
+  background-color:#90a4ae;
+}
+
+.intro .center{
+  text-align:center;
 }
 
 .square{

@@ -4,7 +4,7 @@
 #main .intro .tooltip{
   font-family: 'Calibri';
   font-style: italic;
-  color: #6EDAB6;
+  color: #5D1314;
   text-decoration: underline;
 }
 #wrapper-square.nuevo{
@@ -80,6 +80,21 @@
 }
 
 /*Barra lateral de herramientas*/
+#herramientas{
+  padding:0;
+}
+#herramientas ul{
+ padding-left:10px;
+}
 #herramientas li{
   list-style-type: none;
+  color:#2F5C34;
+}
+
+#herramientas .seccion_h{
+  color:#5D1314;
+  margin-bottom:5px;
+}
+#herramientas label{
+  display:block;
 }
