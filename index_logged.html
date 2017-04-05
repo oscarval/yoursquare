@@ -6,45 +6,44 @@
     </title>
     <meta charset="UTF-8">
 	<!-- Link CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
-  </head>
+    </head>
   <body>
     <!-- Cabecera  -->
     <header id="header">
 	  <!-- Logo  -->
       <div class="logo">
-        <img src="img/logo.png" alt="YourSquare" title="YourSquare"/>
+        <!--<img src="img/logo.png" alt="YourSquare" title="YourSquare"/>-->
+          <span id="LOGO"> YOURSQUARE</span>
         <h3 class="slogan">All in one Square</h3>
       </div>
       <div class="busqueda">
-        <form id="search-form" name="search" accept-charset="UTF-8">
+        <form id="search-form" name="search" accept-charset="UTF-8" action="buscar.html">
           <input class="search-field" type="search" name="search-field" />
-          <button class="button-search">Buscar</button>
+          <input type ="submit" class="button-search" value="Buscar"/>
         </form>
       </div>
       <div class="usuario">
-        <ul>
-          <li><img class="message-icon" src="img/message-icon.png" alt="Mensaje" title="Mensaje"/></li>
-          <li><img class="login-avatar" src="img/login-avatar.png" alt="Iniciar sesión" title="Iniciar sesión"/></li>
-          <li>Bienvenido!</li>
-        </ul>
+            <a href="Bandeja_Entrada.html"><span class="icon">📭</span></a>
+            <a href="usuario.html"><span class="icon">🙎</span></a>
+          <span>Bienvenido</span>
       </div>
 	  <!-- Main Menu  -->
       <div class="main-menu">
         <nav>
           <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="detalles.html">Detalles</a></li>
-            <li><a href="bocetos.html">Bocetos</a></li>
-            <li><a href="miembros.html">Miembros</a></li>
-            <li><a href="planificacion.html">Planificación</a></li>
+            <li><a href="index_guest.html">Inicio</a></li>
+            <li><a href="create_square_bambu.html">Crea tu Square</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+            <li><a href="admin.html">Admin</a></li>
             <li><a href="contacto.html">Contacto</a></li>
           </ul>
         </nav>
       </div>
     </header>
-	<!-- Fin Cabecera -->
-  <!-- sidebar izquierdo -->
+	  <!-- Fin Cabecera -->
+    <!-- sidebar izquierdo -->
     <aside id="sidebar-left">
         <h3>Seguidos</h3>
             <ul>
