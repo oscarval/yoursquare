@@ -47,7 +47,7 @@
   <!-- sidebar izquierdo -->
     <aside id="sidebar-left">
       <h3 class="title-sidebar-left">Herramientas</h3>
-      <button onclick="javascript:location.href='create_square_guardar.html'">Guardar Square</button>
+      <button class="guardar" onclick="javascript:location.href='create_square_guardar.html'">Guardar Square</button>
       <ul id="herramientas">
         <li>
           <p class="seccion_h">Fondos</p>
@@ -60,12 +60,12 @@
                 <option value="montanas.css">Montañas</option>
                 <option value="mar.css">Mar</option>
               </select>
-              
+
             </li>
             <li>
               <label>Color:</label>
               <input type="color" id="fondo-color" value="#3760AF">
-              
+
             </li>
             <li>
               <label>Bordes:</label>
@@ -75,7 +75,7 @@
                 <option value="punteado" selected class="punteado">Punteado</option>
                 <option value="sinborde" class="sinborde">Sin Borde</option>
               </select>
-              
+
             </li>
           </ul>
         </li>
@@ -90,7 +90,7 @@
                 <option value="header3" class="header3">Cabecera 3</option>
                 <option value="header4" class="header4">Cabecera 4</option>
               </select>
-              
+
             </li>
           </ul>
         </li>
@@ -105,7 +105,7 @@
                 <option value="fuente3" class="fuente3">Comic Sans MS</option>
                 <option value="fuente4" class="fuente4">Calibri</option>
               </select>
-              
+
             </li>
           </ul>
         </li>
@@ -114,7 +114,7 @@
           <label>Inserta el texto de tu <span class="square">Square</span>:</label>
           <textarea id="texto-text"></textarea>
           <button class="texto-insert-text">Insertar</button>
-          
+
         </li>
       </ul>
     </aside>
@@ -141,7 +141,23 @@
 	<!-- Fin Main Content -->
   <!-- Sidebar de la derecha - comentar si no se quiere-->
     <aside id="sidebar-right">
-      Iniciar sesión
+      <form action="index_logged.html">
+          <div class="form_container">
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit">Login</button>
+            <input type="checkbox" checked="checked"> Remember me
+          </div>
+
+          <div>
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
     </aside>
 	<!-- Footer -->
     <footer id="footer">

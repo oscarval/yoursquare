@@ -47,7 +47,7 @@
   <!-- sidebar izquierdo -->
     <aside id="sidebar-left">
       <h3 class="title-sidebar-left">Herramientas</h3>
-      <button onclick="javascript:location.href='create_square_guardar.html'">Guardar Square</button>
+      <button class="guardar" onclick="javascript:location.href='create_square_guardar.html'">Guardar Square</button>
       <ul id="herramientas">
         <li>
           <p class="seccion_h">Fondos</p>
@@ -144,7 +144,23 @@
 	<!-- Fin Main Content -->
   <!-- Sidebar de la derecha - comentar si no se quiere-->
     <aside id="sidebar-right">
-      Iniciar sesión
+      <form action="index_logged.html">
+          <div class="form_container">
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit">Login</button>
+            <input type="checkbox" checked="checked"> Remember me
+          </div>
+
+          <div>
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
     </aside>
 	<!-- Footer -->
     <footer id="footer">

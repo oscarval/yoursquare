@@ -4,6 +4,9 @@
     padding: 0 40px;
     height: auto;
 }
+#contacto h1{
+    padding-top: 20px;
+}
 
 #contacto label{
     display: inline-block;

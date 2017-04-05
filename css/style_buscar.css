@@ -1,3 +1,56 @@
-.intro-content div{
+.intro-content .item{
     padding-left: 20px;
+    border-bottom: 1px dashed black;
+}
+.intro-content .item h3{
+    color: #B22222;
+}
+
+.intro-content .last{
+    border: none;
+}
+
+.intro-content .item .result_description{
+  position: relative;
+}
+
+.intro-content .item .ir{
+  position: absolute;
+  right: 20px;
+  top: -20px;
+  background-color: #0776E9;
+  border-color: #0776E9;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+
+.pagination .pag_number{
+    padding: 0 5px;
+}
+
+.pagination .pag_first{
+    background: transparent url('../img/first.png') no-repeat center center;
+    width:20px;
+    height:20px;
+    display: inline-block;;
+}
+.pagination .pag_before{
+    background: transparent url('../img/before.png') no-repeat center center;
+    width:20px;
+    height:20px;
+    display: inline-block;;
+}
+.pagination .pag_next{
+    background: transparent url('../img/next.png') no-repeat center center;
+    width:20px;
+    height:20px;
+    display: inline-block;;
+}
+.pagination .pag_last{
+    background: transparent url('../img/last.png') no-repeat center center;
+    width:20px;
+    height:20px;
+    display: inline-block;;
 }
