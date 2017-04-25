@@ -8,19 +8,19 @@
   text-decoration: underline;
 }
 
-.imgcontainer {
+.imgcontainer_detail {
 	display: inline;
 	margin-bottom: 15px;
 }
 
-img.avatar {
+img.avatar_detail {
     width: 50px;
     border-radius: 50px;
 	margin-top: 12px;
 	margin-left: 12px;
 }
 
-span#nombrePerfil {
+span#nombrePerfil_detail {
 	display: inline;
 	margin-left: 10px;
 	margin-right: 100px;
@@ -103,6 +103,47 @@ span#fechaPerfil {
 #wrapper-square.bosque .content-intro-square p{
   color: #F7FE07;
   text-align: center;
+}
+
+#footer-square{
+    margin-top:5px;
+}
+
+.like-dislike-container  {
+    display: inline;
+}
+
+.like {
+    color:#00FF00;
+}
+
+.dislike {
+    color:#FF0000;
+}
+
+#comment-link{
+    font-size:20px;
+    margin-left:15px;
+}
+
+
+img.avatar_comment {
+    width: 35px;
+    border-radius: 25px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+span.nombrePerfil_comment {
+	display: inline;
+	margin-left: 5px;
+	margin-right: 10px;
+	font-size: 25px;
+}
+
+.comment-user{
+    font-size: 15px;
+    margin-left: 10px;
 }
 
 /*Barra lateral de herramientas*/
