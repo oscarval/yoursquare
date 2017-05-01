@@ -6,7 +6,9 @@
     </title>
     <meta charset="UTF-8">
 	<!-- Link CSS -->
-  <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">    
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
     <link href="css/style_XBZ.css" rel="stylesheet" type="text/css" />
     </head>
   <body>
@@ -33,7 +35,7 @@
       <div class="main-menu">
         <nav>
           <ul>
-            <li><a href="index_guest.html">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="create_square_bambu.html">Crea tu Square</a></li>
             <li><a href="FAQ.html">FAQ</a></li>
             <li><a href="admin.html">Admin</a></li>
@@ -45,88 +47,29 @@
 	<!-- Fin Cabecera -->
   <!-- sidebar izquierdo -->
     <aside id="sidebar-left">
-      <h3 class="title-sidebar-left">Herramientas</h3>
-      <button class="guardar" onclick="javascript:location.href='create_square_guardar.html'">Guardar Square</button>
-      <ul id="herramientas">
-        <li>
-          <p>Fondos</p>
-          <ul>
-            <li>
-              <label>Imágenes:</label>
-              <select id="fondo-background-square" onchange="javascript:location.href='create_square_bosque.html'">
-                <option value="bosque.css">Bosque</option>
-                <option value="bambu.css" selected>Bambú</option>
-                <option value="montanas.css">Montañas</option>
-                <option value="mar.css">Mar</option>
-              </select>
-              <button class="fondo-reset-img">Reset</button>
-            </li>
-            <li>
-              <label>Color:</label>
-              <input type="color" id="fondo-color" value="#3760AF">
-              <button lass="fondo-reset-color">Reset</button>
-            </li>
-            <li>
-              <label>Bordes:</label>
-              <select id="fondo-borde-square" onchange="javascript:location.href='create_square_bambu_punteado.html'">
-                <option value="redondeado" selected class="redondeado">Redondeado</option>
-                <option value="lineal" class="lineal">Lineal</option>
-                <option value="punteado" class="punteado">Punteado</option>
-                <option value="sinborde" class="sinborde">Sin Borde</option>
-              </select>
-              <button class="fondo-reset-borde">Reset</button>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <p>Cabeceras</p>
-          <ul>
-            <li>
-              <label>Tamaños:</label>
-              <select id="cabecera-size-text">
-                <option value="header1" class="header1">Cabecera 1</option>
-                <option value="header2" class="header2">Cabecera 2</option>
-                <option value="header3" class="header3">Cabecera 3</option>
-                <option value="header4" class="header4">Cabecera 4</option>
-              </select>
-              <button class="cabecera-reset-size">Reset</button>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <p>Fuentes</p>
-          <ul>
-            <li>
-              <label>Familias:</label>
-              <select id="fuente-font-text">
-                <option value="fuente1" class="fuente1">Arial</option>
-                <option value="fuente2" class="fuente2">Times Roman</option>
-                <option value="fuente3" class="fuente3">Comic Sans MS</option>
-                <option value="fuente4" class="fuente4">Calibri</option>
-              </select>
-              <button class="fuente-reset-font">Reset</button>
-            </li>
-            <li>
-              <label>Tamaño:</label>
-              <input type="range" id="size" value="12" min="12" max="20" step="1" />
-              <button class="fuente-reset-size">Reset</button>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <p>Texto</p>
-          <label>Inserta el texto de tu <span class="square">Square</span>:</label>
-          <textarea id="texto-text" rows="4">Nuevo texto insertado por parte del usuario</textarea>
-          <button class="texto-insert-text" onclick="javascript:location.href='create_square_bambu_insertar.html'">Insertar</button>
-          <button class="texto-reset-text">Reset</button>
-        </li>
-      </ul>
+        <h3>Seguidos</h3>
+            <ul>
+                <li><a href="usuario.html">xuebozhu<div class="imgcontainer"><img src="img/img_avatar2.png" alt="Avatar" class="avatar"></div></a></li>
+                <li><a href="usuario.html">OscarVal<div class="imgcontainer"><img src="img/img_avatar2.png" alt="Avatar" class="avatar"></div></a></li>
+                <li><a href="usuario.html">music4u<div class="imgcontainer"><img src="img/img_avatar2.png" alt="Avatar" class="avatar"></div></a></li>
+                <li><a href="usuario.html">pintura95<div class="imgcontainer"><img src="img/img_avatar2.png" alt="Avatar" class="avatar"></div></a></li>
+            </ul>
+        <h3>Los mejores SQUARES</h3>
+            <ul>
+                <li><a href="index_logged.html?tema=Poesia">Poesia</a></li>
+                <li><a href="index_logged.html?tema=Noticias">Noticias</a></li>
+                <li><a href="index_logged.html?tema=Música">Música</a></li>
+                <li><a href="index_logged.html?tema=Código">Código</a></li>
+                <li><a href="index_logged.html?tema=Pintura">Pintura</a></li>
+                <li><a href="index_logged.html?tema=Viaje">Viaje</a></li>
+            </ul>
+        <a href="create_square_bambu.html" class="button_createSquare">Crear Square!</a>
     </aside>
 	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
     <!-- <main id="main-withoutsidebar-right"> -->
     <main id="main">
   	  <section class="intro">
-    		<div class="imgcontainer"><img src="img/img_avatar2.png" alt="Avatar" class="avatar"><span id="nombrePerfil">xuebozhu</span><span id="fechaPerfil">4 de Marzo de 2017</span></div>
+    		<div class="imgcontainer_detail"><a href="usuario.html"><img src="img/img_avatar2.png" alt="Avatar" class="avatar_detail"><span id="nombrePerfil_detail">xuebozhu</span></a><span id="fechaPerfil">4 de Marzo de 2017</span></div>
         <div id="wrapper-square" class="bambu">
           <div class="content-background-square">
             <div class="content-intro-square">
@@ -137,12 +80,21 @@
           </div>
         </div>
   	  </section>
+      <div id="footer-square">
+        <div class="like-dislike-container">
+            <img src="img/like-flat.png" alt="Like" title="Mensaje"/> <span class="like">43</span>
+            <img src="img/like-flat.png" alt="Like" title="Mensaje"/> <span class="dislike">13</span>
+            <a href="square_detail.html"><span id="comment-link">Comentar</span></a>
+        </div>
+        <div id="comments-box">
+            <a href="usuario.html"><img src="img/img_avatar2.png" alt="Avatar" class="avatar_comment"><span class="nombrePerfil_comment">oscarval</span></a>
+            <p class="comment-user">Me encanta este square!! Aqu� tienes mi like!!</p>
+            <a href="usuario.html"><img src="img/img_avatar2.png" alt="Avatar" class="avatar_comment"><span class="nombrePerfil_comment">xuebozhu</span></a>
+            <p class="comment-user">Gracias por tu like! Un saludo!</p>
+        </div>
+      </div>
     </main>
 	<!-- Fin Main Content -->
-  <!-- Sidebar de la derecha - comentar si no se quiere-->
-    <aside id="sidebar-right">
-      Iniciar sesión
-    </aside>
 	<!-- Footer -->
     <footer id="footer">
       <address>
