@@ -1,0 +1,27 @@
+.like-dislike-container  {
+    display: inline;
+    
+}
+
+.like {
+    color:#00FF00;
+}
+
+.dislike {
+    color:#FF0000;
+}
+.square {
+    width: 200px;
+    height: 200px;
+    background-color: #212121;
+}
+
+#square-list{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+#sidebar-left h4 {
+    margin: 5px 0;
+}

@@ -1,0 +1,56 @@
+/*Boton CREA SQUARE*/
+#sidebar-left a.button_createSquare {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: CornflowerBlue ;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+#sidebar-left a.button_createSquare:hover {background-color: DarkCyan}
+
+#sidebar-left a.button_createSquare:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#sidebar-left li.imgcontainer {
+  text-align: right;
+    margin: 24px 0 12px 0;
+}
+
+#sidebar-left img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 2px solid #CCCCCC;
+  max-width: 570px;
+  margin: 0 auto;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.item {
+  background-color: orange;
+  height: 150px;
+  width: 150px;
+  margin: 10px;
+  padding: 10px;
+}
+
+
+
