@@ -2,8 +2,8 @@
 class login{
     function __construct($username,$pasword) {
        if($username && $password){
-         $login = new loginDAO($username,$password);
-         if($login){
+         $login = new LoginDao($username,$password);
+         if($login->doLogin()){
            $_SESSION["login"] = true;
            $_SESSION["username"] = $username;
            $_SESSION["isAdmin"] = $login->isAdmin();
