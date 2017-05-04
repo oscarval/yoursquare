@@ -10,10 +10,10 @@
       <link href='css/style.css' rel='stylesheet' type='text/css' />
       </head>
       <body>
-<? php include cabecera.php>
+<? php include cabecera.php?>
 
-<? php
-echo "<main id='main-withoutsidebar'>
+
+ <main id='main-withoutsidebar'>
     <!-- <main id='main'> -->
 	  <section class='intro'>
 		<h1>¿Que es YourSquare? </h1>
@@ -28,10 +28,10 @@ echo "<main id='main-withoutsidebar'>
 		<h1>¿Quien desarrolla YourSquare?</h1>
 		<p>YourSquare esta desarrollado por los estudiantes de la asignatura de aplicaciones de web de la universidad complutense de madrid </p>
 	  </section>
-    </main>";
->
+    </main>
 
-            <? php include footer.php>
+
+<? php include footer.php?>
 
 </body>
 </html>
