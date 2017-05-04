@@ -27,7 +27,8 @@ class MySQLFunctions{
       $this->response["data"] = [];
       $qResp = $this->conn->query($q) or die();
       while($result = $qResp->fetch_assoc()){
-         $this->response["data"] = array_merge($this->response["data"],$result);
+        //  $this->response["data"] = array_merge($this->response["data"],$result);
+        array_push($this->response["data"],$result);
       }
       $this->response["status"] = true;
       $this->closeBD();

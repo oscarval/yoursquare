@@ -4,20 +4,36 @@ class MensajesDao{
 
   // obtenemos los mensajes del tipo que necesiten
   // @tipo: entrada, salida
-  public function getMensajes($userid,$tipo,$limit=10){
+  public function getMensajesEntrada($userid,$limit=10){
     $sql = new MySQLFunctions();
     if($limit <= 10){
-      $sql->select("select * from Mensajes","men_recectorid='$userid' and men_tipo='$tipo'","limit 0,10");
+      $sql->select("select * from vMensajes","men_receptorid='$userid'","limit 0,10");
     }else{
       $initLimit = ($limit/10)*10;
-      $sql->select("select * from Mensajes","men_receptorid='".$userid."' and men_tipo='".$tipo."'","limit $initLimit,$limit");
+      $sql->select("select * from vMensajes","men_receptorid='$userid'","limit $initLimit,$limit");
     }
-    if($sql->response["status"] && count($sql->response["data"]) > 0){
-      return $sql->response["data"];
+    $resp = $sql->getResponse();
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
     }
     return null;
   }
-  
+  // obtenemos los mensajes del tipo que necesiten
+  // @tipo: entrada, salida
+  public function getMensajesSalida($userid,$limit=10){
+    $sql = new MySQLFunctions();
+    if($limit <= 10){
+      $sql->select("select * from vMensajes","men_emisorid='$userid'","limit 0,10");
+    }else{
+      $initLimit = ($limit/10)*10;
+      $sql->select("select * from vMensajes","men_emisorid='$userid'","limit $initLimit,$limit");
+    }
+    $resp = $sql->getResponse();
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
+    }
+    return null;
+  }
 
   // para enviar mensajes
   public function insertMensaje($emisorid,$receptorid,$subject,$body){
@@ -27,7 +43,7 @@ class MensajesDao{
         $sql->select("select * from usuarios","usr_usuario='$receptorid'");
         $resp = $sql->getResponse();
         if($resp["status"] && count($resp["data"]) > 0){
-          $usrid = $resp["data"]["usr_id"];
+          $usrid = $resp["data"][0]["usr_id"];
           $dataReceptor = [
             "men_emisorid" => $emisorid,
             "men_receptorid" => $usrid,

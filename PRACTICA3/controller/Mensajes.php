@@ -8,11 +8,11 @@ class Mensajes{
     }
   // obtener mensajes de bandeja de entrada
     public function getBandejaEntrada($receptorid){
-       return $this->dao->getMensajes($receptorid,"entrada");
+       return $this->dao->getMensajesEntrada($receptorid);
     }
     // obtener los mensajes de bandeja de salida
     public function getBandejaSalida($emisorid){
-       return $this->dao->getMensajes($emisorid,"salida");
+       return $this->dao->getMensajesSalida($emisorid);
     }
 
     // para enviar mensajes
