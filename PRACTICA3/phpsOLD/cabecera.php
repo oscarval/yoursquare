@@ -1,4 +1,3 @@
-<?php session_start();  ?>
 <!DOCTYPE html>
 <html lang="es">
       <head>
@@ -8,9 +7,7 @@
       <meta charset="UTF-8">
       <!-- Link CSS -->
       <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
-      <link href="../css/style.css" rel="stylesheet" type="text/css" />
-      <link href="../css/style_AV.css" rel="stylesheet" type="text/css" />
-      <link href="../css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
+      <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
       </head>
 <!-- Cabecera  -->
     <header id='header'>
@@ -33,8 +30,7 @@ if(isset($_SESSION["login"])){
             <a href='usuario.html'><span class='icon'>🙎</span></a>
           <span>Bienvenido, ";
     echo $_SESSION["username"];
-    echo "</span>";
-    echo "<form action='../controller/Logout.php'><input type='submit' value='Salir' /></form>
+    echo "</span>
       </div>";
         }
 ?>
@@ -42,9 +38,9 @@ if(isset($_SESSION["login"])){
       <div class='main-menu'>
         <nav>
          <ul>
-            <li><a href='index.php'>Inicio</a></li>
-            <li><a href='create_square_bambu.php'>Crea tu Square</a></li>
-            <li><a href='FAQ.php'>FAQ</a></li>
+            <li><a href='index.html'>Inicio</a></li>
+            <li><a href='create_square_bambu.html'>Crea tu Square</a></li>
+            <li><a href='FAQ.html'>FAQ</a></li>
 <?php
 if(isset($_SESSION["isadmin"])){
     echo "<li><a href='admin.html'>Admin</a></li>";

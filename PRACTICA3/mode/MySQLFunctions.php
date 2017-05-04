@@ -2,7 +2,7 @@
 /* CLASE PARA LA INTERACCIÓN DE LA BASE DE DATOS*/
 class MySQLFunctions{
   private $conn;
-  private $response;
+  public $response;
   private $array_ini;
   function __construct(){
     $this->array_ini = parse_ini_file("config.ini");
@@ -10,9 +10,9 @@ class MySQLFunctions{
     $this->openBD();
   }
   // realizar una query select en la base de datos
-  public function select($query,$where,$extras){
+  public function select($query,$where,$extras=null){
     if($query){
-      $this->openDB();
+      $this->openBD();
       $q = $query;
       if($where){
         $q .= " where ".$where;
@@ -20,13 +20,13 @@ class MySQLFunctions{
       if($extras){
         $q .= " ".$extras;
       }
-      $this->response = ["status"=>false];
+      $this->response["status"] = false;
       $this->response["data"] = [];
-      $qResp = $this->conn->mysqli_query($q);
-      while($result = $this->conn->mysqli_fetch_assoc($qResp)){
+      $qResp = $this->conn->query($q);
+      while($result = $qResp->fetch_assoc()){
          array_push($this->response["data"],$result);
       }
-      $this->response = ["status"=>true];
+      $this->response["status"] = true;
       $this->closeBD();
     }
   }
@@ -34,7 +34,7 @@ class MySQLFunctions{
   // realizar una query insert en la base de datos
   public function insert($table,$data){
     if($table && $data){
-      $this->openDB();
+      $this->openBD();
       $q = "insert into ".$table;
       $fields = "(";
       $values = " VALUES(";
@@ -51,7 +51,7 @@ class MySQLFunctions{
       }
       $q .= $fields.$values;
       $this->response = ["status"=>false];
-      $qResp = $this->conn->mysqli_query($q);
+      $qResp = $this->conn->query($q);
       if($qResp){
         $this->response = ["status"=>"ok"];
       }
@@ -62,13 +62,13 @@ class MySQLFunctions{
   // realizar un update de un registro en la base de datos
   public function update($query,$where){
     if($query){
-      $this->openDB();
+      $this->openBD();
       $q = $query;
       if($where){
         $q .= " where ".$where;
       }
       $this->response = ["status"=>false];
-      $qResp = $this->conn->mysqli_query($q);
+      $qResp = $this->conn->query($q);
       $this->response = ["status"=>"ok"];
       $this->closeBD();
     }
@@ -77,13 +77,13 @@ class MySQLFunctions{
   // realizar und elete enla base de datos
   public function delete($query,$where){
     if($query && $where){
-      $this->openDB();
+      $this->openBD();
       $q = $query;
       if($where){
         $q .= " where ".$where;
       }
       $this->response = ["status"=>false];
-      $qResp = $this->conn->mysqli_query($q);
+      $qResp = $this->conn->query($q);
       $this->response = ["status"=>"ok"];
       $this->closeBD();
     }
@@ -91,14 +91,14 @@ class MySQLFunctions{
 
   // abrimos una conexión
   private function openBD(){
-    $this->conn = new mysqli($this->array_ini["SERVER"], $this->array_ini["USERNAME"], $this->array_ini["PASSQWORD"], $this->array_ini["BBDD"]);
+    $this->conn = new mysqli($this->array_ini["SERVER"], $this->array_ini["USERNAME"], $this->array_ini["PASSWORD"], $this->array_ini["BBDD"]);
     if(!$this->conn){
       die("Error al conectar con la abse de datos");
     }
   }
   // cerramos una conexión
   private function closeBD(){
-    $this->conn->mysqli_close();
+    $this->conn->close();
   }
 }
 
