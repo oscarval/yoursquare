@@ -19,27 +19,34 @@ class MensajesDao{
   }
 
   // para enviar mensajes
-  public function insertMensaje($remitenteid,$receptorid,$subject,$body){
+  public function insertMensaje($emisorid,$receptorid,$subject,$body){
     if($remitenteid && $receptorid){
       try{
         $sql = new MySQLConnect();
-        $dataReceptor = [
-          "men_emisorid" => $remitenteid,
-          "men_receptorid" => $receptorid,
-          "men_subject" => $subject,
-          "men_body" => $body,
-          "men_tipo" => "entrada"
-        ];
-        $dataRemitente = [
-          "men_emisorid" => $remitenteid,
-          "men_receptorid" => $receptorid,
-          "men_subject" => $subject,
-          "men_body" => $body,
-          "men_tipo" => "salida"
-        ];
-        $sql->insert("Mensajes",$dataReceptor);
-        $sql->insert("Mensajes",$dataRemitente);
-        return true;
+        $sql->select("select * from usuarios","usr_usuario='$receptorid'");
+        $resp = $sql->getResponse();
+        if($resp["status"] && count($resp["data"]) > 0){
+          $usrid = $resp["data"]["usr_id"];
+          $dataReceptor = [
+            "men_emisorid" => $emisorid,
+            "men_receptorid" => $usrid,
+            "men_subject" => $subject,
+            "men_body" => $body,
+            "men_tipo" => "entrada"
+          ];
+          $dataEmisor = [
+            "men_emisorid" => $emisorid,
+            "men_receptorid" => $usrid,
+            "men_subject" => $subject,
+            "men_body" => $body,
+            "men_tipo" => "salida"
+          ];
+          $sql->insert("Mensajes",$dataReceptor);
+          $sql->insert("Mensajes",$dataEmisor);          
+          return true;
+        }else{
+          return false;
+        }
       }catch(Exception $e){
         return false;
       }
