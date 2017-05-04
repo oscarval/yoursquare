@@ -7,7 +7,7 @@
       <meta charset='UTF-8'>
       <!-- Link CSS -->
       <link href='https://fonts.googleapis.com/css?family=Monoton|PT+Sans' rel='stylesheet'>
-      <link href='css/style.css' rel='stylesheet' type='text/css' />
+      <link href='../css/style.css' rel='stylesheet' type='text/css' />
       </head>
       <body>
 <? php include cabecera.php>

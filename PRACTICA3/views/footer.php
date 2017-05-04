@@ -6,3 +6,5 @@
       <p>Copyright YourSquare 2017</p>
     </footer>
 	<!-- Fin Footer -->
+  </body>
+</html>

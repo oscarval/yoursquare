@@ -1,6 +1,6 @@
 <?php
 /* CLASE PARA LA INTERACCIÓN DE LA BASE DE DATOS*/
-class MySQLFunctions(){
+class MySQLFunctions{
   private $conn;
   private $response;
   private $array_ini;
@@ -26,6 +26,7 @@ class MySQLFunctions(){
       while($result = $this->conn->mysqli_fetch_assoc($qResp)){
          array_push($this->response["data"],$result);
       }
+      $this->response = ["status"=>true];
       $this->closeBD();
     }
   }

@@ -1,6 +1,6 @@
 <?php
 include("MySQLFunctions.php");
-class MensajesDao(){
+class MensajesDao{
 
   // obtenemos los mensajes del tipo que necesiten
   // @tipo: entrada, salida

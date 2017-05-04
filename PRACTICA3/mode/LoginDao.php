@@ -1,6 +1,7 @@
 <?php
 include("MySQLFunctions.php");
-class LoginDao(){
+
+class LoginDao{
   private $user;
   private $pass;
   function __construct($username,$password){
@@ -11,7 +12,7 @@ class LoginDao(){
     $sql = new MySQLConnect();
     $sql->select("select * from usuarios","user_username='$this->user' and user_password='$this->pass'");
     if($sql->response["status"] && count($sql->response["data"]) > 0){
-      return true;
+      return $sql->response["data"];
     }else{
       return false;
     }

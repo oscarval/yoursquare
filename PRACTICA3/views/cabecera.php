@@ -1,3 +1,4 @@
+<?php session_start();  ?>
 <!DOCTYPE html>
 <html lang="es">
       <head>
@@ -7,8 +8,8 @@
       <meta charset="UTF-8">
       <!-- Link CSS -->
       <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
-      <link href="css/style.css" rel="stylesheet" type="text/css" />
-      <link href="css/style_AV.css" rel="stylesheet" type="text/css" />
+      <link href="../css/style.css" rel="stylesheet" type="text/css" />
+      <link href="../css/style_AV.css" rel="stylesheet" type="text/css" />
       </head>
 <!-- Cabecera  -->
     <header id='header'>
@@ -31,7 +32,8 @@ if(isset($_SESSION["login"])){
             <a href='usuario.html'><span class='icon'>🙎</span></a>
           <span>Bienvenido";
     echo $_SESSION["username"];
-    echo "</span>
+    echo "</span>";
+    echo "<form action='../controller/Logout.php'><input type='submit' value='Salir' /></form>
       </div>";
         }
 ?>

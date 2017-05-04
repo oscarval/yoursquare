@@ -1,10 +1,11 @@
 <?php
     include("cabecera.php");
 	include("SidebarLeftMensajes.php");
-	echo "<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
+?>
+	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
     <main id='main-withoutsidebar-right'>
     <!-- <main id='main'> -->
-	
+
 	  <section class='intro'>
 		<fieldset>
 			<h2> Bandeja de entrada </h2>
@@ -15,6 +16,7 @@
 			</form>
 			</fieldset>
 	  </section>
-    </main>";
+    </main>
+<?php
 	include("footer.php");
 ?>
