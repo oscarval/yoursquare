@@ -18,7 +18,7 @@
           echo "<div class='cabecera_mensajes'><div>Estado</div><div>Asunto</div><div>Emisor</div><div>Fecha</div></div>";
           foreach($allmensajes as $item){
             // echo "<p><input type='checkbox' name='".$item["men_mensajeid"]."'><a href='MensajeView.php'>De:".$item["emisor"]." Titulo:".$item["men_subject"]." fecha: ".$item["men_createdate"]."</a></p>";
-            echo "<div class='item_mensajes'>";
+            echo "<a href='MensajeView.php?id=".$item["men_mensajeid"]."'><div class='item_mensajes'>";
                     if($item["men_abierto"]){
                       echo "<div><img src='../img/leido.png' /></div>".
                            "<div>".$item["men_subject"]."</div>";
@@ -28,7 +28,7 @@
                     }
                echo "<div>".$item["emisor"]."</div>".
                     "<div>".$item["men_createdate"]."</div>".
-                  "</div>";
+                  "</div></a>";
           }
         ?>
       </form>

@@ -19,6 +19,16 @@ class Mensajes{
     public function sendEmail($emisorid,$receptorid,$subject,$body){
       return $this->dao->insertMensaje($emisorid,$receptorid,$subject,$body);
     }
+
+    // para obtener mensaje por id
+    public function getMensajeById($mensajeid){
+      return $this->dao->getMensajeId($mensajeid);
+    }
+
+    // para marcar como leido
+    public function marcarComoLeido($mensajeid){
+      return $this->dao->marcarLeido($mensajeid);
+    }
 }
 
 ?>
