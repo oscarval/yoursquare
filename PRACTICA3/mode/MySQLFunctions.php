@@ -2,13 +2,17 @@
 /* CLASE PARA LA INTERACCIÓN DE LA BASE DE DATOS*/
 class MySQLFunctions{
   private $conn;
-  public $response;
+  private $response;
   private $array_ini;
   function __construct(){
     $this->array_ini = parse_ini_file("config.ini");
     $this->response = [];
     $this->openBD();
   }
+  public function getResponse(){
+    return $this->response;
+  }
+
   // realizar una query select en la base de datos
   public function select($query,$where,$extras=null){
     if($query){
