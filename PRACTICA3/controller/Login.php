@@ -4,12 +4,13 @@ class Login{
     private $loginStatus;
     function __construct($username,$password) {
        if($username && $password){
-        //  $login = new LoginDao($username,$password);
-        //  if($userdata = $login->doLogin()){
-         if(1 == 1){
+         $login = new LoginDao($username,$password);
+         if($userdata = $login->doLogin()){
+         // if(1 == 1){
            $_SESSION["login"] = true;
            $_SESSION["username"] = $username;
-           //$_SESSION["isAdmin"] = $userdata["isAdmin"];
+           $_SESSION["isAdmin"] = $userdata["es_admin"];
+           $_SESSION["id"] = $userdata["id"];
            $this->loginStatus = true;
          }else{
            $this->loginStatus = false;

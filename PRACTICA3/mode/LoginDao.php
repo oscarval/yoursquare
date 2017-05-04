@@ -9,8 +9,8 @@ class LoginDao{
     $this->pass = $password;
   }
   public function doLogin(){
-    $sql = new MySQLConnect();
-    $sql->select("select * from usuarios","user_username='$this->user' and user_password='$this->pass'");
+    $sql = new MySQLFunctions();
+    $sql->select("select * from usuarios","usuario='$this->user' and password='$this->pass'");
     if($sql->response["status"] && count($sql->response["data"]) > 0){
       return $sql->response["data"];
     }else{
