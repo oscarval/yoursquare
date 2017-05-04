@@ -42,7 +42,7 @@ class MensajesDao{
             "men_tipo" => "salida"
           ];
           $sql->insert("Mensajes",$dataReceptor);
-          $sql->insert("Mensajes",$dataEmisor);          
+          $sql->insert("Mensajes",$dataEmisor);
           return true;
         }else{
           return false;

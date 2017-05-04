@@ -1,15 +1,23 @@
 <?php
 include("../mode/MensajesDao.php");
 class Mensajes{
+    private $dao;
+
+    function __contruct(){
+      $dao = new MensajesDao();
+    }
   // obtener mensajes de bandeja de entrada
     public function getBandejaEntrada($receptorid){
-       $men = new MensajesDao();
-       return $men->getMensajes($receptorid,"entrada");
+       return $this->dao->getMensajes($receptorid,"entrada");
     }
     // obtener los mensajes de bandeja de salida
     public function getBandejaSalida($emisorid){
-       $men = new MensajesDao();
-       return $men->getMensajes($emisorid,"salida");
+       return $this->dao->getMensajes($emisorid,"salida");
+    }
+
+    // para enviar mensajes
+    public function sendEmail($emisorid,$receptorid,$subject,$body){
+      return $this->dao->insertMensaje($emisorid,$receptorid,$subject,$body);
     }
 }
 

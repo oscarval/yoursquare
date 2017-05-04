@@ -6,7 +6,6 @@ class MySQLFunctions{
   private $array_ini;
   function __construct(){
     $this->array_ini = parse_ini_file("config.ini");
-    $this->response = [];
     $this->openBD();
   }
   public function getResponse(){
