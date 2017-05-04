@@ -3,8 +3,8 @@ include("../mode/MensajesDao.php");
 class Mensajes{
     private $dao;
 
-    function __contruct(){
-      $dao = new MensajesDao();
+    function __construct(){
+      $this->dao = new MensajesDao();
     }
   // obtener mensajes de bandeja de entrada
     public function getBandejaEntrada($receptorid){

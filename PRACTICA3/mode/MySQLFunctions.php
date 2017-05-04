@@ -25,9 +25,9 @@ class MySQLFunctions{
       }
       $this->response["status"] = false;
       $this->response["data"] = [];
-      $qResp = $this->conn->query($q);
+      $qResp = $this->conn->query($q) or die();
       while($result = $qResp->fetch_assoc()){
-         array_push($this->response["data"],$result);
+         $this->response["data"] = array_merge($this->response["data"],$result);
       }
       $this->response["status"] = true;
       $this->closeBD();
@@ -44,7 +44,7 @@ class MySQLFunctions{
       foreach($data as $key => $val){
         $fields .= $key;
         $values .= "'".$val."'";
-        if ($key != end($fields)) {
+        if ($val != end($data)) {
           $fields .= ",";
           $values .= ",";
         }else{
