@@ -6,10 +6,10 @@
       </title>
       <meta charset="UTF-8">
       <!-- Link CSS -->
-      <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">    <link href="css/style.css" rel="stylesheet" type="text/css" />
-      <link href="css/style_buscar.css" rel="stylesheet" type="text/css" />
+      <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+      <link href="../css/style_buscar.css" rel="stylesheet" type="text/css" />
       </head>
-<?php include cabecera.php ?>
+<?php include('cabecera.php') ?>
             <main id="main-withoutsidebar">
       <!-- <main id="main"> -->
   	  <section class="intro">
@@ -47,6 +47,6 @@
       </main>
     <!-- Fin Main Content -->
 
-      <?php include footer.php ?>
+<?php include('footer.php') ?>
 </body>
 </html>
