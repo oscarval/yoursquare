@@ -16,4 +16,3 @@ echo "<main id='main-withoutsidebar-right'>
 	  </section>
     </main>";
 #el div contaner se debera de sustituir por listasquares.php
->
