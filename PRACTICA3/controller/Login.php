@@ -6,7 +6,7 @@ class Login{
        if($username && $password){
          $login = new LoginDao($username,$password);
          if($userdata = $login->doLogin()){
-         // if(1 == 1){
+        //  if(1 == 1){
            $_SESSION["login"] = true;
            $_SESSION["username"] = $username;
            $_SESSION["isAdmin"] = $userdata["usr_es_admin"];

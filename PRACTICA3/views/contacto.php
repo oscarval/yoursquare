@@ -29,7 +29,7 @@ if(count($_REQUEST) > 0 && ($_REQUEST["nombre"] || $_REQUEST["email"] || $_REQUE
   <section class="intro">
     <div>
       <p><?php echo $mensaje; ?></p>
-      <form method="post">
+      <form method="post" id="contacto">
         <h1 class="center">Formulario de contacto</h1>
         <div class="row-label">
           <label>Nombre:</label>
