@@ -1,0 +1,29 @@
+.cabecera_mensajes{
+  border: 1px solid grey;
+}
+.cabecera_mensajes>div{
+  display: inline-block;
+  width:25%;
+}
+
+.item_mensajes{
+    border-bottom : 1px solid grey;
+}
+.item_mensajes>div{
+  display: inline-block;
+  width:25%;
+  margin:5px 0;
+}
+
+.item_mensajes .strong{
+  font-weight: bold;
+  color: #0069B4;
+}
+
+.item_mensajes:hover{
+  background-color: #E9EBEB;
+}
+
+.p{
+	text-align: justify;
+}
