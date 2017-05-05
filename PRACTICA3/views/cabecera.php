@@ -34,7 +34,10 @@ if(isset($_SESSION["login"])){
     echo $_SESSION["username"];
     echo "</span>
       </div>";
-        }
+  }
+else{?>
+  <a href='SignUp.php' class='button_registrar'>REGÍSTRATE!!</a> <?php
+}
 ?>
 	  <!-- Main Menu  -->
       <div class='main-menu'>
@@ -42,7 +45,7 @@ if(isset($_SESSION["login"])){
          <ul>
             <li><a href='index.php'>Inicio</a></li>
             <li><a href='create_square.php'>Crea tu Square</a></li>
-            <li><a href='FAQ.html'>FAQ</a></li>
+            <li><a href='FAQ.php'>FAQ</a></li>
 <?php
 if(isset($_SESSION["isadmin"])){
     echo "<li><a href='admin.php'>Admin</a></li>";
