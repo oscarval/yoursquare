@@ -1,5 +1,6 @@
 <?php
   include("cabecera.php");
+  echo '<link href="../css/Mensajes.css" rel="stylesheet" type="text/css" />';
 	include("SidebarLeftMensajes.php");
   include("../controller/Mensajes.php");
   // control de envio de mensaje
@@ -12,11 +13,13 @@
 <main id='main-withoutsidebar-right'>
   <section class='intro'>
     <div class="mensaje_read">
-      <p>De: <?php echo $resp["emisor"];?></p>
+	<fieldset>
+	  <h1><?php echo $resp["men_subject"];?></h1>
+	  <p><?php echo $resp["men_createdate"];?></p>
+      <p>De:  <?php echo $resp["emisor"];?></p>
       <p>Para: <?php echo $resp["receptor"];?></p>
-      <p>Asunto: <?php echo $resp["men_subject"];?></p>
-      <p>Mensaje:</p>
       <p><?php echo $resp["men_body"];?></p>
+	</fieldset>
     </div>
   </section>
 </main>
