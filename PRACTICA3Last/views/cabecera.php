@@ -29,7 +29,7 @@
 if(isset($_SESSION["login"])){
     echo "<div class='usuario'>
             <a href='BandejaEntrada.php'><span class='icon'>📭</span></a>
-            <a href='usuario.php'><span class='icon'>🙎</span></a>
+            <a><span class='icon'>🙎</span></a>
           <span>Bienvenido, ";
     echo $_SESSION["username"];
     echo "</span>";
