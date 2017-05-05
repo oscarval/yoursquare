@@ -23,3 +23,7 @@
 .item_mensajes:hover{
   background-color: #E9EBEB;
 }
+
+.p{
+	text-align: justify;
+}
