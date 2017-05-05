@@ -1,5 +1,5 @@
 <?php
-// página para la creación del square
+// pÃ¡gina para la creaciÃ³n del square
 include("cabecera.php");
 echo '<link href="../css/style_contacto.css" rel="stylesheet" type="text/css" />';
 $mensaje= "";
@@ -10,7 +10,7 @@ if(count($_REQUEST) > 0 && ($_REQUEST["nombre"] || $_REQUEST["email"] || $_REQUE
       $body = "<h3>Se ha contactado la siguiente persona</h3>";
       $body .= "<p><strong>Nombre:</strong> ".$_REQUEST["nombre"]."</p>";
       $body .= "<p><strong>Email:</strong> ".$_REQUEST["email"]."</p>";
-      $body .= "<p><strong>Opción:</strong>Opción ".$_REQUEST["option"]."</p>";
+      $body .= "<p><strong>OpciÃ³n:</strong>OpciÃ³n ".$_REQUEST["option"]."</p>";
       $body .= "<p><strong>Consulta:</strong></p>";
       $body .= "<p>".$_REQUEST["Consulta"]."</p>";
       if(mail($email,$subject,$body)){
@@ -29,7 +29,7 @@ if(count($_REQUEST) > 0 && ($_REQUEST["nombre"] || $_REQUEST["email"] || $_REQUE
   <section class="intro">
     <div>
       <p><?php echo $mensaje; ?></p>
-      <form method="post">
+      <form method="post" id="contacto">
         <h1 class="center">Formulario de contacto</h1>
         <div class="row-label">
           <label>Nombre:</label>
@@ -41,16 +41,16 @@ if(count($_REQUEST) > 0 && ($_REQUEST["nombre"] || $_REQUEST["email"] || $_REQUE
         </div>
         <div class="motivos row-label">
           <label>Motivo de consulta:</label>
-          <input type="radio" name="option" value="Evaluación"> Evaluación
+          <input type="radio" name="option" value="EvaluaciÃ³n"> EvaluaciÃ³n
           <input type="radio" name="option" value="Sugerencias"> Sugerencias
-          <input type="radio" name="option" value="Críticas"> Críticas
+          <input type="radio" name="option" value="CrÃ­ticas"> CrÃ­ticas
         </div>
         <div class="row-label">
           <label>Consulta:</label>
-          <textarea name="Consulta" placeholder="Escriba aquí su consulta"> </textarea>
+          <textarea name="Consulta" placeholder="Escriba aquÃ­ su consulta"> </textarea>
         </div>
         <div class="row-label">
-          <input type="checkbox" name="terminos" value="terminos" required> Marque esta casilla para verificar que ha leído nuestros términos y condiciones
+          <input type="checkbox" name="terminos" value="terminos" required> Marque esta casilla para verificar que ha leÃ­do nuestros tÃ©rminos y condiciones
         </div>
         <div class="row-label button_enviar center">
           <input type="submit" value="Enviar" class="enviar">
