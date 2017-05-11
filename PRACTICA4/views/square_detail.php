@@ -1,12 +1,14 @@
 <?php 
     include("cabecera.php");
+    echo "<link href='../css/style-user.css' rel='stylesheet' type='text/css' />";
+    echo "<link href='../css/style_XBZ.css' rel='stylesheet' type='text/css' />";
     include("indexsidebar.php");
 ?>
-	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
+    
     <!-- <main id="main-withoutsidebar-right"> -->
     <main id="main">
   	  <section class="intro">
-    		<div class="imgcontainer_detail"><a href="usuario.html"><img src="../img/img_avatar2.png" alt="Avatar" class="avatar_detail"><span id="nombrePerfil_detail">xuebozhu</span></a><span id="fechaPerfil">4 de Marzo de 2017</span></div>
+    		<div class="imgcontainer_detail"><a href="user.php"><img src="../img/img_avatar2.png" alt="Avatar" class="avatar_detail"><span id="nombrePerfil_detail">xuebozhu</span></a><span id="fechaPerfil">4 de Marzo de 2017</span></div>
         <div id="wrapper-square" class="bambu">
           <div class="content-background-square">
             <div class="content-intro-square">
@@ -32,8 +34,6 @@
       </div>
     </main>
 	<!-- Fin Main Content -->
-	<!-- Footer -->
+
 <?php include("footer.php"); ?>
-	<!-- Fin Footer -->
-  </body>
-</html>
+

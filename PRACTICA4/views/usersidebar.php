@@ -1,5 +1,5 @@
 <?php
-echo "ide id='sidebar-left'>
+echo "<aside id='sidebar-left'>
         <h3>Dominik F</h3>
         <h4>Miembro desde:</h4>
         <span> 27/03/2017 </span>
@@ -15,4 +15,4 @@ echo "ide id='sidebar-left'>
 
 #Esto habra que cambiarlo entero, hay que acceder a la base de datos del usuario y
 #sacar de ahi toda la información para que se represente en el sidebar.
->
+?>
