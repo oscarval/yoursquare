@@ -57,7 +57,8 @@ class MySQLFunctions{
       $this->response = ["status"=>false];
       $qResp = $this->conn->query($q);
       if($qResp){
-        $this->response = ["status"=>"ok"];
+        $this->response = ["status"=>true];
+        $this->response = ["idinsert"=>$this->conn->insert_id];
       }
       $this->closeBD();
     }
@@ -73,7 +74,7 @@ class MySQLFunctions{
       }
       $this->response = ["status"=>false];
       $qResp = $this->conn->query($q);
-      $this->response = ["status"=>"ok"];
+      $this->response = ["status"=>true];
       $this->closeBD();
     }
   }
@@ -88,7 +89,7 @@ class MySQLFunctions{
       }
       $this->response = ["status"=>false];
       $qResp = $this->conn->query($q);
-      $this->response = ["status"=>"ok"];
+      $this->response = ["status"=>true];
       $this->closeBD();
     }
   }
@@ -99,6 +100,7 @@ class MySQLFunctions{
     if(!$this->conn){
       die("Error al conectar con la abse de datos");
     }
+    $this->conn->set_charset("utf8");
   }
   // cerramos una conexión
   private function closeBD(){
