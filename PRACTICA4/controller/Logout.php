@@ -2,5 +2,5 @@
 session_start();
 unset($_SESSION);
 session_destroy();
-header("Location: ../views/create_square.php");
+header("Location: ../index.php");
 ?>
