@@ -12,7 +12,7 @@ class Squares{
     }
     // obtener los squares de usuario login
     public function getSquaresUser($limit){
-       return $this->dao->getSquares("Users",$limit);
+       return $this->dao->getSquares("User",$limit);
     }
     // obtener los squares de usuario login
     public function getSquaresAdmin($limit){
