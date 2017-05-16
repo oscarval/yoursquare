@@ -14,7 +14,7 @@
       include("../controller/Search.php");
 $search = new Search();
 $keyword = $_GET["search-field"];
-if($_GET['user'] === 1){
+if(isset($_GET['user'])){
     $result = $search->userSearch($keyword);
 
     echo "<section class='intro'>
@@ -27,7 +27,7 @@ if($_GET['user'] === 1){
             </div>";
         }
     
-}elseif($_GET['square'] === 1){
+}elseif(isset($_GET['square'])){
     $result = $search->squareSearch($keyword);
 
     echo "<section class='intro'>
