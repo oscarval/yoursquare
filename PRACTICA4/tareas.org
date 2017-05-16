@@ -1,0 +1,22 @@
+
+* Dominik
+
+** likes dislikes 
+** Nube de tags javascript.
+
+
+* Pablo
+
+** Busqueda
+
+* Xuebo
+
+** Vista square unico
+ 
+* JuanCarlos
+
+** Formularios y autocompletado
+
+* Alexis
+
+** Crear Square
