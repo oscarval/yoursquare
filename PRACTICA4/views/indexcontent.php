@@ -31,15 +31,6 @@ else if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["i
               echo "<p>Sin Contenido</p>";
             }
         ?>
-            <!-- <a href='square_detail.php'><div class='item'>2</div></a>
-            <a href='square_detail.php'><div class='item'>2</div></a>
-            <a href='square_detail.php'><div class='item'>3</div></a>
-            <a href='square_detail.php'><div class='item'>4</div></a>
-            <a href='square_detail.php'><div class='item'>5</div></a>
-            <a href='square_detail.php'><div class='item'>6</div></a>
-            <a href='square_detail.php'><div class='item'>7</div></a>
-            <a href='square_detail.php'><div class='item'>8</div></a>
-            <a href='square_detail.php'><div class='item'>9</div></a> -->
         </div>
 	  </section>
     </main>

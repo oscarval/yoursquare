@@ -67,6 +67,18 @@ class SquaresDao{
       }
       return null;
   }
+  /* Obtenemos los squares del usuario conectado
+  ** @id id del square a actualizar
+  ** @dataSquare array asociativo con campos y valores propios de la base de datos
+  */
+  public function getSquaresUserLogin($userid){
+    $this->dao->select("select * from Squares","where sq_userid=$userid");
+    $resp = $this->dao->getResponse();
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
+    }
+    return null;
+  }
 
 
 
