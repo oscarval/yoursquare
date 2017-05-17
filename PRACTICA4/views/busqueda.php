@@ -21,58 +21,64 @@ Buscar:
           <input type ='submit' class='button-search' value='Buscar'/>
         </form>
 
-   <?php
-      include("../controller/Search.php");
+<?php
+include("../controller/Search.php");
 $search = new Search();
 $keyword = $_GET["search-field"];
 if(isset($_GET['user'])){
-    $result = $search->userSearch($keyword);
+    echo "usuario";
+    $result = $search->userSearch($keyword,0,0);
 
     echo "<section class='intro'>
         <div class='intro-content'>
             <h1 class='center'>Resultados de Búsqueda</h1>";
-    foreach($result as $item){ 
-        echo "<div class='result_search item '>
-              <h3 class='result_title'>".$item['usr_usuario']."</h3>
-              <p><button class='ir'>Ver el usuario</button></p>
-            </div>";
-        }
+      if (!empty($result)){
+        foreach($result as $item){ 
+              echo "<div class='result_search item '>
+                    <h3 class='result_title'>".$item['usr_usuario']."</h3>
+                    <p><button class='ir'>Ver el usuario</button></p>
+                  </div>";
+            }
+      }
     
 }elseif(isset($_GET['square'])){
-    $result = $search->squareSearch($keyword);
+    echo "square";
+    $result = $search->squareSearch($keyword,0,0);
 
     echo "<section class='intro'>
         <div class='intro-content'>
-            <h1 class='center'>Resultados de Búsqueda</h1>";
+        <h1 class='center'>Resultados de Búsqueda</h1>";
         foreach($result as $item){ 
-            echo "<div class='result_search item '>
-              <h3 class='result_title'>".$item['sq_title']."</h3>
-              <p class='result_description'>".$item["sq_description"]."<button class='ir'>Ir al square</button></p>
-            </div>";
-                }
+          echo "<div class='result_search item '>
+          <h3 class='result_title'>".$item['sq_title']."</h3>
+          <p class='result_description'>".$item["sq_description"]."<button class='ir'>Ir al square</button></p>
+        </div>";
+        }
+        echo "</div>";
+
 
 }else{
     $result = $search->generalSearch($keyword);
 
-    echo "<section class='intro'>
+    echo " general <section class='intro'>
         <div class='intro-content'>
             <h1 class='center'>Resultados de Usuarios</h1>";
-        foreach($result as $item){ 
+        /*foreach($result as $item){ 
             echo "<div class='result_search item '>
               <h3 class='result_title'>".$item['usr_usuario']."</h3>
               <p><button class='ir'>Ver el usuario</button></p>
             </div>";
-        }
+        }*/
         
         echo "<section class='intro'>
         <div class='intro-content'>
             <h1 class='center'>Resultados de Squares</h1>";
-            foreach($result as $item){ 
+            /*foreach($result as $item){ 
                 echo "<div class='result_search item '>
               <h3 class='result_title'>".$item['sq_title']."</h3>
               <p class='result_description'>".$item["sq_description"]."<button class='ir'>Ir al square</button></p>
             </div>";
-                }
+                }*/
 }
 
 ?>
