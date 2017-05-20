@@ -1,6 +1,6 @@
 <?php
   include("cabecera.php");
-  echo '<link href="../css/Mensajes.css" rel="stylesheet" type="text/css" />';
+  echo '<link href="css/Mensajes.css" rel="stylesheet" type="text/css" />';
 	include("SidebarLeftMensajes.php");
   include("../controller/Mensajes.php");
   // control de envio de mensaje

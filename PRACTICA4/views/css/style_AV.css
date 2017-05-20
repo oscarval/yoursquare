@@ -1,0 +1,80 @@
+#sidebar-left .title-sidebar-left{
+  text-align: center;
+}
+#main .intro .tooltip{
+  font-family: 'Calibri';
+  font-style: italic;
+  color: #5D1314;
+  text-decoration: underline;
+}
+#wrapper-square{
+  height: 450px;
+  width: 500px;
+  border:2px solid grey;
+  border-radius: 10px;
+  background-color: transparent;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#dropzone{
+  height: 450px;
+  width: 500px;
+}
+#dropzone>*{
+  display: inline-block;
+}
+
+#parrafo{
+  background-color: blue;
+  width: 50px;
+}
+
+
+/*Barra lateral de herramientas*/
+.guardar{
+    background-color: #0776E9;
+    border-color: #0776E9;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    margin-left: 25%;
+}
+
+/* HERRAMIENTAS PARA CREAR EL SQUARE */
+#herramientas{
+  padding:0;
+}
+
+#herramientas ul{
+ padding-left:10px;
+}
+#herramientas li{
+  list-style-type: none;
+  color:#2F5C34;
+}
+
+#herramientas .seccion_h{
+  color:#5D1314;
+  margin:5px;
+}
+#herramientas label{
+  display:block;
+}
+
+#herramientas .collapse-show,#herramientas .collapse-hide{
+  margin-right: 20px;
+  float: right;
+}
+#herramientas .hide{
+  display: none;
+}
+#herramientas .show{
+  display: inline;
+}
+
+#herramientas #items>*{
+  cursor: move;
+}

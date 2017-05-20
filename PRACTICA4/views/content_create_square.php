@@ -9,15 +9,11 @@
     		<h1>Crea y edita tu <span class="square">Square</span> a tu gusto</h1>
         <p class="tooltip">Selecciona Fondo->Imágenes->Bosque para ver el cambio del background</p>
         <p class="tooltip">Presiona el botón Insertar de la izquierda para ver el texto en tu Square </p>
-        <p class="tooltip">Selecciona Fondo->Borde->Punteado para cambiar le borde de tu Square </p>
-        <div id="wrapper-square" class="bambu">
-          <div class="content-background-square">
-            <div class="content-intro-square">
-                <h1>Título de tu Square</h1>
-                <p>Contenido de tu Square</p>
-                <p>Puede meter varias líneas</p>
+        <div class="tooltip">Selecciona Fondo->Borde->Punteado para cambiar le borde de tu Square </div>
+        <div id="wrapper-square">
+            <div id="dropzone">
+
             </div>
-          </div>
         </div>
   	  </section>
     </main>

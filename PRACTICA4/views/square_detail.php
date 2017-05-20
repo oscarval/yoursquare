@@ -1,7 +1,7 @@
 <?php 
     include("cabecera.php");
-    echo "<link href='../css/style-user.css' rel='stylesheet' type='text/css' />";
-    echo "<link href='../css/style_XBZ.css' rel='stylesheet' type='text/css' />";
+    echo "<link href='css/style-user.css' rel='stylesheet' type='text/css' />";
+    echo "<link href='css/style_XBZ.css' rel='stylesheet' type='text/css' />";
     include("indexsidebar.php");
 ?>
     
@@ -27,7 +27,7 @@
         </div>
         <div id="comments-box">
             <a href="usuario.html"><img src="../img/img_avatar2.png" alt="Avatar" class="avatar_comment"><span class="nombrePerfil_comment">oscarval</span></a>
-            <p class="comment-user">Me encanta este square!! Aquí tienes mi like!!</p>
+            <p class="comment-user">Me encanta este square!! Aquï¿½ tienes mi like!!</p>
             <a href="usuario.html"><img src="../img/img_avatar2.png" alt="Avatar" class="avatar_comment"><span class="nombrePerfil_comment">xuebozhu</span></a>
             <p class="comment-user">Gracias por tu like! Un saludo!</p>
         </div>

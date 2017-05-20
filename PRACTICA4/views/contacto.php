@@ -1,7 +1,7 @@
 <?php
 // página para la creación del square
 include("cabecera.php");
-echo '<link href="../css/style_contacto.css" rel="stylesheet" type="text/css" />';
+echo '<link href="css/style_contacto.css" rel="stylesheet" type="text/css" />';
 $mensaje= "";
 if(count($_REQUEST) > 0 && ($_REQUEST["nombre"] || $_REQUEST["email"] || $_REQUEST["option"] || $_REQUEST["Consulta"])){
   if($_REQUEST["nombre"] && $_REQUEST["email"] && $_REQUEST["option"] && $_REQUEST["Consulta"]){

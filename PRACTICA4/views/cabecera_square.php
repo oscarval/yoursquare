@@ -10,6 +10,19 @@
       <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
       <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
+      <link href="css/style_AV.css" rel="stylesheet" type="text/css" />
+      <link href="css/medium.css" rel="stylesheet" type="text/css" />
+      <link href="css/dragula.css" rel="stylesheet" type="text/css" />
+      <script src="js/lib/rangy-core.js"></script>
+      <script src="js/lib/rangy-classapplier.js"></script>
+      <script src="js/lib/undo.js"></script>
+      <script src="js/lib/medium.min.js" type="text/javascript"></script>
+      <script src="js/lib/interact.min.js" type="text/javascript"></script>
+      <script src="js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
+      <script src="js/create_square.js" type="text/javascript"></script>
+      <script src='js/lib/dragula-3.7.2.min.js'></script>
+
+      <script src="js/herramientas.js" type="text/javascript"></script>
       </head>
 <!-- Cabecera  -->
     <header id='header'>
