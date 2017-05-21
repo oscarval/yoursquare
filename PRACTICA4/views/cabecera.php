@@ -1,4 +1,4 @@
- <?php session_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
       <head>
@@ -8,8 +8,8 @@
       <meta charset="UTF-8">
       <!-- Link CSS -->
       <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
-      <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
+	<link href="../css/style.css" rel="stylesheet" type="text/css" />
+      <link href="../css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
       </head>
 <!-- Cabecera  -->
     <header id='header'>
@@ -29,7 +29,7 @@
 if(isset($_SESSION["login"])){
     echo "<div class='usuario'>
             <a href='BandejaEntrada.php'><span class='icon'>📭</span></a>
-            <a href='user.php'><span class='icon'>🙎</span></a>
+            <a href='user.php?usr_id=".$_SESSION["id"]."'><span class='icon'>🙎</span></a>
           <span>Bienvenido, ";
     echo $_SESSION["username"];
     echo "</span>";
@@ -48,7 +48,7 @@ else{
             <li><a href='create_square.php'>Crea tu Square</a></li>
             <li><a href='FAQ.php'>FAQ</a></li>
 <?php
-if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ){
+if(isset($_SESSION["isAdmin"])){
     echo "<li><a href='admin.php'>Admin</a></li>";
 }
 ?>

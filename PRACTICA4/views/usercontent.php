@@ -3,7 +3,7 @@ include("../controller/Squares.php");
 $squares = new Squares();
 $squaresList = null;
 if(isset($_SESSION["login"])){
-  $squaresList = $squares->getSquaresUserLogin($_SESSION["id"], 10);
+  $squaresList = $squares->getSquaresUserLogin($_GET["usr_id"], 10);
   $html = "<a href='square_detail.php?id=%s'><div class='item'>%s usuario</div></a>";
 }else{
   include("error_acceso.php");
