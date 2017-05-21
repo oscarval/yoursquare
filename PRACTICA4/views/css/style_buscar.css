@@ -1,10 +1,15 @@
 .intro-content .item{
     padding-left: 20px;
-    border-bottom: 1px dashed black;
 }
-.intro-content .item h3{
-    color: #B22222;
+
+.result_search{
+  float: left;
 }
+
+.intro-content{
+  float: left !important;
+}
+
 
 .intro-content .last{
     border: none;

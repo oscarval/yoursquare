@@ -7,16 +7,13 @@ class SearchDao{
     function __construct(){
     }
 
-    function generalSearch($keyword){
-
-}
     function userSearch($keyword,$start,$end){
 
         $functions = new MySQLFunctions();
         //echo "select usr_usuario from usuarios" . 'usr_usuario like %' . $keyword . '%' . "";
         $sql=$functions->select("select * from usuarios","usr_usuario like '%". $keyword . "%'","");
         $resp = $functions->getResponse();
-        var_dump($resp);
+
         if($resp["status"] && count($resp["data"]) > 0){
           return $resp["data"];
         }else{
@@ -30,13 +27,14 @@ class SearchDao{
         //echo "select usr_usuario from usuarios" . 'usr_usuario like %' . $keyword . '%' . "";
         $sql=$functions->select("select * from square","sq_title like '%". $keyword . "%'","");
         $resp = $functions->getResponse();
-        var_dump($resp);
+        
         if($resp["status"] && count($resp["data"]) > 0){
           return $resp["data"];
         }else{
           return false;
         }
     }
+
 }
 
 

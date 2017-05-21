@@ -8,7 +8,9 @@ class Search{
     }
 
     public function generalSearch($keyword){
-        return $this->dao->generalSearch($keyword);
+        $result['squares'] = $this->dao->squareSearch($keyword,0,0);
+        $result['users'] =  $this->dao->userSearch($keyword,0,0);
+        return $result;
     }
 
     public function userSearch($keyword, $start, $end){
