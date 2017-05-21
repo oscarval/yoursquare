@@ -30,7 +30,7 @@ class SquaresDao{
       $this->dao->select("select * from square",false,"where sq_squareid=$id");
       $resp = $this->dao->getResponse();
       if($resp["status"] && count($resp["data"]) > 0){
-        return $resp["data"];
+        return $resp["data"][0];
       }
       return null;
   }
@@ -83,6 +83,17 @@ class SquaresDao{
       return $resp["data"];
     }
     return null;
+  }
+  
+/* Obtenemos datos del usuario a partir del id de usuario
+  */
+  public function getUserNameFromSquare($id_user){ //Si mas datos como correo, intereses, avatar, añadirlo a esta función
+      $this->dao->select("select usr_usuario from usuarios",false,"where usr_id=$id_user");
+      $resp = $this->dao->getResponse();
+      if($resp["status"] && count($resp["data"]) > 0){
+        return $resp["data"][0];
+      }
+      return null;
   }
 
 
