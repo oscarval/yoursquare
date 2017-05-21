@@ -34,7 +34,11 @@ class Squares{
     public function updateSquareDetails($id,$dataUpdate){
       return $this->dao->updateSquare($id,$dataUpdate);
     }
-
+    
+    // obtener nombre del usuario del square
+    public function getUserNameFromSquare($id_user){
+       return $this->dao->getUserNameFromSquare($id_user);
+    }
 }
 
 ?>
