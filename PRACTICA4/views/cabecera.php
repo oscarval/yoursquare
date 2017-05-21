@@ -8,8 +8,8 @@
       <meta charset="UTF-8">
       <!-- Link CSS -->
       <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
-      <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
+	<link href="../css/style.css" rel="stylesheet" type="text/css" />
+      <link href="../css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
       </head>
 <!-- Cabecera  -->
     <header id='header'>
@@ -48,7 +48,11 @@ else{
             <li><a href='create_square.php'>Crea tu Square</a></li>
             <li><a href='FAQ.php'>FAQ</a></li>
 <?php
+<<<<<<< HEAD
 if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]){
+=======
+if(isset($_SESSION["isAdmin"])){
+>>>>>>> origin/master
     echo "<li><a href='admin.php'>Admin</a></li>";
 }
 ?>
