@@ -24,7 +24,7 @@ class Squares{
     }
     // obtenemos el square por su id
     public function getSquareDetail($id){
-      return $this->dao->getSquares("Admin",$limit);
+      return $this->dao->getSquareDetail($id);
     }
     // insertamos un square
     public function createSquare($dataSquare){
