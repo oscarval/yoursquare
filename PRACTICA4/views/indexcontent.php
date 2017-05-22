@@ -10,7 +10,7 @@ else if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["i
   $squaresList = $squares->getSquaresUser(10);
   $html = "<a href='square_detail.php?id=%s'><div class='item'>%s usuario</div></a>";
 }
-else if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["isAdmin"] == "1"  ){
+
   //var_dump($_SESSION);
   $squaresList = $squares->getSquaresAdmin(10);
   $html = "<a href='square_detail.php?id=%s'><div class='item'>%s admin</div></a>";
