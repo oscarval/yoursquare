@@ -13,7 +13,7 @@ if ($var != false){
 				<ul>
 					<?php
 					foreach ($var as $value) {
-						?><li><a href="user.php?id= <?php echo $value["usr_id"]; ?> "> <span class="icon">🙎 - </span> <?php echo $value["usr_usuario"]; ?></a></li><?php 
+						?><li><a href="user.php?usr_id=<?php echo $value["usr_id"]; ?> "> <span class="icon">🙎 - </span> <?php echo $value["usr_usuario"]; ?></a></li><?php 
 					}
 					?> 
 				</ul>

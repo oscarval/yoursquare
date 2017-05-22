@@ -64,9 +64,8 @@ if(isset($_GET['user'])){
   <h1 class='center'>Usuarios</h1>";
     foreach($result['users'] as $item){ 
           echo "<div class='result_search item '>
-                <h3 class='result_title'>".$item['usr_usuario']."</h3>🙎
-                <p>Miembro desde: 27/03/2017</p>
-                <p>País: España</p>
+                <h3 class='result_title'>".$item['usr_usuario']."</h3><span class='icon'>🙎</span>
+                <p><button onClick=location.href ='user.php?usr_id='". $item['usr_id'] . "'>Ver el usuario</button></p>
                 </div>";
     }
   echo "</div></section>";
@@ -77,9 +76,10 @@ if(isset($_GET['user'])){
     <h1 class='center'>Squares</h1>";
     foreach($result['squares'] as $item){ 
       echo "<div class='result_search item '>
-        <h3 class='result_title'>".$item['sq_title']."</h3>
-        <p class='result_description'>".$item["sq_description"]."<button class='ir'>Ir al square</button></p>
-        </div>";
+            <h3 class='result_title'>".$item['sq_title']."</h3>
+            <p class='result_description'>".$item["sq_description"]."</p>
+            <p><button>Ir al square</button></p>
+            </div>";
     }
     echo "</div></section>";
   }
