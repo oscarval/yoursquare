@@ -1,18 +1,23 @@
 <?php
-echo "<aside id='sidebar-left'>
-        <h3>Dominik F</h3>
-        <h4>Miembro desde:</h4>
-        <span> 27/03/2017 </span>
-        <h4>Suma de like totales</h4>
-        <span class='like'>230</span>
-        <span class='dislike'></span><!-- Si la puntuación fuese negativa se pondria en rojo -->
-        <h4>Intereses</h4>
-        <span>Informatica, Artes Marciales, Videojuegos...</span>
-        <h4>País</h4>
-        <span>España</span>
+include('../controller/Squares.php');
 
-    </aside>";
+$dao = new Squares();
 
-#Esto habra que cambiarlo entero, hay que acceder a la base de datos del usuario y
-#sacar de ahi toda la información para que se represente en el sidebar.
+if(isset($_GET["usr_id"])){
+    $result = $dao->getUserNameFromSquare($_GET["usr_id"]);
+    $fecha = explode(" ", $result['usr_registration_date']);
+}
+
 ?>
+<aside id='sidebar-left'>
+    <h3><?php echo $result['usr_usuario']?></h3>
+    <h4>Miembro desde:</h4>
+    <span> <?php echo $fecha[0]?> </span>
+    <h4>Suma de like totales:</h4>
+    <span class='like'>230</span>
+    <span class='dislike'></span><!-- Si la puntuación fuese negativa se pondria en rojo -->
+    <h4>Intereses:</h4>
+    <span>Informatica, Artes Marciales, Videojuegos...</span>
+    <h4>País:</h4>
+    <span><?php echo $result['usr_pais']?></span>
+</aside>

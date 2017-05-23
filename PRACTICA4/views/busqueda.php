@@ -23,8 +23,8 @@ Buscar:
         </form>
 
 <?php
-include("../controller/Search.php");
-$search = new Search();
+include("../controller/Squares.php");
+$search = new Squares();
 $keyword = $_GET["search-field"];
 if(isset($_GET['user'])){
     $result = $search->userSearch($keyword,0,0);  
@@ -33,9 +33,12 @@ if(isset($_GET['user'])){
     <div class='intro-content'>
     <h1 class='center'>Usuarios</h1>";
     foreach($result as $item){ 
+          $fecha = explode(" ", $item['usr_registration_date']);
           echo "<div class='result_search item '>
-                <h3 class='result_title'>".$item['usr_usuario']."</h3><span class='icon'>🙎</span>
-                <p><button>Ver el usuario</button></p>
+                <h3 class='result_title'>🙎  ".$item['usr_usuario']."</h3>
+                <p>Miebro desde: ".$fecha[0]."</p>
+                <p>País: ".$item['usr_pais']."</p>
+                <a href ='user.php?usr_id=". $item['usr_id'] . "'>Ver usuario</button></a>
                 </div>";
     }
   }
@@ -46,11 +49,17 @@ if(isset($_GET['user'])){
     echo "<section class='intro'>
     <div class='intro-content'>
     <h1 class='center'>Squares</h1>";
-    foreach($result as $item){ 
+    foreach($result as $item){
       echo "<div class='result_search item '>
-        <h3 class='result_title'>".$item['sq_title']."</h3>
-        <p class='result_description'>".$item["sq_description"]."<button class='ir'>Ir al square</button></p>
-        </div>";
+            <h3 class='result_title'>".$item['sq_title']."</h3>";
+            if (isset($item['sq_userid'])){
+              $user = $search -> getUserNameFromSquare($item['sq_userid']);
+              echo "<p>Creado por: ".$user['usr_usuario']."</p>";
+            }
+            if (isset($item["sq_description"]))
+              echo "<p class='result_description'>Descripción: ".$item["sq_description"]."</p>";
+            echo "<a href ='square_detail.php?id=". $item['sq_squareid'] . "'>Ver square</button></a>
+            </div>";
     }
     echo "</div>";
   }
@@ -63,9 +72,12 @@ if(isset($_GET['user'])){
   <div class='intro-content'>
   <h1 class='center'>Usuarios</h1>";
     foreach($result['users'] as $item){ 
+          $fecha = explode(" ", $item['usr_registration_date']);
           echo "<div class='result_search item '>
-                <h3 class='result_title'>".$item['usr_usuario']."</h3><span class='icon'>🙎</span>
-                <p><button onClick=location.href ='user.php?usr_id='". $item['usr_id'] . "'>Ver el usuario</button></p>
+                <h3 class='result_title'>🙎  ".$item['usr_usuario']."</h3>
+                <p>Miebro desde: ".$fecha[0]."</p>
+                <p>País: ".$item['usr_pais']."</p>
+                <a href ='user.php?usr_id=". $item['usr_id'] . "'>Ver usuario</button></a>
                 </div>";
     }
   echo "</div></section>";
@@ -74,11 +86,17 @@ if(isset($_GET['user'])){
     echo "<section class='intro'>
     <div class='intro-content'>
     <h1 class='center'>Squares</h1>";
-    foreach($result['squares'] as $item){ 
+    foreach($result['squares'] as $item){
+      
       echo "<div class='result_search item '>
-            <h3 class='result_title'>".$item['sq_title']."</h3>
-            <p class='result_description'>".$item["sq_description"]."</p>
-            <p><button>Ir al square</button></p>
+            <h3 class='result_title'>".$item['sq_title']."</h3>";
+            if (isset($item['sq_userid'])){
+              $user = $search -> getUserNameFromSquare($item['sq_userid']);
+              echo "<p>Creado por: ".$user['usr_usuario']."</p>";
+            }
+            if (isset($item["sq_description"]))
+              echo "<p class='result_description'>Descripción: ".$item["sq_description"]."</p>";
+            echo "<a href ='square_detail.php?id=". $item['sq_squareid'] . "'>Ver square</button></a>
             </div>";
     }
     echo "</div></section>";

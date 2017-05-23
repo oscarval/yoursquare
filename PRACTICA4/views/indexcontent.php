@@ -10,17 +10,16 @@ else if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["i
   $squaresList = $squares->getSquaresUser(10);
   $html = "<a href='square_detail.php?id=%s'><div class='item'>%s usuario</div></a>";
 }
-
+else if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["isAdmin"] == "1"  ){
   //var_dump($_SESSION);
   $squaresList = $squares->getSquaresAdmin(10);
   $html = "<a href='square_detail.php?id=%s'><div class='item'>%s admin</div></a>";
 }
-
 ?>
 <main id='main-withoutsidebar-right'>
     <!-- <main id='main'> -->
-	  <section class='intro'>
-		<div class='container'>
+    <section class='intro'>
+    <div class='container'>
         <?php
             if($squaresList){
               foreach($squaresList as $val){
@@ -32,5 +31,5 @@ else if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["i
             }
         ?>
         </div>
-	  </section>
+    </section>
     </main>

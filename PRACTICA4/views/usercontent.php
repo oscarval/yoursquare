@@ -1,5 +1,4 @@
 <?php
-include("../controller/Squares.php");
 $squares = new Squares();
 $squaresList = null;
 if(isset($_SESSION["login"])){

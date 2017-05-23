@@ -39,6 +39,21 @@ class Squares{
     public function getUserNameFromSquare($id_user){
        return $this->dao->getUserNameFromSquare($id_user);
     }
+
+    //Obtiene resultado de busqueda de squares y users
+
+    public function userSearch($keyword,$start,$end){
+      return $this->dao->userSearch($keyword,$start,$end);
+    }
+    public function squareSearch($keyword,$start,$end){
+      return $this->dao->squareSearch($keyword,$start,$end);
+    }
+
+    public function generalSearch($keyword){
+        $result['squares'] = $this->dao->squareSearch($keyword,0,0);
+        $result['users'] =  $this->dao->userSearch($keyword,0,0);
+        return $result;
+    }
 }
 
 ?>

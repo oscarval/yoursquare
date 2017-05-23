@@ -88,13 +88,43 @@ class SquaresDao{
 /* Obtenemos datos del usuario a partir del id de usuario
   */
   public function getUserNameFromSquare($id_user){ //Si mas datos como correo, intereses, avatar, añadirlo a esta función
-      $this->dao->select("select usr_usuario from usuarios",false,"where usr_id=$id_user");
+      $this->dao->select("select *from usuarios",false,"where usr_id=$id_user");
       $resp = $this->dao->getResponse();
       if($resp["status"] && count($resp["data"]) > 0){
         return $resp["data"][0];
       }
       return null;
   }
+
+
+/*Busqueda de squares y users*/
+    public function userSearch($keyword,$start,$end){
+
+        $functions = new MySQLFunctions();
+        //echo "select usr_usuario from usuarios" . 'usr_usuario like %' . $keyword . '%' . "";
+        $sql=$functions->select("select * from usuarios","usr_usuario like '%". $keyword . "%'","");
+        $resp = $functions->getResponse();
+
+        if($resp["status"] && count($resp["data"]) > 0){
+          return $resp["data"];
+        }else{
+          return false;
+        }
+    }
+    
+    public function squareSearch($keyword,$start,$end){
+
+        $functions = new MySQLFunctions();
+        //echo "select usr_usuario from usuarios" . 'usr_usuario like %' . $keyword . '%' . "";
+        $sql=$functions->select("select * from square","sq_title like '%". $keyword . "%'","");
+        $resp = $functions->getResponse();
+        
+        if($resp["status"] && count($resp["data"]) > 0){
+          return $resp["data"];
+        }else{
+          return false;
+        }
+    }
 
 
 

@@ -1,6 +1,6 @@
 <?php
 /* CLASE PARA LA INTERACCIÓN DE LA BASE DE DATOS*/
-class MySQLFunctions{
+class   MySQLFunctions{
   private $conn;
   private $response;
   private $array_ini;

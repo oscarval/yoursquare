@@ -4,20 +4,27 @@ include("MySQLFunctions.php");
 class SignUpDao{
   private $user;
   private $pass;
-  function __construct($username,$password){
+  private $email;
+  private $pais;
+  function __construct($username,$password, $pais, $email){
     $this->user = $username;
     $this->pass = $password;
+    $this->pais = $pais;
+    $this->email = $email;
+
   }
   public function doSignUp(){
     $sqlInsert = new MySQLFunctions();
     $sqlSelect = new MySQLFunctions();
 
-    $sqlSelect->select("select * from usuarios","usr_usuario='$this->user' and usr_password='$this->pass'");
+    $sqlSelect->select("select * from usuarios","usr_email='$this->email'");
     $resultLog = $sqlSelect->getResponse();
     $data = [
             "usr_usuario" => $this->user,
             "usr_password" => $this->pass,
             "usr_es_admin" => "0",
+            "usr_email" => $this->email,
+            "usr_pais" => $this->pais,
             ];
 
 

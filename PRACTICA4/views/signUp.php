@@ -11,6 +11,14 @@ include("indexsidebar.php");
   <input id="text_nombre" type="text" name="uname" placeholder="Introduce tu usuario">
 </div>
 <div class="row-label">
+  <label>Email: </label>
+  <input id="text_email" type="email" name="email" placeholder="Introduce tu email" required>
+</div>
+<div class="row-label">
+  <label>País: </label>
+  <input id="text_email" type="label" name="pais" placeholder="Introduce tu país" required>
+</div>
+<div class="row-label">
   <label>Contraseña: </label>
   <input id="text_email" type="password" name="psw" placeholder="Introduce tu contraseña" required>
 </div>
