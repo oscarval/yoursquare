@@ -27,8 +27,13 @@ $userNameSq = $squares->getUserNameFromSquare($squareDetail["sq_userid"]);
   </section>
   <div id="footer-square">
     <div class="like-dislike-container">
-        <img src="../img/like-flat.png" alt="Like" title="Mensaje"/> <span class="like">43</span>
-        <img src="../img/like-flat.png" alt="Like" title="Mensaje"/> <span class="dislike">13</span>
+<?php
+            echo "<img src='../img/like-flat.png' alt='Like' title='Mensaje' onclick = 'like(".$squareDetail["sq_squareid"].");'/>";
+
+            echo "<span class='like'>".$squareDetail["sq_likes"]."</span>";
+echo "<img src='../img/like-flat.png' alt='Like' title='Mensaje' onclick = 'dislike(".$squareDetail["sq_squareid"].");'/>";
+            echo "<span class='dislike'>".$squareDetail["sq_dislikes"]."</span>";
+            ?>
         <a href="square_detail.html"><span id="comment-link">Comentar</span></a>
     </div>
     <!--<div id="comments-box">
