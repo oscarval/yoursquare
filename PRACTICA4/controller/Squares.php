@@ -1,5 +1,5 @@
 <?php
-include("../mode/SquaresDao.php");
+include_once("../mode/SquaresDao.php");
 class Squares{
     private $dao;
 

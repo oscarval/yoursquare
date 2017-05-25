@@ -2,9 +2,9 @@
 include("../mode/SignUpDao.php");
 class SignUp{
     private $signUpStatus;
-    function __construct($username,$password, $pais, $email) {
+    function __construct($username,$password, $pais, $email, $sex) {
        if($username && $password){
-         $signUp = new SignUpDao($username,$password,$pais,$email); 
+         $signUp = new SignUpDao($username,$password,$pais,$email, $sex); 
          $this->signUpStatus = $signUp->doSignUp();
        }
     }

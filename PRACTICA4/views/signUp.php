@@ -6,6 +6,16 @@ include("indexsidebar.php");
 
 <form action="../controller/Procesar_signUp.php" method="post" id="signUp" >
 <h1 class="center">Únete a YOURSQUARE</h1>
+
+<div class="row-label">
+	<label>Sexo: </label>
+	<select name="sex">
+	        <option value="Indiferente">Indiferente</option>
+	        <option value="Masculino">Masculino</option>
+	        <option value="Femenino">Femenino</option>
+	</select>
+</div>
+
 <div class="row-label">
   <label>Usuario: </label>
   <input id="text_nombre" type="text" name="uname" placeholder="Introduce tu usuario">

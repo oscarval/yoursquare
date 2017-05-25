@@ -1,6 +1,8 @@
 <?php include ('../controller/Admin.php'); 
+//include ('../controller/Avatar.php');
 
 $admin =  new Admin();
+$Avatar = new Avatar();
 
 $var = $admin->getListUsers();
 
@@ -13,7 +15,8 @@ if ($var != false){
 				<ul>
 					<?php
 					foreach ($var as $value) {
-						?><li><a href="user.php?usr_id=<?php echo $value["usr_id"]; ?> "> <span class="icon">🙎 - </span> <?php echo $value["usr_usuario"]; ?></a></li><?php 
+						$pathAvatar = $Avatar->getAvatar($value['usr_id'])['usr_avatar']; 
+						?><li><a href="user.php?usr_id=<?php echo $value["usr_id"]; ?> "> <img class='icon' src='<?php echo $pathAvatar ?>'></img> - <?php echo $value["usr_usuario"]; ?></a></li><?php 
 					}
 					?> 
 				</ul>

@@ -24,7 +24,9 @@ Buscar:
 
 <?php
 include("../controller/Squares.php");
+
 $search = new Squares();
+$Avatar = new Avatar();
 $keyword = $_GET["search-field"];
 if(isset($_GET['user'])){
     $result = $search->userSearch($keyword,0,0);  
@@ -33,9 +35,10 @@ if(isset($_GET['user'])){
     <div class='intro-content'>
     <h1 class='center'>Usuarios</h1>";
     foreach($result as $item){ 
+          $pathAvatar = $Avatar->getAvatar($item['usr_id'])['usr_avatar']; 
           $fecha = explode(" ", $item['usr_registration_date']);
           echo "<div class='result_search item '>
-                <h3 class='result_title'>🙎  ".$item['usr_usuario']."</h3>
+                <h3 class='result_title'><img class='icon' src='" . $pathAvatar ."'> ".$item['usr_usuario']."</h3>
                 <p>Miebro desde: ".$fecha[0]."</p>
                 <p>País: ".$item['usr_pais']."</p>
                 <a href ='user.php?usr_id=". $item['usr_id'] . "'>Ver usuario</button></a>
@@ -72,9 +75,10 @@ if(isset($_GET['user'])){
   <div class='intro-content'>
   <h1 class='center'>Usuarios</h1>";
     foreach($result['users'] as $item){ 
+          $pathAvatar = $Avatar->getAvatar($item['usr_id'])['usr_avatar'];
           $fecha = explode(" ", $item['usr_registration_date']);
           echo "<div class='result_search item '>
-                <h3 class='result_title'>🙎  ".$item['usr_usuario']."</h3>
+                 <h3 class='result_title'><img class='icon' src='" . $pathAvatar ."'> ".$item['usr_usuario']."</h3>
                 <p>Miebro desde: ".$fecha[0]."</p>
                 <p>País: ".$item['usr_pais']."</p>
                 <a href ='user.php?usr_id=". $item['usr_id'] . "'>Ver usuario</button></a>

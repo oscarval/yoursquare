@@ -67,4 +67,8 @@
 }
 .result_search p{
   font-size: 12px;
+  line-height: 12px
+}
+.icon{
+  width: 45px;
 }

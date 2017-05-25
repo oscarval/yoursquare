@@ -1,5 +1,5 @@
 <?php
-include("MySQLFunctions.php");
+include_once("MySQLFunctions.php");
 
 class AdminDao{
   function __construct(){

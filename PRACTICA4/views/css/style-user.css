@@ -25,3 +25,28 @@
 #sidebar-left h4 {
     margin: 5px 0;
 }
+
+#sidebar-left img{
+    width: 120px;
+    padding-left: 30px;
+
+}
+
+#sidebar-left #change_avatar{
+    margin-left: 15px;
+
+}
+
+
+#sidebar-left input[type="file"] {
+    display: none;
+}
+#sidebar-left .custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 2px 8px;
+    cursor: pointer;
+}
+#sidebar-left .custom-file-upload:hover{
+    background-color: #ccc;
+}

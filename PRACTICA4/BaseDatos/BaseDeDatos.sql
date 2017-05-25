@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-05-2017 a las 00:22:57
+-- Tiempo de generación: 25-05-2017 a las 01:22:05
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -124,7 +124,8 @@ INSERT INTO `square` (`sq_squareid`, `sq_createdate`, `sq_updatedate`, `sq_useri
 (2, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'Cocina', NULL, NULL),
 (3, NULL, NULL, NULL, 2, NULL, NULL, NULL, 'El cielo es azúl', NULL, NULL),
 (4, NULL, NULL, NULL, 2, NULL, NULL, NULL, 'Nunca te rindas', NULL, NULL),
-(5, NULL, NULL, NULL, 4, NULL, NULL, NULL, 'Mi mejor square', NULL, NULL);
+(5, NULL, NULL, NULL, 4, NULL, NULL, NULL, 'Mi mejor square', NULL, NULL),
+(6, NULL, NULL, '', 1, NULL, NULL, 'Descripción poesía 2', 'Poesía 2', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -159,17 +160,18 @@ CREATE TABLE `usuarios` (
   `usr_es_admin` int(11) DEFAULT NULL,
   `usr_email` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `usr_pais` varchar(20) NOT NULL,
-  `usr_registration_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `usr_registration_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usr_avatar` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`usr_id`, `usr_usuario`, `usr_password`, `usr_es_admin`, `usr_email`, `usr_pais`, `usr_registration_date`) VALUES
-(1, 'oscarval', 'oscarval', 1, 'oscarval@ucm.es', 'España', '2017-05-22 23:53:27'),
-(2, 'juanca', 'juanca', 0, 'juanca@ucm.es', 'Francia', '2017-05-22 23:53:27'),
-(4, 'pablo', 'pablo.1992', 0, 'pablo@ucm.es', 'Ecuador', '2017-05-23 01:07:46');
+INSERT INTO `usuarios` (`usr_id`, `usr_usuario`, `usr_password`, `usr_es_admin`, `usr_email`, `usr_pais`, `usr_registration_date`, `usr_avatar`) VALUES
+(1, 'oscarval', 'oscarval', 1, 'oscarval@ucm.es', 'España', '2017-05-22 23:53:27', '../img/avatar/avatar_man.png'),
+(2, 'juanca', 'juanca', 0, 'juanca@ucm.es', 'Francia', '2017-05-22 23:53:27', '../img/avatar/avatar_man.png'),
+(4, 'pablo', 'pablo.1992', 0, 'pablo@ucm.es', 'Ecuador', '2017-05-23 01:07:46', '../img/avatar/avatar_man.png');
 
 -- --------------------------------------------------------
 
@@ -450,7 +452,7 @@ ALTER TABLE `relatedtags`
 -- AUTO_INCREMENT de la tabla `square`
 --
 ALTER TABLE `square`
-  MODIFY `sq_squareid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `sq_squareid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `tags`
 --
@@ -460,7 +462,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Restricciones para tablas volcadas
 --

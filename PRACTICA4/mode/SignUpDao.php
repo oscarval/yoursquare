@@ -6,11 +6,14 @@ class SignUpDao{
   private $pass;
   private $email;
   private $pais;
-  function __construct($username,$password, $pais, $email){
+  private $sex;
+
+  function __construct($username,$password, $pais, $email, $sex){
     $this->user = $username;
     $this->pass = $password;
     $this->pais = $pais;
     $this->email = $email;
+    $this->sex = $sex;
 
   }
   public function doSignUp(){
@@ -19,13 +22,36 @@ class SignUpDao{
 
     $sqlSelect->select("select * from usuarios","usr_email='$this->email'");
     $resultLog = $sqlSelect->getResponse();
-    $data = [
-            "usr_usuario" => $this->user,
-            "usr_password" => $this->pass,
-            "usr_es_admin" => "0",
-            "usr_email" => $this->email,
-            "usr_pais" => $this->pais,
-            ];
+    if ($this->sex == "Femenino"){
+      $data = [
+              "usr_usuario" => $this->user,
+              "usr_password" => $this->pass,
+              "usr_es_admin" => "0",
+              "usr_email" => $this->email,
+              "usr_pais" => $this->pais,
+              "usr_avatar" => "../img/avatar/avatar_woman.png",
+              ];
+    }
+    else if ($this->sex == "Masculino"){
+      $data = [
+              "usr_usuario" => $this->user,
+              "usr_password" => $this->pass,
+              "usr_es_admin" => "0",
+              "usr_email" => $this->email,
+              "usr_pais" => $this->pais,
+              "usr_avatar" => "../img/avatar/avatar_man.png",
+              ];
+    }
+    else{
+       $data = [
+              "usr_usuario" => $this->user,
+              "usr_password" => $this->pass,
+              "usr_es_admin" => "0",
+              "usr_email" => $this->email,
+              "usr_pais" => $this->pais,
+              "usr_avatar" => "../img/avatar/avatar_none.png",
+              ];
+    }
 
 
      if(count($resultLog["data"]) == 0){

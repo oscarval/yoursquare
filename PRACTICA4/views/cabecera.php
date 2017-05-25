@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php session_start(); 
+include('../controller/Avatar.php');
+$Avatar = new Avatar();
+?>
 <!DOCTYPE html>
 <html lang="es">
       <head>
@@ -8,7 +11,7 @@
       <meta charset="UTF-8">
       <!-- Link CSS -->
       <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	     <link href="css/style.css" rel="stylesheet" type="text/css" />
       <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
       </head>
 <!-- Cabecera  -->
@@ -27,9 +30,10 @@
       </div>
 <?php
 if(isset($_SESSION["login"])){
+    $pathAvatar = $Avatar->getAvatar($_SESSION["id"])['usr_avatar']; 
     echo "<div class='usuario'>
             <a href='BandejaEntrada.php'><span class='icon'>📭</span></a>
-            <a href='user.php?usr_id=".$_SESSION["id"]."'><span class='icon'>🙎</span></a>
+            <a href='user.php?usr_id=".$_SESSION["id"]."'><img class='icon' src='" . $pathAvatar ."'></img></a>
           <span>Bienvenido, ";
     echo $_SESSION["username"];
     echo "</span>";
