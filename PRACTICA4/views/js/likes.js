@@ -5,7 +5,7 @@ function like(id){
 
 function changeLike(status, data){
     if(status === "success"){
-        $('.like').text(data);
+        $('.like').text($('.like').value() + 1);
     }
 }
 
@@ -14,8 +14,10 @@ function dislike(id){
     $.get(url,changeDislike());
 }
 
-function changeDislike(status, data){
+function changeDislike(status){
     if(status === "success"){
-        $('.dislike').text(data);
+        $('.dislike').text($('.dislike').value() + 1);
+    }else{
+        alert("Ha habido un error en el servidor!");
     }
 }
