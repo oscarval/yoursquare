@@ -13,7 +13,10 @@ $Avatar = new Avatar();
       <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
 	     <link href="css/style.css" rel="stylesheet" type="text/css" />
       <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
-      </head>
+        <link rel="stylesheet" type="text/css" href="css/jqcloud.css" />
+        <script src= "js/lib/jquery-3.2.1.min.js"> </script>
+        <script src= "js/lib/jqcloud.js"> </script>
+     </head>
 <!-- Cabecera  -->
     <header id='header'>
 	  <!-- Logo  -->
