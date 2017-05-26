@@ -21,6 +21,7 @@
       <script src="js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
       <script src="js/create_square.js" type="text/javascript"></script>
       <script src='js/lib/dragula-3.7.2.min.js'></script>
+      <script src='js/lib/htmlToCanvas.js'></script>
 
       <script src="js/herramientas.js" type="text/javascript"></script>
       </head>

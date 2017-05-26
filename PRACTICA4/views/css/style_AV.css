@@ -19,17 +19,28 @@
   background-size: cover;
 }
 
+.bambu{
+  background : transparent url('../../img/bambu.jpg') no-repeat center center;
+}
+.bosque{
+  background : transparent url('../../img/bosque.jpg') no-repeat center center;
+}
+.montanas{
+  background : transparent url('../../img/montanas.jpg') no-repeat center center;
+}
+.mar{
+  background : transparent url('../../img/mar.jpg') no-repeat center center;
+}
+
 #dropzone{
   height: 450px;
   width: 500px;
 }
 #dropzone>*{
-  display: inline-block;
+  width: fit-content;
 }
-
-#parrafo{
-  background-color: blue;
-  width: 50px;
+#dropzone *:hover{
+  border: 1px solid #6495ED !important;
 }
 
 
