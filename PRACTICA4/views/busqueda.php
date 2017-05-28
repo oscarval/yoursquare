@@ -24,9 +24,11 @@ Buscar:
 
 <?php
 include("../controller/Squares.php");
+include("../controller/Usuarios.php");
 
 $search = new Squares();
 $Avatar = new Avatar();
+$searchUser = new Usuarios();
 $keyword = $_GET["search-field"];
 if(isset($_GET['user'])){
     $result = $search->userSearch($keyword,0,0);  
@@ -78,7 +80,7 @@ if(isset($_GET['user'])){
           $pathAvatar = $Avatar->getAvatar($item['usr_id'])['usr_avatar'];
           $fecha = explode(" ", $item['usr_registration_date']);
           echo "<div class='result_search item '>
-                 <h3 class='result_title'><img class='icon' src='" . $pathAvatar ."'> ".$item['usr_usuario']."</h3>
+                <h3 class='result_title'><img class='icon' src='" . $pathAvatar ."'> ".$item['usr_usuario']."</h3>
                 <p>Miebro desde: ".$fecha[0]."</p>
                 <p>País: ".$item['usr_pais']."</p>
                 <a href ='user.php?usr_id=". $item['usr_id'] . "'>Ver usuario</button></a>
@@ -95,7 +97,7 @@ if(isset($_GET['user'])){
       echo "<div class='result_search item '>
             <h3 class='result_title'>".$item['sq_title']."</h3>";
             if (isset($item['sq_userid'])){
-              $user = $search -> getUserNameFromSquare($item['sq_userid']);
+              $user = $searchUser -> getUser($item['sq_userid']);
               echo "<p>Creado por: ".$user['usr_usuario']."</p>";
             }
             if (isset($item["sq_description"]))

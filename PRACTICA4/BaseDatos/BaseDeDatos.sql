@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2017 a las 01:22:05
+-- Tiempo de generación: 28-05-2017 a las 22:50:56
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -34,6 +34,16 @@ CREATE TABLE `comments` (
   `comm_content` varchar(100) CHARACTER SET utf8 NOT NULL,
   `comm_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `comments`
+--
+
+INSERT INTO `comments` (`comm_id`, `comm_idSquare`, `comm_idCreator`, `comm_idUserSquare`, `comm_content`, `comm_date`) VALUES
+(40, 2, 4, 1, ' Me gusta tu Square, toma tu like!', '2017-05-29 00:47:04'),
+(41, 2, 1, 1, ' Gracias por tu like!', '2017-05-29 00:47:36'),
+(42, 5, 1, 4, ' Toma tu like!', '2017-05-29 00:48:07'),
+(43, 5, 4, 4, ' Gracias!', '2017-05-29 00:49:17');
 
 -- --------------------------------------------------------
 
@@ -120,7 +130,6 @@ CREATE TABLE `square` (
 --
 
 INSERT INTO `square` (`sq_squareid`, `sq_createdate`, `sq_updatedate`, `sq_userip`, `sq_userid`, `sq_csscontent`, `sq_htmlcontent`, `sq_description`, `sq_title`, `sq_likes`, `sq_dislikes`) VALUES
-(1, NULL, NULL, NULL, 1, NULL, 'hlo', 'Descripción poesía1', 'Poesia 1', NULL, NULL),
 (2, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'Cocina', NULL, NULL),
 (3, NULL, NULL, NULL, 2, NULL, NULL, NULL, 'El cielo es azúl', NULL, NULL),
 (4, NULL, NULL, NULL, 2, NULL, NULL, NULL, 'Nunca te rindas', NULL, NULL),
@@ -169,7 +178,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`usr_id`, `usr_usuario`, `usr_password`, `usr_es_admin`, `usr_email`, `usr_pais`, `usr_registration_date`, `usr_avatar`) VALUES
-(1, 'oscarval', 'oscarval', 1, 'oscarval@ucm.es', 'España', '2017-05-22 23:53:27', '../img/avatar/avatar_man.png'),
+(1, 'oscarval', 'oscarval', 1, 'oscarval@ucm.es', 'España', '2017-05-22 23:53:27', '../img/avatar/avatar_woman.png'),
 (2, 'juanca', 'juanca', 0, 'juanca@ucm.es', 'Francia', '2017-05-22 23:53:27', '../img/avatar/avatar_man.png'),
 (4, 'pablo', 'pablo.1992', 0, 'pablo@ucm.es', 'Ecuador', '2017-05-23 01:07:46', '../img/avatar/avatar_man.png');
 
@@ -432,7 +441,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT de la tabla `comments_thread`
 --

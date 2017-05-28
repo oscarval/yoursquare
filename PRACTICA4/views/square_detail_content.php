@@ -1,11 +1,14 @@
 <?php
 include("../controller/Squares.php");
+include("../controller/Usuarios.php");
+
 
 $squares = new Squares();
+$userDao = new Usuarios();
 $userNameSq = null;
 $squareDetail = null;
 $squareDetail = $squares->getSquareDetail($_GET["id"]);
-$userNameSq = $squares->getUserNameFromSquare($squareDetail["sq_userid"]);
+$userNameSq = $userDao->getUser($squareDetail["sq_userid"]);
 //$html = "<a href='square_detail.php?id=%s'><div class='item'>%s usuario</div></a>";
 ?>
 <!-- <main id="main-withoutsidebar-right"> -->
@@ -27,23 +30,14 @@ $userNameSq = $squares->getUserNameFromSquare($squareDetail["sq_userid"]);
   </section>
   <div id="footer-square">
     <div class="like-dislike-container">
-<?php
+        <?php
             echo "<img src='../img/like-flat.png' alt='Like' title='Mensaje' onclick = 'like(".$squareDetail["sq_squareid"].");'/>";
-
             echo "<span class='like'>".$squareDetail["sq_likes"]."</span>";
-echo "<img src='../img/like-flat.png' alt='Like' title='Mensaje' onclick = 'dislike(".$squareDetail["sq_squareid"].");'/>";
+            echo "<img src='../img/like-flat.png' alt='Like' title='Mensaje' onclick = 'dislike(".$squareDetail["sq_squareid"].");'/>";
             echo "<span class='dislike'>".$squareDetail["sq_dislikes"]."</span>";
-            ?>
-        <a href="square_detail.html"><span id="comment-link">Comentar</span></a>
+        ?>
     </div>
-    <!--<div id="comments-box">
-        <a href="usuario.html"><img src="../img/img_avatar2.png" alt="Avatar" class="avatar_comment"><span class="nombrePerfil_comment">oscarval</span></a>
-        <p class="comment-user">Me encanta este square!! Aquí tienes mi like!!</p>
-        <a href="usuario.html"><img src="../img/img_avatar2.png" alt="Avatar" class="avatar_comment"><span class="nombrePerfil_comment">xuebozhu</span></a>
-        <p class="comment-user">Gracias por tu like! Un saludo!</p>
-    </div>-->
-
-
+    <?php include('Comments.php') ?>
   </div>
 </main>
 <!-- Fin Main Content -->

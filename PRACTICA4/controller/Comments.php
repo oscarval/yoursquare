@@ -10,13 +10,9 @@ class Comments{
   	}
 
   	public function insertComment($idSquare, $idCreator, $idUserSquare, $content){
-  		$result = $this->dao->insertComment($idSquare, $idCreator, $idUserSquare, $content);
+  		return $this->dao->insertComment($idSquare, $idCreator, $idUserSquare, $content);
 
-  		if($result['status']){
-  			return $result;
-  		}
-  		else
-  			return false;
+  		
   	}
 
   	public function insertCommentOfComment($idComment, $content){
@@ -29,16 +25,16 @@ class Comments{
   			return false;
   	}
 
-  	public function getCommentBySquare($idSquare){
-
-  		$result = $this->dao->getCommentBySquare($idSquare);
-
-  		if($rresultesp["status"] && count($result["data"]) > 0){
-	    	return $result["data"][0];
-	    }else{
-	    	return false;
-	    }
+  	public function getCommentsBySquare($idSquare){
+  		return  $this->dao->getCommentsBySquare($idSquare);
+      
+  		
   	}
+
+    public function deleteComment($comm_id){
+      echo $comm_id;
+      return $this->dao->deleteComment($comm_id);
+    }
 
   	public function getComentsofComent($idSquare){
 

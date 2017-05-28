@@ -1,5 +1,5 @@
 <?php
-include("MySQLFunctions.php");
+include_once("MySQLFunctions.php");
 
 
 
@@ -24,7 +24,13 @@ class CommentsDao{
             "comm_content" => $content,
             ];
     $this->dao->insert("comments",$data);
-    return $this->dao->getResponse();
+    $result =  $this->dao->getResponse();
+
+    if(isset($result['status']) && $result['status']){
+        return true;
+      }
+      else
+        return false;
 
   	}
 
@@ -40,9 +46,16 @@ class CommentsDao{
 
 
   	// Obtiene un comentario en la tabla comments asociado a una id de Square
-  	public function getCommentBySquare($idSquare){
+  	public function getCommentsBySquare($idSquare){
 
-  		$this->dao->select("select * comments","comm_idSquare like '$idSquare'");
+  		$this->dao->select("select * from comments","comm_idSquare = $idSquare");
+      $result =   $this->dao->getResponse();
+      if($result["status"] && count($result["data"]) > 0){
+        return $result["data"];
+      }else{
+        return false;
+      }
+
   		return $this->dao->getResponse();
 
   	}
@@ -51,10 +64,19 @@ class CommentsDao{
 
   	public function getComentsofComent($idComment){
 
-  		$this->dao->select("select * comments_thread","commth_commId like '$idComment'");
+  		$this->dao->select("select * comments_thread","commth_commId = $idComment");
   		return $this->dao->getResponse();
   		
   	}
+
+    //Elimina un comentario con $comm_id
+
+     public function deleteComment($comm_id){
+
+      $this->dao->delete("delete from comments","comm_id=$comm_id");
+      return $this->dao->getResponse();
+
+     }
   
 
 }

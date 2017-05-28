@@ -4,13 +4,15 @@
 <?php
 include('../controller/Squares.php');
 include_once('../controller/Avatar.php');
+include('../controller/Usuarios.php');
 
 $dao = new Squares();
 $Avatar = new  Avatar();
+$daoUser = new Usuarios();
 
 if(isset($_GET["usr_id"])){
     $id = $_GET["usr_id"];
-    $result = $dao->getUserNameFromSquare($_GET["usr_id"]);
+    $result = $daoUser->getUser($_GET["usr_id"]);
     $fecha = explode(" ", $result['usr_registration_date']);
 }
 

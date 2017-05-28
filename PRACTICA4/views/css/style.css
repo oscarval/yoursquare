@@ -54,6 +54,7 @@ input{
 }
 #header .icon{
     width: 70px !important;
+    border-radius: 50% !important;
 }
 
 #header .usuario ul li{

@@ -35,11 +35,6 @@ class Squares{
       return $this->dao->updateSquare($id,$dataUpdate);
     }
     
-    // obtener nombre del usuario del square
-    public function getUserNameFromSquare($id_user){
-       return $this->dao->getUserNameFromSquare($id_user);
-    }
-
     //Obtiene resultado de busqueda de squares y users
 
     public function userSearch($keyword,$start,$end){
@@ -53,6 +48,10 @@ class Squares{
         $result['squares'] = $this->dao->squareSearch($keyword,0,0);
         $result['users'] =  $this->dao->userSearch($keyword,0,0);
         return $result;
+    }
+
+    public function deleteSquare($sq_squareid){
+        return $this->dao->deleteSquare($sq_squareid);
     }
 }
 

@@ -10,6 +10,14 @@ class Usuarios{
     public function getFollowing($user_id){
        return $this->dao->getFollowing($user_id);
     }
+
+    public function deleteUser($idUser){
+    	return $this->dao->deleteUser($idUser);
+    }
+
+    public function getUser($id_usr){
+        return $this->dao->getUser($id_usr);
+    }
 }
 
 ?>

@@ -1,5 +1,5 @@
 <?php
-include("MySQLFunctions.php");
+include_once("MySQLFunctions.php");
 class MensajesDao{
   private $dao;
 
@@ -82,6 +82,7 @@ class MensajesDao{
           ];
           $this->dao->insert("Mensajes",$dataReceptor);
           //$sql->insert("Mensajes",$dataEmisor);
+          var_dump($dataReceptor);
           return true;
         }else{
           return false;
