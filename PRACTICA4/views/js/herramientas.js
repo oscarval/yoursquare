@@ -25,6 +25,8 @@ $(function(){
           element: el,
           mode: Medium.partialMode
       });
+      var textHtml = $("#wrapper-square")[0].outerHTML;
+      updateSquare({"sq_htmlcontent":textHtml});
     });
 
     // contenedores de los elentos arrastrables
@@ -38,6 +40,8 @@ $(function(){
       $(event.target).removeClass("draggable");
       $(event.target).focusout(function(){
         $(event.target).addClass("draggable");
+        var textHtml = $("#wrapper-square")[0].outerHTML;
+        updateSquare({"sq_htmlcontent":textHtml});
         resetTools();
       })
       event.preventDefault();
@@ -61,20 +65,28 @@ $(function(){
     $("#fuente-font-text").change(function(event){
       console.log(this.value);
       $(selectedElement).css("font-family",this.value);
+      var textHtml = $("#wrapper-square")[0].outerHTML;
+      updateSquare({"sq_htmlcontent":textHtml});
     });
 
     // para cambiar el tamaño de letra
     $("#range-size").change(function(event){
       $(selectedElement).css("font-size",event.target.value+"px");
+      var textHtml = $("#wrapper-square")[0].outerHTML;
+      updateSquare({"sq_htmlcontent":textHtml});
     });
     // para cambiar el color de letra
     $("#color-style").change(function(event){
       $(selectedElement).css("color",event.target.value);
+      var textHtml = $("#wrapper-square")[0].outerHTML;
+      updateSquare({"sq_htmlcontent":textHtml});
     });
 
     // para cambiar el fondo
     $("#fondo-background-square").change(function(event){
       $("#wrapper-square").attr("class",this.value);
+      var textHtml = $("#wrapper-square")[0].outerHTML;
+      updateSquare({"sq_htmlcontent":textHtml});
     });
 
     // para reiniciar las herramientas

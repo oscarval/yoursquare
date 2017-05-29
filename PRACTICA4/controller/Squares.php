@@ -6,6 +6,10 @@ class Squares{
     function __construct(){
       $this->dao = new SquaresDao();
     }
+    // buscar squares mediante el sessioid del php
+    public function getSquaresSessionId($sessionId){
+       return $this->dao->getSquaresSessionId($sessionId);
+    }
     // obtener los squares de invitado
     public function getSquaresGuest($limit){
        return $this->dao->getSquares("Guest",$limit);
@@ -34,7 +38,7 @@ class Squares{
     public function updateSquareDetails($id,$dataUpdate){
       return $this->dao->updateSquare($id,$dataUpdate);
     }
-    
+
     //Obtiene resultado de busqueda de squares y users
 
     public function userSearch($keyword,$start,$end){

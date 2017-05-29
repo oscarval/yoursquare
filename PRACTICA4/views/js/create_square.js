@@ -1,4 +1,10 @@
 $(function(){
+  // comprobamos si existe la variable htmlSession con html de la session del square
+  if(htmlSession && htmlSession != "" && htmlSession != "undefined"){
+    //$("#wrapper-square").replaceWith($.parseHTML(htmlSession));
+    $("#wrapper-square").html(htmlSession);
+  }
+
   // funcionalidad para hacer draggable los elementos de las herramientas y los que esten dentro también
   var dropzone = document.getElementById('dropzone');
   // target elements with the "draggable" class
@@ -43,6 +49,8 @@ $(function(){
       target.setAttribute('data-x', x);
       target.setAttribute('data-y', y);
       //target.textContent = Math.round(event.rect.width) + '×' + Math.round(event.rect.height);
+      var textHtml = $("#wrapper-square")[0].outerHTML;
+      updateSquare({"sq_htmlcontent":textHtml});
     });
 
 });
@@ -61,5 +69,26 @@ function dragMoveListener (event) {
   // update the posiion attributes
   target.setAttribute('data-x', x);
   target.setAttribute('data-y', y);
+  var textHtml = $("#wrapper-square")[0].outerHTML;
+  updateSquare({"sq_htmlcontent":textHtml});
 }
 window.dragMoveListener = dragMoveListener;
+
+
+function updateSquare(dataSquare){
+  if(typeof dataSquare === "object"){
+    var objUpdate = {"data": dataSquare}
+    $.ajax({
+      url: "../controller/UpdateSquare.php",
+      type: "POST",
+      data: objUpdate,
+      success: function(data){
+          alert("Square guardado");
+      },
+      error: function(x,h,r){
+          alert("Error al guardar Square");
+          console.log(x,h,r);
+      }
+    })
+  }
+}

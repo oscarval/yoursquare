@@ -54,11 +54,11 @@ class   MySQLFunctions{
         }
       }
       $q .= $fields.$values;
-      $this->response = ["status"=>false];
+      $this->response["status"] = false;
       $qResp = $this->conn->query($q);
       if($qResp){
-        $this->response = ["status"=>true];
-        $this->response = ["idinsert"=>$this->conn->insert_id];
+        $this->response["status"] = true;
+        $this->response["idinsert"] = $this->conn->insert_id;
       }
       $this->closeBD();
     }
@@ -72,9 +72,9 @@ class   MySQLFunctions{
       if($where){
         $q .= " where ".$where;
       }
-      $this->response = ["status"=>false];
+      $this->response["status"] = false;
       $qResp = $this->conn->query($q);
-      $this->response = ["status"=>true];
+      $this->response["status"] = true;
       $this->closeBD();
     }
   }
@@ -87,9 +87,9 @@ class   MySQLFunctions{
       if($where){
         $q .= " where ".$where;
       }
-      $this->response = ["status"=>false];
+      $this->response["status"] = false;
       $qResp = $this->conn->query($q);
-      $this->response = ["status"=>true];
+      $this->response["status"] = true;
       $this->closeBD();
     }
   }

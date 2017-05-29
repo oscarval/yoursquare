@@ -1,6 +1,6 @@
 	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
     <!-- <main id="main-withoutsidebar-right"> -->
-    <?php if($_SESSION["login"] === true):?>
+    <?php if(isset($_SESSION["login"]) &&  $_SESSION["login"] === true):?>
       <main id="main-withoutsidebar-right">
     <?php else: ?>
       <main id="main">
@@ -20,7 +20,7 @@
 	<!-- Fin Main Content -->
   <!-- Sidebar de la derecha - comentar si no se quiere-->
   <?php
-    if($_SESSION["login"] !== true){
+    if(isset($_SESSION["login"]) &&  $_SESSION["login"] !== true){
       // incluir el login.php que tenga siempre el mismo codigo
       include("login.php");
     }

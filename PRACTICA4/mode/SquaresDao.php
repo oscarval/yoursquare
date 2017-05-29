@@ -6,6 +6,18 @@ class SquaresDao{
   function __construct(){
     $this->dao = new MySQLFunctions();
   }
+  /* obtenemos los squares que tengan el sessionid del php
+  ** @session sessionid
+  */
+  public function getSquaresSessionId($session){
+    $this->dao->select("select * from square","sq_usersession='".$session."'");
+    $resp = $this->dao->getResponse();
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
+    }
+    return null;
+  }
+
   /* obtenemos los squares según el tipo
   ** @type Guest, User or Admin
   ** @limit int numero de registro a pedir
@@ -15,7 +27,7 @@ class SquaresDao{
       $this->dao->select("select * from vSquare".$type,false,"limit 0,10");
     }else{
       $initLimit = ($limit/10)*10;
-      $sql->select("select * from vSquare".$type,false,"limit $initLimit,$limit");
+      $this->dao->select("select * from vSquare".$type,false,"limit $initLimit,$limit");
     }
     $resp = $this->dao->getResponse();
     if($resp["status"] && count($resp["data"]) > 0){
@@ -42,7 +54,7 @@ class SquaresDao{
       $this->dao->insert("Square",$dataSquare);
       $resp = $this->dao->getResponse();
       if($resp["status"]){
-        return true;
+        return $resp["idinsert"];
       }
       return null;
   }
@@ -52,14 +64,14 @@ class SquaresDao{
   */
   public function updateSquare($id, $dataSquare){
       if(is_array($dataSquare)){
-        $q = "update ".$table." set ";
+        $q = "update square set ";
         foreach($dataSquare as $key => $val){
           $q .= $key."='".$val."'";
-          if ($val != end($data)) {
+          if ($val != end($dataSquare)) {
             $q .= ",";
           }
         }
-        $this->dao->update($q,"where sq_squareid=$id");
+        $this->dao->update($q,"sq_squareid=$id");
         $resp = $this->dao->getResponse();
         if($resp["status"]){
           return true;
@@ -76,7 +88,7 @@ class SquaresDao{
 		$this->dao->select("select * from square",false,"where sq_userid=$userid","limit 0,10");
     }else{
       $initLimit = ($limit/10)*10;
-      $sql->select("select * from square","where sq_userid=$userid","limit $initLimit,$limit");
+      $this->dao->select("select * from square","where sq_userid=$userid","limit $initLimit,$limit");
     }
     $resp = $this->dao->getResponse();
     if($resp["status"] && count($resp["data"]) > 0){
@@ -84,7 +96,7 @@ class SquaresDao{
     }
     return null;
   }
-  
+
 
 
 
@@ -101,13 +113,13 @@ class SquaresDao{
           return false;
         }
     }
-    
+
     public function squareSearch($keyword,$start,$end){
 
         //echo "select usr_usuario from usuarios" . 'usr_usuario like %' . $keyword . '%' . "";
         $this->dao->select("select * from square","sq_title like '%". $keyword . "%'","");
         $resp =  $this->dao->getResponse();
-        
+
         if($resp["status"] && count($resp["data"]) > 0){
           return $resp["data"];
         }else{
