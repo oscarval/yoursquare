@@ -58,7 +58,7 @@ class SignUpDao{
      if(count($resultLog["data"]) == 0){
       $sqlInsert->insert("usuarios",$data);
       $respInsert = $sqlInsert->getResponse();
-      return true;
+      return $respInsert;
     }
     else
       return false;

@@ -1,8 +1,8 @@
 $(function(){
   // comprobamos si existe la variable htmlSession con html de la session del square
-  if(htmlSession && htmlSession != "" && htmlSession != "undefined"){
-    //$("#wrapper-square").replaceWith($.parseHTML(htmlSession));
-    $("#wrapper-square").html(htmlSession);
+  if(typeof htmlSession != "undefined" && htmlSession && htmlSession != "" && htmlSession != "undefined"){
+    $("#wrapper-square").replaceWith(htmlSession);
+    //$("#wrapper-square").html(htmlSession);
   }
 
   // funcionalidad para hacer draggable los elementos de las herramientas y los que esten dentro también
@@ -77,18 +77,79 @@ window.dragMoveListener = dragMoveListener;
 
 function updateSquare(dataSquare){
   if(typeof dataSquare === "object"){
-    var objUpdate = {"data": dataSquare}
+    var titulo = $("#titulo-square").val();
+    var desc = $("#descripcion-square").val();
+    var objUpdate = {"data": dataSquare,"titulo":titulo,"descripcion":desc};
     $.ajax({
       url: "../controller/UpdateSquare.php",
       type: "POST",
       data: objUpdate,
       success: function(data){
-          alert("Square guardado");
+          // done
       },
       error: function(x,h,r){
-          alert("Error al guardar Square");
           console.log(x,h,r);
       }
     })
   }
+}
+
+function SaveSquare(userid,squareid){
+  var textHtml = $("#wrapper-square")[0].outerHTML;
+  var obJson = {"sq_htmlcontent":textHtml};
+  var titulo = $("#titulo-square").val();
+  var desc = $("#descripcion-square").val();
+  var img = "thumb_square_"+squareid+".png";
+  var objUpdate = {"data": obJson,"titulo":titulo,"descripcion":desc,"img":img};
+  $.ajax({
+    url: "../controller/UpdateSquare.php",
+    type: "POST",
+    data: objUpdate,
+    success: function(data){
+        // done
+        // guardamos la foto del square
+        html2canvas(document.getElementById("wrapper-square"), {
+            onrendered: function(canvas) {
+              var img = canvas.toDataURL("image/png");
+              // document.body.appendChild(canvas);
+              $.ajax({
+                url:"../mode/saveThumb.php",
+                type:"POST",
+                data: {"image":img,"id":userid},
+                success: function(data){
+                  alert("Tu Square se ha guardado correctamente");
+                  window.location.href = "../user.php?usr_id="+userid;
+                },
+                error: function(x,h,r){
+                  alert("problem");
+                }
+              });
+            }
+        });
+    },
+    error: function(x,h,r){
+        console.log(x,h,r);
+    }
+  });
+}
+
+function SaveSquareSession(squareid){
+  // guardamos la foto del square
+  html2canvas(document.getElementById("wrapper-square"), {
+      onrendered: function(canvas) {
+        var img = canvas.toDataURL("image/png");
+        // document.body.appendChild(canvas);
+        $.ajax({
+          url:"../mode/saveThumb.php",
+          type:"POST",
+          data: {"image":img,"id":squareid},
+          success: function(data){
+            window.location.href = "SignUp.php";
+          },
+          error: function(x,h,r){
+            alert("problem");
+          }
+        });
+      }
+  });
 }

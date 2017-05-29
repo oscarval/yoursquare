@@ -19,6 +19,14 @@
   background-size: cover;
 }
 
+#titulo-square{
+  width: 80%;
+}
+#descripcion-square{
+  width: 100%;
+}
+
+
 .bambu{
   background : transparent url('../../img/bambu.jpg') no-repeat center center;
 }
@@ -88,4 +96,7 @@
 
 #herramientas #items>*{
   cursor: move;
+}
+#herramientas .items{
+  margin-left: 5px;
 }

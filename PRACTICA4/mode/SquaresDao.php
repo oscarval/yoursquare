@@ -7,6 +7,18 @@ class SquaresDao{
     $this->dao = new MySQLFunctions();
   }
   /* obtenemos los squares que tengan el sessionid del php
+  ** @userid id de usuraio
+  */
+  public function getSquaresPendiente($userid){
+    $this->dao->select("select * from square","sq_userid='".$userid."' and sq_title is null or sq_title=''");
+    $resp = $this->dao->getResponse();
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
+    }
+    return null;
+  }
+
+  /* obtenemos los squares que tengan el sessionid del php
   ** @session sessionid
   */
   public function getSquaresSessionId($session){

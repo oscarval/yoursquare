@@ -91,26 +91,7 @@ $(function(){
 
     // para reiniciar las herramientas
     $("#resetTools").click(function(){
-    // resetTools();
-        html2canvas(document.getElementById("wrapper-square"), {
-            onrendered: function(canvas) {
-              var img = canvas.toDataURL("image/png");
-              // document.body.appendChild(canvas);
-              $.ajax({
-                url:"../mode/saveThumb.php",
-                type:"POST",
-                data: {"image":img},
-                success: function(data){
-                  alert("perfecto");
-                },
-                error: function(x,h,r){
-                  alert("problem");
-                }
-              });
-
-            //window.open(canvas.toDataURL("image/png"));
-            }
-        });
+        resetTools();
     });
 
 });

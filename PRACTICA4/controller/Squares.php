@@ -10,6 +10,10 @@ class Squares{
     public function getSquaresSessionId($sessionId){
        return $this->dao->getSquaresSessionId($sessionId);
     }
+    // buscar squares mediante el sessioid del php
+    public function getSquaresPendiente($userid){
+       return $this->dao->getSquaresPendiente($userid);
+    }
     // obtener los squares de invitado
     public function getSquaresGuest($limit){
        return $this->dao->getSquares("Guest",$limit);

@@ -8,7 +8,7 @@
       </title>
       <meta charset="UTF-8">
       <!-- Link CSS -->
-      <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
+      <!-- <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet"> -->
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
       <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
       <link href="css/style_AV.css" rel="stylesheet" type="text/css" />

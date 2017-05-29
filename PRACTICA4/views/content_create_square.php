@@ -1,19 +1,26 @@
 	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
     <!-- <main id="main-withoutsidebar-right"> -->
     <?php if(isset($_SESSION["login"]) &&  $_SESSION["login"] === true):?>
-      <main id="main-withoutsidebar-right">
+      <main id="main">
     <?php else: ?>
       <main id="main">
     <?php endif ?>
   	  <section class="intro">
     		<h1>Crea y edita tu <span class="square">Square</span> a tu gusto</h1>
-        <p class="tooltip">Selecciona Fondo->Imágenes->Bosque para ver el cambio del background</p>
-        <p class="tooltip">Presiona el botón Insertar de la izquierda para ver el texto en tu Square </p>
-        <div class="tooltip">Selecciona Fondo->Borde->Punteado para cambiar le borde de tu Square </div>
+        <div>
+          <p>Título: <input type="text" id="titulo-square" maxlength="25" placeholder="Dale un título a tu Square" /></p>
+        </div>
+        <!-- <p class="tooltip">Puedes cambiar el fondo de de tu Square</p>
+        <p class="tooltip">Arrastra y Suelta Cabeceras o Parrafos al Square</p>
+        <p class="tooltip">Selecciona los elementos del Square y podrás cambiar el color, tamaño y fuente</p> -->
         <div id="wrapper-square">
             <div id="dropzone">
 
             </div>
+        </div>
+        <div>
+          <p>Descripcíon:</p>
+          <textarea id="descripcion-square" rows="4" placeholder="Pon una breve descripción a tu Square" ></textarea>
         </div>
   	  </section>
     </main>
