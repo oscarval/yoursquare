@@ -20,8 +20,9 @@ class SignUpDao{
     $sqlInsert = new MySQLFunctions();
     $sqlSelect = new MySQLFunctions();
 
-    $sqlSelect->select("select * from usuarios","usr_email='$this->email'");
+    $sqlSelect->select("select * from usuarios","usr_email='$this->email' or usr_usuario='$this->username'");
     $resultLog = $sqlSelect->getResponse();
+
     if ($this->sex == "Femenino"){
       $data = [
               "usr_usuario" => $this->user,

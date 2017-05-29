@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-05-2017 a las 22:50:56
+-- Tiempo de generación: 29-05-2017 a las 16:09:45
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -40,10 +40,8 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`comm_id`, `comm_idSquare`, `comm_idCreator`, `comm_idUserSquare`, `comm_content`, `comm_date`) VALUES
-(40, 2, 4, 1, ' Me gusta tu Square, toma tu like!', '2017-05-29 00:47:04'),
-(41, 2, 1, 1, ' Gracias por tu like!', '2017-05-29 00:47:36'),
-(42, 5, 1, 4, ' Toma tu like!', '2017-05-29 00:48:07'),
-(43, 5, 4, 4, ' Gracias!', '2017-05-29 00:49:17');
+(46, 5, 19, 18, ' Toma tu like!', '2017-05-29 17:34:47'),
+(45, 3, 19, 19, ' Me gusta tu comentario, toma tu like!', '2017-05-29 17:34:30');
 
 -- --------------------------------------------------------
 
@@ -94,17 +92,6 @@ CREATE TABLE `relatedtags` (
   `retag_squareid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `relatedtags`
---
-
-INSERT INTO `relatedtags` (`retag_relatedtagid`, `retag_tagid`, `retag_squareid`) VALUES
-(1, 1, 1),
-(2, 2, 1),
-(9, 2, 1),
-(10, 2, 1),
-(11, 1, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -130,11 +117,11 @@ CREATE TABLE `square` (
 --
 
 INSERT INTO `square` (`sq_squareid`, `sq_createdate`, `sq_updatedate`, `sq_userip`, `sq_userid`, `sq_csscontent`, `sq_htmlcontent`, `sq_description`, `sq_title`, `sq_likes`, `sq_dislikes`) VALUES
-(2, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'Cocina', NULL, NULL),
-(3, NULL, NULL, NULL, 2, NULL, NULL, NULL, 'El cielo es azúl', NULL, NULL),
-(4, NULL, NULL, NULL, 2, NULL, NULL, NULL, 'Nunca te rindas', NULL, NULL),
-(5, NULL, NULL, NULL, 4, NULL, NULL, NULL, 'Mi mejor square', NULL, NULL),
-(6, NULL, NULL, '', 1, NULL, NULL, 'Descripción poesía 2', 'Poesía 2', NULL, NULL);
+(3, NULL, NULL, NULL, 19, NULL, NULL, NULL, 'El cielo es azúl', NULL, NULL),
+(4, NULL, NULL, NULL, 19, NULL, NULL, NULL, 'Nunca te rindas', NULL, NULL),
+(5, NULL, NULL, NULL, 18, NULL, NULL, NULL, 'Mi mejor square', NULL, NULL),
+(6, NULL, NULL, '', 18, NULL, NULL, 'Descripción poesía 2', 'Poesía 2', NULL, NULL),
+(7, NULL, NULL, NULL, 18, NULL, NULL, NULL, 'Cocina', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -165,7 +152,7 @@ INSERT INTO `tags` (`tag_tagid`, `tag_name`) VALUES
 CREATE TABLE `usuarios` (
   `usr_id` int(11) NOT NULL,
   `usr_usuario` varchar(50) DEFAULT NULL,
-  `usr_password` varchar(50) DEFAULT NULL,
+  `usr_password` varchar(255) DEFAULT NULL,
   `usr_es_admin` int(11) DEFAULT NULL,
   `usr_email` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `usr_pais` varchar(20) NOT NULL,
@@ -178,9 +165,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`usr_id`, `usr_usuario`, `usr_password`, `usr_es_admin`, `usr_email`, `usr_pais`, `usr_registration_date`, `usr_avatar`) VALUES
-(1, 'oscarval', 'oscarval', 1, 'oscarval@ucm.es', 'España', '2017-05-22 23:53:27', '../img/avatar/avatar_woman.png'),
-(2, 'juanca', 'juanca', 0, 'juanca@ucm.es', 'Francia', '2017-05-22 23:53:27', '../img/avatar/avatar_man.png'),
-(4, 'pablo', 'pablo.1992', 0, 'pablo@ucm.es', 'Ecuador', '2017-05-23 01:07:46', '../img/avatar/avatar_man.png');
+(18, 'oscarval', '$2y$10$QX6GOjy//5zGBrWRlzFo5.0coMZ7sCjcuC3/d7sLjMFnZJcgyoao6', 1, 'oscarval@ucm.es', 'España', '2017-05-29 17:24:42', '../img/avatar/avatar_man.png'),
+(19, 'pablo', '$2y$10$v/aU1D7gpP.CbGmxiCF1QOb11VFCAWyNZncmW.506cSf4Hx7B8peG', 0, 'pablo@ucm.es', 'España', '2017-05-29 17:32:08', '../img/avatar/avatar_none.png');
 
 -- --------------------------------------------------------
 
@@ -234,7 +220,7 @@ CREATE TABLE `vsquareadmin` (
 ,`sq_dislikes` int(11)
 ,`usr_id` int(11)
 ,`usr_usuario` varchar(50)
-,`usr_password` varchar(50)
+,`usr_password` varchar(255)
 ,`usr_es_admin` int(11)
 );
 
@@ -258,7 +244,7 @@ CREATE TABLE `vsquaredetails` (
 ,`sq_dislikes` int(11)
 ,`usr_id` int(11)
 ,`usr_usuario` varchar(50)
-,`usr_password` varchar(50)
+,`usr_password` varchar(255)
 ,`usr_es_admin` int(11)
 );
 
@@ -306,7 +292,7 @@ CREATE TABLE `vsquareuser` (
 ,`count` bigint(21)
 ,`usr_id` int(11)
 ,`usr_usuario` varchar(50)
-,`usr_password` varchar(50)
+,`usr_password` varchar(255)
 ,`usr_es_admin` int(11)
 );
 
@@ -441,7 +427,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT de la tabla `comments_thread`
 --
@@ -471,7 +457,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- Restricciones para tablas volcadas
 --

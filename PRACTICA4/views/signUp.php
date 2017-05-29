@@ -2,7 +2,11 @@
 // página para el registro de un nuevo usuario
 include("cabecera.php");
 include("indexsidebar.php");
+
+echo password_hash("jorge.1992" . "square", PASSWORD_DEFAULT);
 ?>
+
+
 
 <form action="../controller/Procesar_signUp.php" method="post" id="signUp" >
 <h1 class="center">Únete a YOURSQUARE</h1>

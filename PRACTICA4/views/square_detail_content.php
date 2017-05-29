@@ -9,13 +9,14 @@ $userNameSq = null;
 $squareDetail = null;
 $squareDetail = $squares->getSquareDetail($_GET["id"]);
 $userNameSq = $userDao->getUser($squareDetail["sq_userid"]);
+
 //$html = "<a href='square_detail.php?id=%s'><div class='item'>%s usuario</div></a>";
 ?>
 <!-- <main id="main-withoutsidebar-right"> -->
 <main id="main">
   <section class="intro">
         <?php
-            echo "<div class='imgcontainer_detail'><a href='user.php?usr_id=".$squareDetail["sq_userid"]."'><img src='../img/img_avatar2.png' alt='Avatar' class='avatar_detail'><span id='nombrePerfil_detail'>".$userNameSq["usr_usuario"]."</span></a><span id='fechaPerfil'>".$squareDetail["sq_createdate"]."</span></div>
+            echo "<div class='imgcontainer_detail'><a href='user.php?usr_id=".$squareDetail["sq_userid"]."'><img src='". $userNameSq['usr_avatar'] ."' alt='Avatar' class='avatar_detail'><span id='nombrePerfil_detail'>".$userNameSq["usr_usuario"]."</span></a><span id='fechaPerfil'>".$squareDetail["sq_createdate"]."</span></div>
                   <div id='wrapper-square' class='bambu'>
                     <div class='content-background-square'>
                         <div class='content-intro-square'>

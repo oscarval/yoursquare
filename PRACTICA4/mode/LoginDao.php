@@ -10,10 +10,17 @@ class LoginDao{
   }
   public function doLogin(){
     $sql = new MySQLFunctions();
-    $sql->select("select * from usuarios","usr_usuario='$this->user' and usr_password='$this->pass'");
+    $sql->select("select * from usuarios","usr_usuario='$this->user'");
     $resp = $sql->getResponse();
     if($resp["status"] && count($resp["data"]) > 0){
-      return $resp["data"][0];
+
+      echo "<script> alert('hola); </script>";
+      var_dump($resp["data"]);
+      if (password_verify($this->pass . "square", $resp["data"][0]['usr_password'])){
+        return $resp["data"][0];
+      }
+      else
+        return false;
     }else{
       return false;
     }
@@ -21,3 +28,4 @@ class LoginDao{
 }
 
 ?>
+s

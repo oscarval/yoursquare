@@ -58,7 +58,7 @@ if(isset($_GET['user'])){
       echo "<div class='result_search item '>
             <h3 class='result_title'>".$item['sq_title']."</h3>";
             if (isset($item['sq_userid'])){
-              $user = $search -> getUserNameFromSquare($item['sq_userid']);
+              $user = $searchUser -> getUser($item['sq_userid']);
               echo "<p>Creado por: ".$user['usr_usuario']."</p>";
             }
             if (isset($item["sq_description"]))

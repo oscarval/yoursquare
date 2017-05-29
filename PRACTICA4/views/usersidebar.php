@@ -37,17 +37,17 @@ if(isset($_GET["usr_id"])){
     $pathAvatar = $Avatar->getAvatar($_GET["usr_id"])['usr_avatar']; 
 
     echo "<p><img src='".$pathAvatar."'/></p>";
-    if ( (isset($_SESSION['login']) && $_SESSION['id'] == $_GET["usr_id"]) ||  $_SESSION['isAdmin'] ){
+    if ( (isset($_SESSION['login']) && (isset($_SESSION['id']) && $_SESSION['id'] == $_GET["usr_id"]) || (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] ))){
     ?>
-    <p>
-        <form id="change_avatar" method="post" action="" enctype="multipart/form-data">
-            <label for="file-upload" class="custom-file-upload">
-                <i class="fa fa-cloud-upload"></i> Selecciona imagen
-            </label>
-            <input id="file-upload" type="file" name="avatar"  accept="image/*"/>
-            <input type="submit" value="Upload" name="submit" class="custom-file-upload">
-        </form>
-    </p> 
+        <p>
+            <form id="change_avatar" method="post" action="" enctype="multipart/form-data">
+                <label for="file-upload" class="custom-file-upload">
+                    <i class="fa fa-cloud-upload"></i> Selecciona imagen
+                </label>
+                <input id="file-upload" type="file" name="avatar"  accept="image/*"/>
+                <input type="submit" value="Upload" name="submit" class="custom-file-upload">
+            </form>
+        </p> 
     <?php
     }
     ?>
