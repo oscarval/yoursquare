@@ -59,6 +59,23 @@ CREATE TABLE `comments_thread` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `following`
+--
+
+CREATE TABLE `following` (
+  `usr_id` int(11) NOT NULL,
+  `usr_id_following` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `following`
+--
+
+INSERT INTO `following` (`usr_id`, `usr_id_following`) VALUES
+(22, 19),
+(22, 23);
+
+--
 -- Estructura de tabla para la tabla `mensajes`
 --
 
