@@ -1,6 +1,6 @@
 .like-dislike-container  {
     display: inline;
-    
+
 }
 
 .like {
@@ -12,8 +12,8 @@
 }
 .square {
     width: 200px;
-    height: 200px;
-    background-color: #212121;
+    height: 180px;
+    /*background-color: #212121;*/
 }
 
 #square-list{

@@ -1,4 +1,5 @@
 <?php
+include("cabecera_square.php");
 // cada vez que accedemos a crear el square, creamos o obtenemos un registro para no perder cambios
 include_once("../controller/Squares.php");
 // array de valores para crear el square
@@ -7,8 +8,6 @@ $arrIn = [
   "sq_updatedate" => date("Y-m-d H:i:s")
 ];
 $sq = new Squares();
-// página para la creación del square
-include("cabecera_square.php");
 
 if(isset($_SESSION["login"]) && $_SESSION["login"] === true){
   $arrIn["sq_userid"] = $_SESSION["id"];

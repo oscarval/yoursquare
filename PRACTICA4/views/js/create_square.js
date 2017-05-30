@@ -99,7 +99,7 @@ function SaveSquare(userid,squareid){
   var obJson = {"sq_htmlcontent":textHtml};
   var titulo = $("#titulo-square").val();
   var desc = $("#descripcion-square").val();
-  var img = "thumb_square_"+squareid+".png";
+  var img = "square_"+squareid+".png";
   var objUpdate = {"data": obJson,"titulo":titulo,"descripcion":desc,"img":img};
   $.ajax({
     url: "../controller/UpdateSquare.php",
@@ -115,10 +115,10 @@ function SaveSquare(userid,squareid){
               $.ajax({
                 url:"../mode/saveThumb.php",
                 type:"POST",
-                data: {"image":img,"id":userid},
+                data: {"image":img,"id":squareid,"borrar":true},
                 success: function(data){
                   alert("Tu Square se ha guardado correctamente");
-                  window.location.href = "../user.php?usr_id="+userid;
+                  window.location.href = "user.php?usr_id="+userid;
                 },
                 error: function(x,h,r){
                   alert("problem");
