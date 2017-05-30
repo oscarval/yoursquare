@@ -9,24 +9,22 @@ $userNameSq = null;
 $squareDetail = null;
 $squareDetail = $squares->getSquareDetail($_GET["id"]);
 $userNameSq = $userDao->getUser($squareDetail["sq_userid"]);
+$sqImg = ($squareDetail["sq_image"]) ? "../img/squaresthumb/".$squareDetail["sq_image"] : "../img/squaresthumb/no-imageG.png";
 
 //$html = "<a href='square_detail.php?id=%s'><div class='item'>%s usuario</div></a>";
 ?>
 <!-- <main id="main-withoutsidebar-right"> -->
 <main id="main">
   <section class="intro">
-        <?php
-            echo "<div class='imgcontainer_detail'><a href='user.php?usr_id=".$squareDetail["sq_userid"]."'><img src='". $userNameSq['usr_avatar'] ."' alt='Avatar' class='avatar_detail'><span id='nombrePerfil_detail'>".$userNameSq["usr_usuario"]."</span></a><span id='fechaPerfil'>".$squareDetail["sq_createdate"]."</span></div>
-                  <div id='wrapper-square' class='bambu'>
-                    <div class='content-background-square'>
-                        <div class='content-intro-square'>
-        
-                        <h1>".$squareDetail["sq_title"]."</h1>";
-            //<p>Contenido de tu Square</p>
-            //<p>Puede meter varias líneas</p>
-        ?>
-        </div>
-      </div>
+    <div class='imgcontainer_detail'>
+      <a href='user.php?usr_id=<?php echo $squareDetail["sq_userid"]; ?>' class="link_user_square">
+        <img src='<?php echo $userNameSq["usr_avatar"]; ?>' alt='Avatar' class='avatar_detail'>
+        <span id='nombrePerfil_detail'><?php echo $userNameSq["usr_usuario"]; ?></span>
+      </a>
+      <span id='fechaPerfil'><?php echo date("Y/m/d H:i", strtotime($squareDetail["sq_createdate"])); ?></span>
+    </div>
+    <div id='wrapper-square'>
+      <img src="<?php echo $sqImg; ?>"/>
     </div>
   </section>
   <div id="footer-square">
@@ -42,4 +40,3 @@ $userNameSq = $userDao->getUser($squareDetail["sq_userid"]);
   </div>
 </main>
 <!-- Fin Main Content -->
-

@@ -15,6 +15,9 @@
     height: 180px;
     /*background-color: #212121;*/
 }
+.link_user_square{
+  text-decoration: none;
+}
 
 #square-list{
     display:flex;
