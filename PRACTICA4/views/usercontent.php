@@ -48,34 +48,34 @@ if(isset($_SESSION["login"])){
 			            echo sprintf($html,$val["sq_squareid"],$img,$val["sq_title"]);
 			            ?>
 			            <div class="like-dislike-container">
-        <?php
-            $likes = $squareDetail['sq_likes'];
-            $dislikes = $squareDetail['sq_dislikes'];
-            if($dislikes === null){
-              $dislikes = 0;
-            }
-            if($likes === null){
-              $likes = 0;
-            }
-            echo "<img src='../img/like-flat.png' alt='Like' title='Mensaje' onclick = 'like(".$squareDetail["sq_squareid"].");'/>";
-            echo "<span class='like'>".$likes."</span>";
-            echo "<img src='../img/dislike-flat.png' alt='Like' title='Mensaje' onclick = 'dislike(".$squareDetail["sq_squareid"].");'/>";
-            echo "<span class='dislike'>".$dislikes."</span>";
-        ?>
-    </div>
-<?php
-							if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["isAdmin"] == "1" || ($_GET["usr_id"] === $_SESSION["id"])){
-								$deleteSquare = "../controller/DeleteSquare.php?sq_squareid=" . $val["sq_squareid"];
-								?>
-								<a href=<?php echo '"'.$deleteSquare .'"'?>><img src="../img/eliminar.png"/></a>
-							<?php
-							}
+				        <?php
+				            $likes = $val['sq_likes'];
+				            $dislikes = $val['sq_dislikes'];
+				            if($dislikes === null){
+				              $dislikes = 0;
+				            }
+				            if($likes === null){
+				              $likes = 0;
+				            }
+				            echo "<img src='../img/like-flat.png' alt='Like' title='Mensaje' onclick = 'like(".$val["sq_squareid"].");'/>";
+				            echo "<span class='like'>".$likes."</span>";
+				            echo "<img src='../img/dislike-flat.png' alt='Like' title='Mensaje' onclick = 'dislike(".$val["sq_squareid"].");'/>";
+				            echo "<span class='dislike'>".$dislikes."</span>";
+				        ?>
+				    </div>
+					<?php
+						if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["isAdmin"] == "1" || ($_GET["usr_id"] === $_SESSION["id"])){
+							$deleteSquare = "../controller/DeleteSquare.php?sq_squareid=" . $val["sq_squareid"];
 							?>
+							<a href=<?php echo '"'.$deleteSquare .'"'?>><img src="../img/eliminar.png"/></a>
+						<?php
+						}
+						?>
 			        </div>
-			    <?php
+				    <?php
+					}
 				}
-			}
-			?>
+				?>
 		    </div>
 	    </section>
 

@@ -1,14 +1,14 @@
 <?php
 include("../controller/Squares.php");
-include("../controller/Usuarios.php");
+include_once("../controller/Usuarios.php");
 
 
 $squares = new Squares();
-$userDao = new Usuarios();
+$daoUser = new Usuarios();
 $userNameSq = null;
 $squareDetail = null;
 $squareDetail = $squares->getSquareDetail($_GET["id"]);
-$userNameSq = $userDao->getUser($squareDetail["sq_userid"]);
+$userNameSq = $daoUser->getUser($squareDetail["sq_userid"]);
 
 //$html = "<a href='square_detail.php?id=%s'><div class='item'>%s usuario</div></a>";
 ?>

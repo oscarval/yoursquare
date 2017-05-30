@@ -15,7 +15,7 @@ class UsuariosDao{
     if($resp["status"] && count($resp["data"]) > 0){
       return $resp["data"];
     }
-    return null;
+    return false;
   }
 
   public function deleteUser($id_user){
@@ -39,13 +39,20 @@ class UsuariosDao{
     public function getUserLikesDislikes($id_user){
         $this->dao->select("select sum(sq_likes) from square" ,"sq_userid=$id_user");
         $likes = $this->dao->getResponse();
-
-        $this->dao->select("select sum(sq_dislikes) from square" ,"sq_userid=$id_user");
-        $dislikes = $this->dao->getResponse();
-
-        return $likes - $dislikes;
+        if($likes["status"] && count($likes["data"]) > 0 && $likes["data"][0]['sum(sq_likes)'] != null){
+          $this->dao->select("select sum(sq_dislikes) from square" ,"sq_userid=$id_user");
+          $dislikes = $this->dao->getResponse();
+          if($dislikes["status"] && count($dislikes["data"]) > 0 ){
+            if ($dislikes["data"][0]['sum(sq_dislikes)'] == null)
+              return $likes["data"][0]['sum(sq_likes)'];
+            else
+              return $likes["data"][0]['sum(sq_likes)'] - $dislikes["data"][0]['sum(sq_dislikes)'];
+          }
+          return 0;
+        }
+     return 0;   
     }
-
+  
 }
 
 ?>

@@ -18,6 +18,10 @@ class Usuarios{
     public function getUser($id_usr){
         return $this->dao->getUser($id_usr);
     }
+
+    public function getUserLikesDislikes($id_user){
+        return $this->dao->getUserLikesDislikes($id_user);
+    }
 }
 
 ?>

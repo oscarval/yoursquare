@@ -20,13 +20,17 @@ $listTags = json_encode($tags);
   if(!isset($_SESSION["login"])){
     include("login.php");
   }else{ ?>
-    <h3>Seguidos</h3>
+    
     <ul>
       <?php
-      foreach($userFollowings as $val){?>
-        <?php
-        $userDetail = $userDao->getUser($val['usr_id_following']);
-        echo "<li><a href='user.php?usr_id=".$userDetail["usr_id"]."'>".$userDetail["usr_usuario"]."<div class='imgcontainer'><img src=".$userDetail["usr_avatar"]." alt='Avatar' class='avatar'></div></a></li>";
+      if ($userFollowings!= null){
+        ?><h3>Seguidos</h3><?php
+        foreach($userFollowings as $val){?>
+          <?php
+
+          $userDetail = $userDao->getUser($val['usr_id_following']);
+          echo "<li><a href='user.php?usr_id=".$userDetail["usr_id"]."'>".$userDetail["usr_usuario"]."<div class='imgcontainer'><img src=".$userDetail["usr_avatar"]." alt='Avatar' class='avatar'></div></a></li>";
+        }
       }
       ?>
     </ul>

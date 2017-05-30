@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2017 a las 16:09:45
+-- Tiempo de generación: 30-05-2017 a las 21:41:00
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -31,17 +31,9 @@ CREATE TABLE `comments` (
   `comm_idSquare` int(11) NOT NULL,
   `comm_idCreator` int(11) NOT NULL,
   `comm_idUserSquare` int(11) NOT NULL,
-  `comm_content` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `comm_content` varchar(100) NOT NULL,
   `comm_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `comments`
---
-
-INSERT INTO `comments` (`comm_id`, `comm_idSquare`, `comm_idCreator`, `comm_idUserSquare`, `comm_content`, `comm_date`) VALUES
-(46, 5, 19, 18, ' Toma tu like!', '2017-05-29 17:34:47'),
-(45, 3, 19, 19, ' Me gusta tu comentario, toma tu like!', '2017-05-29 17:34:30');
 
 -- --------------------------------------------------------
 
@@ -52,7 +44,7 @@ INSERT INTO `comments` (`comm_id`, `comm_idSquare`, `comm_idCreator`, `comm_idUs
 CREATE TABLE `comments_thread` (
   `commth_id` int(11) NOT NULL,
   `commth_commId` int(11) NOT NULL,
-  `commth_content` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `commth_content` varchar(100) NOT NULL,
   `commth_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -63,6 +55,7 @@ CREATE TABLE `comments_thread` (
 --
 
 CREATE TABLE `following` (
+  `foll_id` int(11) NOT NULL,
   `usr_id` int(11) NOT NULL,
   `usr_id_following` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -71,9 +64,10 @@ CREATE TABLE `following` (
 -- Volcado de datos para la tabla `following`
 --
 
-INSERT INTO `following` (`usr_id`, `usr_id_following`) VALUES
-(22, 19),
-(22, 23);
+INSERT INTO `following` (`foll_id`, `usr_id`, `usr_id_following`) VALUES
+(1, 22, 18);
+
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `mensajes`
@@ -119,26 +113,23 @@ CREATE TABLE `square` (
   `sq_squareid` int(11) NOT NULL,
   `sq_createdate` datetime DEFAULT NULL,
   `sq_updatedate` datetime DEFAULT NULL,
-  `sq_userip` varchar(15) DEFAULT NULL,
+  `sq_usersession` varchar(50) DEFAULT NULL,
   `sq_userid` int(11) DEFAULT NULL,
   `sq_csscontent` longtext,
   `sq_htmlcontent` longtext,
   `sq_description` varchar(255) DEFAULT NULL,
   `sq_title` varchar(150) DEFAULT NULL,
   `sq_likes` int(11) DEFAULT NULL,
-  `sq_dislikes` int(11) DEFAULT NULL
+  `sq_dislikes` int(11) DEFAULT NULL,
+  `sq_image` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `square`
 --
 
-INSERT INTO `square` (`sq_squareid`, `sq_createdate`, `sq_updatedate`, `sq_userip`, `sq_userid`, `sq_csscontent`, `sq_htmlcontent`, `sq_description`, `sq_title`, `sq_likes`, `sq_dislikes`) VALUES
-(3, NULL, NULL, NULL, 19, NULL, NULL, NULL, 'El cielo es azúl', NULL, NULL),
-(4, NULL, NULL, NULL, 19, NULL, NULL, NULL, 'Nunca te rindas', NULL, NULL),
-(5, NULL, NULL, NULL, 18, NULL, NULL, NULL, 'Mi mejor square', NULL, NULL),
-(6, NULL, NULL, '', 18, NULL, NULL, 'Descripción poesía 2', 'Poesía 2', NULL, NULL),
-(7, NULL, NULL, NULL, 18, NULL, NULL, NULL, 'Cocina', NULL, NULL);
+INSERT INTO `square` (`sq_squareid`, `sq_createdate`, `sq_updatedate`, `sq_usersession`, `sq_userid`, `sq_csscontent`, `sq_htmlcontent`, `sq_description`, `sq_title`, `sq_likes`, `sq_dislikes`, `sq_image`) VALUES
+(20, '2017-05-30 21:15:00', '2017-05-30 21:15:00', NULL, 18, NULL, NULL, NULL, 'Hola', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -183,7 +174,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`usr_id`, `usr_usuario`, `usr_password`, `usr_es_admin`, `usr_email`, `usr_pais`, `usr_registration_date`, `usr_avatar`) VALUES
 (18, 'oscarval', '$2y$10$QX6GOjy//5zGBrWRlzFo5.0coMZ7sCjcuC3/d7sLjMFnZJcgyoao6', 1, 'oscarval@ucm.es', 'España', '2017-05-29 17:24:42', '../img/avatar/avatar_man.png'),
-(19, 'pablo', '$2y$10$v/aU1D7gpP.CbGmxiCF1QOb11VFCAWyNZncmW.506cSf4Hx7B8peG', 0, 'pablo@ucm.es', 'España', '2017-05-29 17:32:08', '../img/avatar/avatar_none.png');
+(22, 'pablo', '$2y$10$ex2x3rmMb4aM8C3mhwRSouqbGg.Pnoy1fION0S9Vj7L3hp9N0OdrO', 0, 'pablo@ucm.es', 'España', '2017-05-30 23:19:33', '../img/avatar/avatar_man.png');
 
 -- --------------------------------------------------------
 
@@ -227,7 +218,7 @@ CREATE TABLE `vsquareadmin` (
 `sq_squareid` int(11)
 ,`sq_createdate` datetime
 ,`sq_updatedate` datetime
-,`sq_userip` varchar(15)
+,`sq_usersession` varchar(50)
 ,`sq_userid` int(11)
 ,`sq_csscontent` longtext
 ,`sq_htmlcontent` longtext
@@ -251,7 +242,7 @@ CREATE TABLE `vsquaredetails` (
 `sq_squareid` int(11)
 ,`sq_createdate` datetime
 ,`sq_updatedate` datetime
-,`sq_userip` varchar(15)
+,`sq_usersession` varchar(50)
 ,`sq_userid` int(11)
 ,`sq_csscontent` longtext
 ,`sq_htmlcontent` longtext
@@ -275,7 +266,7 @@ CREATE TABLE `vsquareguest` (
 `sq_squareid` int(11)
 ,`sq_createdate` datetime
 ,`sq_updatedate` datetime
-,`sq_userip` varchar(15)
+,`sq_usersession` varchar(50)
 ,`sq_userid` int(11)
 ,`sq_csscontent` longtext
 ,`sq_htmlcontent` longtext
@@ -295,7 +286,7 @@ CREATE TABLE `vsquareuser` (
 `sq_squareid` int(11)
 ,`sq_createdate` datetime
 ,`sq_updatedate` datetime
-,`sq_userip` varchar(15)
+,`sq_usersession` varchar(50)
 ,`sq_userid` int(11)
 ,`sq_csscontent` longtext
 ,`sq_htmlcontent` longtext
@@ -311,6 +302,17 @@ CREATE TABLE `vsquareuser` (
 ,`usr_usuario` varchar(50)
 ,`usr_password` varchar(255)
 ,`usr_es_admin` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vtagscloud`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vtagscloud` (
+`weight` bigint(21)
+,`text` varchar(100)
 );
 
 -- --------------------------------------------------------
@@ -350,7 +352,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vsquareadmin`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vsquareadmin`  AS  select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_userip` AS `sq_userip`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes`,`usuarios`.`usr_id` AS `usr_id`,`usuarios`.`usr_usuario` AS `usr_usuario`,`usuarios`.`usr_password` AS `usr_password`,`usuarios`.`usr_es_admin` AS `usr_es_admin` from (`square` left join `usuarios` on((`square`.`sq_userid` = `usuarios`.`usr_id`))) order by `square`.`sq_createdate` desc ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vsquareadmin`  AS  select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_usersession` AS `sq_usersession`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes`,`usuarios`.`usr_id` AS `usr_id`,`usuarios`.`usr_usuario` AS `usr_usuario`,`usuarios`.`usr_password` AS `usr_password`,`usuarios`.`usr_es_admin` AS `usr_es_admin` from (`square` left join `usuarios` on((`square`.`sq_userid` = `usuarios`.`usr_id`))) order by `square`.`sq_createdate` desc ;
 
 -- --------------------------------------------------------
 
@@ -359,7 +361,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vsquaredetails`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vsquaredetails`  AS  select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_userip` AS `sq_userip`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes`,`usuarios`.`usr_id` AS `usr_id`,`usuarios`.`usr_usuario` AS `usr_usuario`,`usuarios`.`usr_password` AS `usr_password`,`usuarios`.`usr_es_admin` AS `usr_es_admin` from (`square` left join `usuarios` on((`square`.`sq_userid` = `usuarios`.`usr_id`))) where (`square`.`sq_userid` is not null) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vsquaredetails`  AS  select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_usersession` AS `sq_usersession`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes`,`usuarios`.`usr_id` AS `usr_id`,`usuarios`.`usr_usuario` AS `usr_usuario`,`usuarios`.`usr_password` AS `usr_password`,`usuarios`.`usr_es_admin` AS `usr_es_admin` from (`square` left join `usuarios` on((`square`.`sq_userid` = `usuarios`.`usr_id`))) where (`square`.`sq_userid` is not null) ;
 
 -- --------------------------------------------------------
 
@@ -368,7 +370,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vsquareguest`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vsquareguest`  AS  select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_userip` AS `sq_userip`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes` from `square` where isnull(`square`.`sq_userid`) order by `square`.`sq_likes` desc ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vsquareguest`  AS  select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_usersession` AS `sq_usersession`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes` from `square` where isnull(`square`.`sq_userid`) order by `square`.`sq_likes` desc ;
 
 -- --------------------------------------------------------
 
@@ -377,7 +379,16 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vsquareuser`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vsquareuser`  AS  select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_userip` AS `sq_userip`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes`,`vrelatedtagshot`.`retag_relatedtagid` AS `retag_relatedtagid`,`vrelatedtagshot`.`retag_tagid` AS `retag_tagid`,`vrelatedtagshot`.`retag_squareid` AS `retag_squareid`,`vrelatedtagshot`.`count` AS `count`,`usuarios`.`usr_id` AS `usr_id`,`usuarios`.`usr_usuario` AS `usr_usuario`,`usuarios`.`usr_password` AS `usr_password`,`usuarios`.`usr_es_admin` AS `usr_es_admin` from ((`square` left join `vrelatedtagshot` on((`square`.`sq_squareid` = `vrelatedtagshot`.`retag_squareid`))) left join `usuarios` on((`square`.`sq_userid` = `usuarios`.`usr_id`))) order by `vrelatedtagshot`.`count` desc,`square`.`sq_likes` desc ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vsquareuser`  AS  select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_usersession` AS `sq_usersession`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes`,`vrelatedtagshot`.`retag_relatedtagid` AS `retag_relatedtagid`,`vrelatedtagshot`.`retag_tagid` AS `retag_tagid`,`vrelatedtagshot`.`retag_squareid` AS `retag_squareid`,`vrelatedtagshot`.`count` AS `count`,`usuarios`.`usr_id` AS `usr_id`,`usuarios`.`usr_usuario` AS `usr_usuario`,`usuarios`.`usr_password` AS `usr_password`,`usuarios`.`usr_es_admin` AS `usr_es_admin` from ((`square` left join `vrelatedtagshot` on((`square`.`sq_squareid` = `vrelatedtagshot`.`retag_squareid`))) left join `usuarios` on((`square`.`sq_userid` = `usuarios`.`usr_id`))) order by `vrelatedtagshot`.`count` desc,`square`.`sq_likes` desc ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vtagscloud`
+--
+DROP TABLE IF EXISTS `vtagscloud`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vtagscloud`  AS  select count(`relatedtags`.`retag_tagid`) AS `weight`,`tags`.`tag_name` AS `text` from (`relatedtags` left join `tags` on((`relatedtags`.`retag_tagid` = `tags`.`tag_tagid`))) group by `relatedtags`.`retag_tagid` ;
 
 -- --------------------------------------------------------
 
@@ -403,6 +414,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `comments_thread`
   ADD PRIMARY KEY (`commth_id`);
+
+--
+-- Indices de la tabla `following`
+--
+ALTER TABLE `following`
+  ADD PRIMARY KEY (`foll_id`);
 
 --
 -- Indices de la tabla `mensajes`
@@ -451,6 +468,11 @@ ALTER TABLE `comments`
 ALTER TABLE `comments_thread`
   MODIFY `commth_id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `following`
+--
+ALTER TABLE `following`
+  MODIFY `foll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
@@ -459,12 +481,12 @@ ALTER TABLE `mensajes`
 -- AUTO_INCREMENT de la tabla `relatedtags`
 --
 ALTER TABLE `relatedtags`
-  MODIFY `retag_relatedtagid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `retag_relatedtagid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `square`
 --
 ALTER TABLE `square`
-  MODIFY `sq_squareid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `sq_squareid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `tags`
 --
@@ -474,7 +496,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- Restricciones para tablas volcadas
 --
@@ -483,8 +505,8 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `relatedtags`
 --
 ALTER TABLE `relatedtags`
-  ADD CONSTRAINT `tag` FOREIGN KEY (`retag_tagid`) REFERENCES `tags` (`tag_tagid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user` FOREIGN KEY (`retag_squareid`) REFERENCES `usuarios` (`usr_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `square` FOREIGN KEY (`retag_squareid`) REFERENCES `square` (`sq_squareid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tag` FOREIGN KEY (`retag_tagid`) REFERENCES `tags` (`tag_tagid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

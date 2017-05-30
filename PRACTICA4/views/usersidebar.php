@@ -59,13 +59,13 @@ if(isset($_GET["usr_id"])){
     <span> <?php echo $fecha[0]?> </span>
     <h4>Suma de like totales:</h4>
     <?php
-$likes = $daoUser->getUserLikesDislikes($id);
-if($likes >= 0){
-    echo "<span class='like'>".$likes."</span>";
-}else{
-    echo "<span class='dislike'>".$likes."</span>";
-}
-?>
+    $likes = $daoUser->getUserLikesDislikes($id);
+    if($likes >= 0){
+        echo "<span class='like'>".$likes."</span>";
+    }else{
+        echo "<span class='dislike'>".$likes."</span>";
+    }
+    ?>
     <h4>Intereses:</h4>
     <span>Informatica, Artes Marciales, Videojuegos...</span>
     <h4>País:</h4>
