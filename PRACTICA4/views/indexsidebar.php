@@ -1,14 +1,28 @@
 <aside id='sidebar-left'>
 <?php
+include("../controller/Usuarios.php");
+
+$userDao = new Usuarios();
+$userFollowings = null;
+$userDetail = null;
+
+if(isset($_SESSION["id"])){
+    $userFollowings = $userDao->getFollowing($_SESSION["id"]);
+}
+
+
 if(!isset($_SESSION["login"])){
     include("login.php");
 }else{ ?>
     <h3>Seguidos</h3>
             <ul>
-                <li><a href="usuario.html">xuebozhu<div class="imgcontainer"><img src="../img/img_avatar2.png" alt="Avatar" class="avatar"></div></a></li>
-                <li><a href="usuario.html">OscarVal<div class="imgcontainer"><img src="../img/img_avatar2.png" alt="Avatar" class="avatar"></div></a></li>
-                <li><a href="usuario.html">music4u<div class="imgcontainer"><img src="../img/img_avatar2.png" alt="Avatar" class="avatar"></div></a></li>
-                <li><a href="usuario.html">pintura95<div class="imgcontainer"><img src="../img/img_avatar2.png" alt="Avatar" class="avatar"></div></a></li>
+                <?php
+                foreach($userFollowings as $val){?>
+                <?php
+                    $userDetail = $userDao->getUser($val['usr_id_following']);
+                    echo "<li><a href='user.php?usr_id=".$userDetail["usr_id"]."'>".$userDetail["usr_usuario"]."<div class='imgcontainer'><img src=".$userDetail["usr_avatar"]." alt='Avatar' class='avatar'></div></a></li>";
+                }    
+                ?>
             </ul>
 <?php }
 ?>
