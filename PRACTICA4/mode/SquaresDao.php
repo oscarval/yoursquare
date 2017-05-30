@@ -144,8 +144,6 @@ class SquaresDao{
       return $this->dao->getResponse();
     }
 
-
-
 }
 
 ?>

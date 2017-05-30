@@ -36,7 +36,15 @@ class UsuariosDao{
       return null;
   }
 
+    public function getUserLikesDislikes($id_user){
+        $this->dao->select("select sum(sq_likes) from square" ,"sq_userid=$id_user");
+        $likes = $this->dao->getResponse();
 
+        $this->dao->select("select sum(sq_dislikes) from square" ,"sq_userid=$id_user");
+        $dislikes = $this->dao->getResponse();
+
+        return $likes - $dislikes;
+    }
 
 }
 

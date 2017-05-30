@@ -58,8 +58,14 @@ if(isset($_GET["usr_id"])){
     <h4>Miembro desde:</h4>
     <span> <?php echo $fecha[0]?> </span>
     <h4>Suma de like totales:</h4>
-    <span class='like'>230</span>
-    <span class='dislike'></span><!-- Si la puntuación fuese negativa se pondria en rojo -->
+    <?php
+$likes = $daoUser->getUserLikesDislikes($id);
+if($likes >= 0){
+    echo "<span class='like'>".$likes."</span>";
+}else{
+    echo "<span class='dislike'>".$likes."</span>";
+}
+?>
     <h4>Intereses:</h4>
     <span>Informatica, Artes Marciales, Videojuegos...</span>
     <h4>País:</h4>
