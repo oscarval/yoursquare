@@ -1,23 +1,18 @@
 function like(id){
-    var url = "likes.php?id=" + id + "?mode=like";
-    $.get(url,changeLike());
+    var url = "likes.php";
+    $.get(url,{"id": id, "mode" : "like"},changeLike());
 }
 
-function changeLike(status, data){
-    if(status === "success"){
-        $('.like').text($('.like').value() + 1);
-    }
+function changeLike(data,status){
+        $('.like').html(Number($('.like').text()) + 1);
 }
 
 function dislike(id){
-    var url = "likes.php?id=" + id + "?mode=dislike";
-    $.get(url,changeDislike());
+    var url = "likes.php";
+    $.get(url,{"id": id, "mode" : "dislike"},changeDislike());
 }
 
-function changeDislike(status){
-    if(status === "success"){
-        $('.dislike').text($('.dislike').value() + 1);
-    }else{
-        alert("Ha habido un error en el servidor!");
-    }
+function changeDislike(){
+
+        $('.dislike').html(Number($('.dislike').text()) + 1);
 }
