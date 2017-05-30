@@ -95,6 +95,12 @@ input{
   margin: 0 10px;
 }
 
+#tags_container{
+  background-color : red !important;
+  width: 180px;
+  height: 200px;
+}
+
 /* CONTENT */
 #sidebar-left{
   width:190px;

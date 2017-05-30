@@ -1,5 +1,5 @@
 <?php
-include("MySQLFunctions.php");
+include_once("MySQLFunctions.php");
 class TagsDao{
   private $dao;
 
@@ -10,7 +10,7 @@ class TagsDao{
   ** @squareId int, squareid
   */
   public function getTagsBySquareId($squareId){
-    $sql->select("select * from vTagsSquare","where sq_quareid=$squareId");
+    $this->dao->select("select * from vTagsSquare","where sq_quareid=$squareId");
     $resp = $this->dao->getResponse();
     if($resp["status"] && count($resp["data"]) > 0){
       return $resp["data"];
@@ -35,16 +35,16 @@ class TagsDao{
   */
   public function createTags($tag,$squareid){
       $ar = [
-        "tag_name" = $tag
-      ]
+        "tag_name" => $tag
+      ];
       $this->dao->insert("Tags",$ar);
       $resp = $this->dao->getResponse();
       // si todo ok insertamos en la relaetetags
       if($resp["status"]){
           $ar = [
-            "retag_tagid" = $resp["idinsert"],
-            "retag_squareid" = $squareid
-          ]
+            "retag_tagid" => $resp["idinsert"],
+            "retag_squareid" => $squareid
+          ];
           $this->dao->insert("RelatedTags",$ar);
           $resp = $this->dao->getResponse();
           if($resp["status"]){
@@ -52,6 +52,17 @@ class TagsDao{
           }
       }
       return null;
+  }
+
+  /* Obtenemos los tags para el cloud
+  */
+  public function getTagsCloud($limit){
+    $this->dao->select("select * from vTagsCloud",false,"limit 0,$limit");
+    $resp = $this->dao->getResponse();
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
+    }
+    return null;
   }
 
 }

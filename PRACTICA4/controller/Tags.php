@@ -18,6 +18,10 @@ class Tags{
     public function insertTags($tags,$squareid){
        return $this->dao->createTags($tags,$squareid);
     }
+    // obtener tags para la nube
+    public function getTagsCloud($limit){
+       return $this->dao->getTagsCloud($limit);
+    }
 
 }
 
