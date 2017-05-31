@@ -15,8 +15,10 @@ $titulo = $squareDetail["sq_title"];
 $desc = $squareDetail["sq_description"];
 $tags = $tagsDao->getTagsSquare($squareDetail["sq_squareid"]);
 $tagsText = "";
-foreach ($tags as $key) {
-  $tagsText  .= $key["tag_name"].",";
+if($tags){
+  foreach ($tags as $key) {
+    $tagsText  .= $key["tag_name"].",";
+  }
 }
 //$html = "<a href='square_detail.php?id=%s'><div class='item'>%s usuario</div></a>";
 ?>
@@ -51,7 +53,7 @@ foreach ($tags as $key) {
             echo "<img src='../img/dislike-flat.png' alt='Like' title='Mensaje' onclick = 'dislike(".$squareDetail["sq_squareid"].");'/>";
             echo "<span class='dislike'>".$dislikes."</span>";
             if(isset($_SESSION["login"]) && $squareDetail['sq_userid'] == $_SESSION["id"]){
-              echo '<span class="editar-square" ><a href="editar_square.php" class="boton-editar-square">Editar Square</a></span>';
+              echo '<span class="editar-square" ><a href="editar_square.php?sq_squareid='.$squareDetail['sq_squareid'].'" class="boton-editar-square">Editar Square</a></span>';
             }
         ?>
     </div>
