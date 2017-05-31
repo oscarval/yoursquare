@@ -10,7 +10,7 @@ class UsuariosDao{
   ** @squareId int, squareid
   */
   public function getFollowing($user_id){
-    $this->dao->select("select usr_id_following from following",false,"where usr_id=$user_id");
+    $this->dao->select("select usr_id_following from following","usr_id=$user_id");
     $resp = $this->dao->getResponse();
     if($resp["status"] && count($resp["data"]) > 0){
       return $resp["data"];
@@ -28,7 +28,7 @@ class UsuariosDao{
   /* Obtenemos datos del usuario a partir del id de usuario
   */
   public function getUser($id_user){ //Si mas datos como correo, intereses, avatar, añadirlo a esta función
-      $this->dao->select("select *from usuarios",false,"where usr_id=$id_user");
+      $this->dao->select("select *from usuarios","usr_id=$id_user");
       $resp = $this->dao->getResponse();
       if($resp["status"] && count($resp["data"]) > 0){
         return $resp["data"][0];
@@ -50,9 +50,9 @@ class UsuariosDao{
           }
           return 0;
         }
-     return 0;   
+     return 0;
     }
-  
+
 }
 
 ?>
