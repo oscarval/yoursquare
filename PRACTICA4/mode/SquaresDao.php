@@ -129,7 +129,8 @@ class SquaresDao{
     public function squareSearch($keyword,$start,$end){
 
         //echo "select usr_usuario from usuarios" . 'usr_usuario like %' . $keyword . '%' . "";
-        $this->dao->select("select * from square","sq_title like '%". $keyword . "%'","");
+        // $this->dao->select("select * from square","sq_title like '%". $keyword . "%'","");
+        $this->dao->select("select * from vSquareSearch","sq_title like '%". $keyword . "%' or tag_name like '%". $keyword . "%' ","group by sq_squareid");
         $resp =  $this->dao->getResponse();
 
         if($resp["status"] && count($resp["data"]) > 0){

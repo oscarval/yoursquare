@@ -2,6 +2,9 @@
 include_once("../controller/Tags.php");
 $sq = new Tags();
 $tags = $sq->getTagsCloud(10);
+for($i=0;$i<count($tags);$i++){
+  $tags[$i]["link"] = "busqueda.php?search-field=".$tags[$i]["text"];
+}
 $listTags = json_encode($tags);
 ?>
 <aside id='sidebar-left'>

@@ -54,3 +54,22 @@
 #sidebar-left .custom-file-upload:hover{
     background-color: #ccc;
 }
+.title-square-details{
+  margin: 5px;
+  text-align: center;
+}
+.des-square-detail{
+  border-bottom: 1px solid grey;
+  width: 100%;
+}
+.editar-square{
+    float: right;
+    border: 1px solid#6495ED;
+    background-color: #6495ED;
+    color: #B3E5FC;
+    padding: 5px;
+    border-radius: 5px;
+}
+.boton-editar-square{
+  color: #B3E5FC;
+}

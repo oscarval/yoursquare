@@ -10,7 +10,7 @@ class TagsDao{
   ** @squareId int, squareid
   */
   public function getTagsBySquareId($squareId){
-    $this->dao->select("select * from vTagsSquare","sq_quareid=$squareId");
+    $this->dao->select("select * from vTagsSquare","sq_squareid=$squareId");
     $resp = $this->dao->getResponse();
     if($resp["status"] && count($resp["data"]) > 0){
       return $resp["data"];
