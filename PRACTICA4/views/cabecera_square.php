@@ -14,6 +14,7 @@
   <link href="css/style_AV.css" rel="stylesheet" type="text/css" />
   <link href="css/medium.css" rel="stylesheet" type="text/css" />
   <link href="css/dragula.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet" type="text/css" />
   <script src="js/lib/rangy-core.js"></script>
   <script src="js/lib/rangy-classapplier.js"></script>
   <script src="js/lib/undo.js"></script>
@@ -23,8 +24,10 @@
   <script src="js/create_square.js" type="text/javascript"></script>
   <script src='js/lib/dragula-3.7.2.min.js'></script>
   <script src='js/lib/htmlToCanvas.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
 
   <script src="js/herramientas.js" type="text/javascript"></script>
+  <script src="js/tags.js" type="text/javascript"></script>
 </head>
 <!-- Cabecera  -->
 <header id='header'>

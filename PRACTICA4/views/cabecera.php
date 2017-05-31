@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();
 include('../controller/Avatar.php');
 $Avatar = new Avatar();
 ?>
@@ -33,7 +33,7 @@ $Avatar = new Avatar();
       </div>
 <?php
 if(isset($_SESSION["login"])){
-    $pathAvatar = $Avatar->getAvatar($_SESSION["id"])['usr_avatar']; 
+    $pathAvatar = $Avatar->getAvatar($_SESSION["id"])['usr_avatar'];
     echo "<div class='usuario'>
             <a href='BandejaEntrada.php'><span class='icon'>📭</span></a>
             <a href='user.php?usr_id=".$_SESSION["id"]."'><img class='icon' src='" . $pathAvatar ."'></img></a>

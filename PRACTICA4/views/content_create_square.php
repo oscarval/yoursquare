@@ -1,4 +1,16 @@
-	<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
+<?php
+// para obtener tags
+include_once("../controller/Tags.php");
+$t = new Tags();
+$tags = $t->getTags("%");
+$listTags = "[";
+foreach($tags as $item){
+  $listTags .= "'".$item["tag_name"]."',";
+}
+$listTags .= "]";
+?>
+<script>var tagsList = <?php echo $listTags;?>;</script>
+  <!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
     <!-- <main id="main-withoutsidebar-right"> -->
     <?php if(isset($_SESSION["login"]) &&  $_SESSION["login"] === true):?>
       <main id="main">
@@ -22,6 +34,9 @@
           <p>Descripcíon:</p>
           <textarea id="descripcion-square" rows="4" placeholder="Pon una breve descripción a tu Square" ></textarea>
         </div>
+        <div>
+          <p>¡Puedes insertar Tags par tu Square!</p>
+          <input type="text" class="form-control" id="tags" />
   	  </section>
     </main>
 	<!-- Fin Main Content -->

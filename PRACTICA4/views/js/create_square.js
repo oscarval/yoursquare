@@ -75,11 +75,16 @@ function dragMoveListener (event) {
 window.dragMoveListener = dragMoveListener;
 
 
-function updateSquare(dataSquare){
+function updateSquare(dataSquare,save){
   if(typeof dataSquare === "object"){
     var titulo = $("#titulo-square").val();
     var desc = $("#descripcion-square").val();
-    var objUpdate = {"data": dataSquare,"titulo":titulo,"descripcion":desc};
+    if(!save){
+      var objUpdate = {"data": dataSquare,"titulo":titulo,"descripcion":desc};
+    }else{
+      var tags = $("#tags").val();
+      var objUpdate = {"data": dataSquare,"titulo":titulo,"descripcion":desc,"tags":tags,"img":""};
+    }
     $.ajax({
       url: "../controller/UpdateSquare.php",
       type: "POST",
@@ -99,8 +104,9 @@ function SaveSquare(userid,squareid){
   var obJson = {"sq_htmlcontent":textHtml};
   var titulo = $("#titulo-square").val();
   var desc = $("#descripcion-square").val();
+  var tags = $("#tags").val();
   var img = "square_"+squareid+".png";
-  var objUpdate = {"data": obJson,"titulo":titulo,"descripcion":desc,"img":img};
+  var objUpdate = {"data": obJson,"titulo":titulo,"descripcion":desc,"img":img,"tags":tags};
   $.ajax({
     url: "../controller/UpdateSquare.php",
     type: "POST",
@@ -134,6 +140,10 @@ function SaveSquare(userid,squareid){
 }
 
 function SaveSquareSession(squareid){
+  var textHtml = $("#wrapper-square")[0].outerHTML;
+  var obJson = {"sq_htmlcontent":textHtml};
+  updateSquare(obJson,true);
+  // var tags = $("#tags").val();
   // guardamos la foto del square
   html2canvas(document.getElementById("wrapper-square"), {
       onrendered: function(canvas) {

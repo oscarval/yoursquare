@@ -1,7 +1,8 @@
 <?php
     include("cabecera.php");
+    include("indexsidebar.php");
 ?>
- <main id='main-withoutsidebar'>
+ <main id='main-withoutsidebar-right'>
     <!-- <main id='main'> -->
 	  <section class='intro'>
 		<h1>¿Que es YourSquare? </h1>

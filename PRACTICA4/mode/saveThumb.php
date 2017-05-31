@@ -21,7 +21,7 @@ function resize($orig_file,$thumb_file,$prop){
 	// image height
 	$sh = $x[1];
 
-	if ($percent > 0) {
+	if (isset($percent) && $percent > 0) {
 		// calculate resized height and width if percent is defined
 		$percent = $percent * 0.01;
 		$w = $sw * $percent;

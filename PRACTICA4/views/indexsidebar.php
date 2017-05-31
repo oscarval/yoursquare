@@ -20,7 +20,7 @@ $listTags = json_encode($tags);
   if(!isset($_SESSION["login"])){
     include("login.php");
   }else{ ?>
-    
+
     <ul>
       <?php
       if ($userFollowings!= null){

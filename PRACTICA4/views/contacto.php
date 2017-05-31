@@ -22,9 +22,10 @@ if(count($_REQUEST) > 0 && ($_REQUEST["nombre"] || $_REQUEST["email"] || $_REQUE
     $mensaje = "Rellene todos los datos por favor";
   }
 }
+include("indexsidebar.php");
 ?>
 <!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
-  <main id="main-withoutsidebar">
+  <main id="main-withoutsidebar-right">
   <!-- <main id="main"> -->
   <section class="intro">
     <div>
