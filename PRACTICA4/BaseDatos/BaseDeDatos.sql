@@ -32,7 +32,7 @@ CREATE TABLE `comments` (
   `comm_content` varchar(100) NOT NULL,
   `comm_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`comm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (45,3,19,19,' Me gusta tu comentario, toma tu like!','2017-05-29 17:34:30'),(46,5,19,18,' Toma tu like!','2017-05-29 17:34:47');
+INSERT INTO `comments` VALUES (45,3,19,19,' Me gusta tu comentario, toma tu like!','2017-05-29 17:34:30'),(46,5,19,18,' Toma tu like!','2017-05-29 17:34:47'),(53,20,18,18,'Primer comentario','2017-05-31 02:58:09'),(54,20,18,18,'Segundo comentario','2017-05-31 02:58:17');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,11 +53,11 @@ DROP TABLE IF EXISTS `comments_thread`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comments_thread` (
-  `commth_id` int(11) NOT NULL AUTO_INCREMENT,
+  `commth_id` int(11) NOT NULL,
+  `commth_usr_id` int(11) NOT NULL,
   `commth_commId` int(11) NOT NULL,
   `commth_content` varchar(100) NOT NULL,
-  `commth_date` datetime NOT NULL,
-  PRIMARY KEY (`commth_id`)
+  `commth_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -67,6 +67,7 @@ CREATE TABLE `comments_thread` (
 
 LOCK TABLES `comments_thread` WRITE;
 /*!40000 ALTER TABLE `comments_thread` DISABLE KEYS */;
+INSERT INTO `comments_thread` VALUES (18,22,53,'Primera respuesta','2017-05-31 02:58:38'),(19,22,54,'2 respuesta','2017-05-31 02:58:44'),(20,18,53,' segunda respuesta','2017-05-31 02:59:04'),(21,18,54,'3 respuesta','2017-05-31 02:59:14');
 /*!40000 ALTER TABLE `comments_thread` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -608,4 +609,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-01  1:05:02
+-- Dump completed on 2017-06-01  1:07:56
