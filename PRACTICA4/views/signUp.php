@@ -2,8 +2,6 @@
 // página para el registro de un nuevo usuario
 include("cabecera.php");
 include("indexsidebar.php");
-
-echo password_hash("jorge.1992" . "square", PASSWORD_DEFAULT);
 ?>
 
 
