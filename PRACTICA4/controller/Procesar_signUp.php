@@ -12,7 +12,7 @@ if ($insertUser = $signUp->isSignUp()){
       $data["sq_userid"] = $insertUser["idinsert"];
       $data["sq_updatedate"] = date("Y-m-d H:i:s");
       $data["sq_usersession"] = null;
-      $data["sq_image"] = "thumb_square_".$_SESSION["sq_squareid"].".png";
+      $data["sq_image"] = "square_".$_SESSION["sq_squareid"].".png";
       $sq->updateSquareDetails($_SESSION["sq_squareid"],$data);
       unset($_SESSION["sq_squareid"]);
     }
