@@ -15,11 +15,11 @@ class Comments{
   		
   	}
 
-  	public function insertCommentOfComment($idComment, $content){
-  		$result = $this->dao->insertCommentOfComment($idSquare, $idCreator, $idUserSquare, $content);
+  	public function insertCommentOfComment($id_user, $idComment, $content){
+  		$result =  $this->dao->insertCommentOfComment($id_user, $idComment, $content);
 
   		if($result['status']){
-  			return $result;
+  			return true;
   		}
   		else
   			return false;
@@ -32,19 +32,19 @@ class Comments{
   	}
 
     public function deleteComment($comm_id){
-      echo $comm_id;
       return $this->dao->deleteComment($comm_id);
     }
 
-  	public function getComentsofComent($idSquare){
-
-  		$result = $this->dao->getComentsofComent($idSquare);
-
-  		if($result["status"] && count($result["data"]) > 0){
-	    	return $result["data"];
-	    }else{
-	    	return false;
-	    }
+  	public function getCommentsByComment($comm_id){
+      return $this->dao->getCommentsByComment($comm_id);
   	}
+
+    public function deleteRespuesta($commth_id){
+      return $this->dao->deleteRespuesta($commth_id);
+    }
+
+     public function deleteRespuestasByComment($commth_commId){
+      return $this->dao->deleteRespuestasByComment($commth_commId);
+     }
 }
 ?>

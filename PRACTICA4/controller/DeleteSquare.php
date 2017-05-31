@@ -5,10 +5,10 @@ include_once("../controller/Usuarios.php");
 
 $sq_squareid = $_GET['sq_squareid'];
 $dao = new Squares();
-$userDao = new Usuarios();
-$mensaje = new Mensajes();
+
 
 $dao->deleteSquare($sq_squareid);
+
 
 /*$square = $dao->getSquareDetail($sq_squareid); 
 $user = $userDao->getUser($square['sq_userid']);

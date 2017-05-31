@@ -35,9 +35,10 @@ class CommentsDao{
   	}
 
   	//Insertar un comentario del comentario $idCommment
-  	public function insertCommentOfComment($idComment, $content){
+  	public function insertCommentOfComment($id_user, $idComment, $content){
   		$data = [
             "commth_commId" => $idComment,
+            "commth_usr_id" => $id_user,
             "commth_content" => $content,
             ];
 		    $this->dao->insert("comments_thread",$data);
@@ -62,12 +63,16 @@ class CommentsDao{
 
   	// Obtiene todos la linea de comentario de un comentario
 
-  	public function getComentsofComent($idComment){
+    public function getCommentsByComment($comm_id){
 
-  		$this->dao->select("select * comments_thread","commth_commId = $idComment");
-  		return $this->dao->getResponse();
-  		
-  	}
+      $this->dao->select("select * from comments_thread","commth_commId = $comm_id");
+      $result = $this->dao->getResponse();
+        if($result["status"] && count($result["data"]) > 0){
+          return $result["data"];
+        }else{
+          return false;
+        }
+    }
 
     //Elimina un comentario con $comm_id
 
@@ -77,8 +82,22 @@ class CommentsDao{
       return $this->dao->getResponse();
 
      }
-  
 
+     //Elimina una respuesta de comentario con id_respuesta
+
+      public function deleteRespuesta($commth_id){
+        
+        $this->dao->delete("delete from comments_thread","commth_id=$commth_id");
+        return $this->dao->getResponse();
+      }
+
+    //Elimina todos los squares de un comentario
+
+      public function deleteRespuestasByComment($commth_commId){
+        
+        $this->dao->delete("delete from comments_thread","commth_commId=$commth_commId");
+        return $this->dao->getResponse();
+      }
 }
 
 ?>

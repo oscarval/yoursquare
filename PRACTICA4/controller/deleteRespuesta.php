@@ -1,14 +1,13 @@
 <?php
 include_once('Comments.php');
 
-$comm_id = $_GET['comm_id'];
+$commth_id = $_GET['commth_id'];
 
 $dao = new Comments();
 
-$result = $dao->deleteComment($comm_id);
-$result2 = $dao->deleteRespuestasByComment($comm_id);
+$result = $dao->deleteRespuesta($commth_id);
 
-if (!$result || !$result2)
+if (!$result)
 	echo "Error. El comentario no se ha borrado correctamente";
 
 $url = $_SERVER['HTTP_REFERER'];

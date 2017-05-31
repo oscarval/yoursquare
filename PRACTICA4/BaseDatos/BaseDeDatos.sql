@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2017 a las 21:41:00
+-- Tiempo de generación: 31-05-2017 a las 01:02:12
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -35,6 +35,14 @@ CREATE TABLE `comments` (
   `comm_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `comments`
+--
+
+INSERT INTO `comments` (`comm_id`, `comm_idSquare`, `comm_idCreator`, `comm_idUserSquare`, `comm_content`, `comm_date`) VALUES
+(53, 20, 18, 18, 'Primer comentario', '2017-05-31 02:58:09'),
+(54, 20, 18, 18, 'Segundo comentario', '2017-05-31 02:58:17');
+
 -- --------------------------------------------------------
 
 --
@@ -43,10 +51,21 @@ CREATE TABLE `comments` (
 
 CREATE TABLE `comments_thread` (
   `commth_id` int(11) NOT NULL,
+  `commth_usr_id` int(11) NOT NULL,
   `commth_commId` int(11) NOT NULL,
   `commth_content` varchar(100) NOT NULL,
-  `commth_date` datetime NOT NULL
+  `commth_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `comments_thread`
+--
+
+INSERT INTO `comments_thread` (`commth_id`, `commth_usr_id`, `commth_commId`, `commth_content`, `commth_date`) VALUES
+(18, 22, 53, 'Primera respuesta', '2017-05-31 02:58:38'),
+(19, 22, 54, '2 respuesta', '2017-05-31 02:58:44'),
+(20, 18, 53, ' segunda respuesta', '2017-05-31 02:59:04'),
+(21, 18, 54, '3 respuesta', '2017-05-31 02:59:14');
 
 -- --------------------------------------------------------
 
@@ -129,7 +148,9 @@ CREATE TABLE `square` (
 --
 
 INSERT INTO `square` (`sq_squareid`, `sq_createdate`, `sq_updatedate`, `sq_usersession`, `sq_userid`, `sq_csscontent`, `sq_htmlcontent`, `sq_description`, `sq_title`, `sq_likes`, `sq_dislikes`, `sq_image`) VALUES
-(20, '2017-05-30 21:15:00', '2017-05-30 21:15:00', NULL, 18, NULL, NULL, NULL, 'Hola', 1, NULL, NULL);
+(20, '2017-05-30 21:15:00', '2017-05-30 21:15:00', NULL, 18, NULL, NULL, NULL, 'Hola', 1, NULL, NULL),
+(21, '2017-05-30 21:44:10', '2017-05-30 21:44:10', NULL, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(22, '2017-05-30 22:08:57', '2017-05-30 22:08:57', 'fm93lij7eef6o35qs459ltnlb3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -174,7 +195,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`usr_id`, `usr_usuario`, `usr_password`, `usr_es_admin`, `usr_email`, `usr_pais`, `usr_registration_date`, `usr_avatar`) VALUES
 (18, 'oscarval', '$2y$10$QX6GOjy//5zGBrWRlzFo5.0coMZ7sCjcuC3/d7sLjMFnZJcgyoao6', 1, 'oscarval@ucm.es', 'España', '2017-05-29 17:24:42', '../img/avatar/avatar_man.png'),
-(22, 'pablo', '$2y$10$ex2x3rmMb4aM8C3mhwRSouqbGg.Pnoy1fION0S9Vj7L3hp9N0OdrO', 0, 'pablo@ucm.es', 'España', '2017-05-30 23:19:33', '../img/avatar/avatar_man.png');
+(22, 'pablo', '$2y$10$ex2x3rmMb4aM8C3mhwRSouqbGg.Pnoy1fION0S9Vj7L3hp9N0OdrO', 0, 'pablo@ucm.es', 'España', '2017-05-30 23:19:33', '../img/avatar/avatar_woman.png');
 
 -- --------------------------------------------------------
 
@@ -461,12 +482,12 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT de la tabla `comments_thread`
 --
 ALTER TABLE `comments_thread`
-  MODIFY `commth_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `commth_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT de la tabla `following`
 --
@@ -486,7 +507,7 @@ ALTER TABLE `relatedtags`
 -- AUTO_INCREMENT de la tabla `square`
 --
 ALTER TABLE `square`
-  MODIFY `sq_squareid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `sq_squareid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `tags`
 --
