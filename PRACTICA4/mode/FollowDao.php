@@ -38,6 +38,15 @@ class FollowDao{
       return $this->dao->getResponse();
 
      }
+	
+     public function isFollowed($idUser, $idUserFollowing){
+        $this->dao->delete("select from following","usr_id=$idUser and usr_id_following=$idUserFollowing");
+        if(isset($result['status']) && $result['status']){
+            return false;
+        }
+        else
+            return true;
+     }
 }
 
 ?>
