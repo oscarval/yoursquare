@@ -81,8 +81,6 @@ class MensajesDao{
             "men_tipo" => "salida"
           ];
           $this->dao->insert("Mensajes",$dataReceptor);
-          //$sql->insert("Mensajes",$dataEmisor);
-          var_dump($dataReceptor);
           return true;
         }else{
           return false;
