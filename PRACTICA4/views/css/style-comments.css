@@ -28,11 +28,11 @@
 	margin-top: 10px;
 }
 
-#lista_comentarios #comentario{
+#lista_comentarios div[id^='comentario']{
 	padding-bottom: 60px;
 }
 
-#lista_comentarios > #comentario > a > img{
+#lista_comentarios > div[id^='comentario'] > a > img{
 	width: 50px;
 	float: left;
 	border-radius: 50px;
@@ -40,7 +40,7 @@
 	margin-top: 37px;
 }
 
-#lista_comentarios > #comentario > p{
+#lista_comentarios > div[id^='comentario'] > p{
 	margin-bottom: 1px;
 	font-size: 14px;
 	font-weight: bold;
@@ -48,23 +48,23 @@
 	margin-bottom: 5px;
 }
 
-#lista_comentarios > #comentario > p > a{
+#lista_comentarios > div[id^='comentario'] > p > a{
 	text-decoration: none;
 }
 
-#lista_comentarios > #comentario > p > a > img{
+#lista_comentarios > div[id^='comentario'] > p > a > img{
 	margin-left: 10px;
 	width: 10px;
 	margin-top: 5px;
 }
-#lista_comentarios > #comentario > p > span{
+#lista_comentarios > div[id^='comentario'] > p > span{
 	font-weight: normal;
 	font-style: italic;
 	font-size: 12px;
 }
 
 
-#lista_comentarios > #comentario > #contentenido_comentario{
+#lista_comentarios > div[id^='comentario'] > #contentenido_comentario{
 	float: left;
 	margin-top: 0px;
 	padding-top: 0px;
@@ -75,7 +75,7 @@
 	margin-bottom: 5px;
 }
 
-#lista_comentarios > #comentario > #contentenido_comentario > p{
+#lista_comentarios > div[id^='comentario'] > #contentenido_comentario > p{
 	font-size: 12px;
 	padding-left: 10px;
 	margin-top: 5px;
@@ -131,7 +131,7 @@
 }
 
 
-#nueva_respuesta #button_comment, #button_respuestas{
+#nueva_respuesta #button_comment, .mostrar_comentarios{
 	float: right;
 
 }
@@ -187,7 +187,7 @@
 
 
 
-#respuestas_comentario > #lista_respuestas > #contentenido_respuesta{
+#respuestas_comentario > #lista_respuestas > #contenido_respuesta{
 
 	float: left;
 	margin-top: 0px;
@@ -200,7 +200,7 @@
 	
 }
 
-#respuestas_comentario > #lista_respuestas > #contentenido_respuesta > p{
+#respuestas_comentario > #lista_respuestas > #contenido_respuesta > p{
 
 	font-size: 12px;
 	padding-left: 10px;

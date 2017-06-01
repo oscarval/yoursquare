@@ -11,6 +11,8 @@ $commentsDao = new Comments();
 
 	?>
 	<link href="css/style-comments.css" rel="stylesheet" type="text/css" />
+	<script src="js/lib/jquery-3.2.1.min.js"></script>
+	<script src="js/comments.js"></script>
 
 	<p><strong>Comentarios • </strong><span><?php echo (empty($listComents)) ? "0" : count($listComents);?></span></p>
 	<?php
@@ -41,9 +43,10 @@ $commentsDao = new Comments();
 		<?php 
 		if (count($listComents)> 0 && $listComents != false){
 			foreach ($listComents as $comment ) {
+				$posicion = array_search( $comment, $listComents );
 				$userofComment = $userDao->getUser($comment['comm_idCreator']);
 		?>
-				<div id="comentario">
+				<div id="comentario_<?php echo $posicion?>">
 					<a href="<?php echo 'user.php?usr_id='.$userofComment['usr_id']?>"><img src="<?php echo $userofComment['usr_avatar']?>"/></a>
 					
 					<p><?php echo "<a href='user.php?usr_id=". $userofComment['usr_id'] ."'>" .$userofComment['usr_usuario'] ."</a>" ?> • <span><?php echo $comment['comm_date']?></span>
@@ -64,42 +67,48 @@ $commentsDao = new Comments();
 				</div>
 				
 				<div>
-			    	<input  id="button_respuestas" type="submit" value="Ver respuestas" name="submit" class="custom-file-upload">
+			    	<input  id="<?php echo $posicion?>" type="submit" value="Ver respuestas" class="mostrar_comentarios">
 				</div>
 				<!-- Lista de respuestas de un comentario-->
 				<?php
 				$commentsByComment = $commentsDao->getCommentsByComment($comment['comm_id']);
 				//var_dump($commentsByComment);
-				if ($commentsByComment != null){
-					foreach ($commentsByComment as $respuesta) {
-						$userRespuesta = $userDao->getUser($respuesta['commth_usr_id']);
-					?>
-						<div id="respuestas_comentario">
-							<div id="lista_respuestas">
-								<a href="<?php echo 'user.php?usr_id='.$userRespuesta['usr_id']?>"><img src="<?php echo $userRespuesta['usr_avatar']?>"/></a>
-								<p><?php echo "<a href='user.php?usr_id=". $userRespuesta['usr_id'] ."'>" .$userRespuesta['usr_usuario'] ."</a>" ?> • <span><?php echo $respuesta['commth_date']?></span>
-								<?php
-								if (isset($_SESSION["login"])  && isset($_SESSION["id"])){
-									if($_SESSION["login"] === true && $_SESSION["isAdmin"] == "1" || ($respuesta["commth_usr_id"] === $_SESSION["id"]) ){
-										$deleteComment = "../controller/deleteRespuesta.php?commth_id=" . $respuesta["commth_id"];
-										?>
-										<a href=<?php echo '"'.$deleteComment .'"'?>><img src="../img/eliminar.png"/></a>
-									<?php
-									}
-								}
-								?>
-								</p>
-								<div id="contentenido_respuesta">
-									<p><?php echo $respuesta['commth_content']?></p>
-								</div>
-							</div>
-							<!-- Respuestas de comentario -->
-						</div>
-					<?php
-					}
-				}
 				?>
-				<?php
+				<!-- Inicio div que muestra/oculta todas las respuestas-->
+				<div id="cuadro_respuestas_<?php echo $posicion?>">
+					<?php
+					if ($commentsByComment != null){
+
+						foreach ($commentsByComment as $respuesta) {
+							
+							$userRespuesta = $userDao->getUser($respuesta['commth_usr_id']);
+						?>
+							<div id="respuestas_comentario">
+								<div id="lista_respuestas">
+									<a href="<?php echo 'user.php?usr_id='.$userRespuesta['usr_id']?>"><img src="<?php echo $userRespuesta['usr_avatar']?>"/></a>
+									<p><?php echo "<a href='user.php?usr_id=". $userRespuesta['usr_id'] ."'>" .$userRespuesta['usr_usuario'] ."</a>" ?> • <span><?php echo $respuesta['commth_date']?></span>
+									<?php
+									if (isset($_SESSION["login"])  && isset($_SESSION["id"])){
+										if($_SESSION["login"] === true && $_SESSION["isAdmin"] == "1" || ($respuesta["commth_usr_id"] === $_SESSION["id"]) ){
+											$deleteComment = "../controller/deleteRespuesta.php?commth_id=" . $respuesta["commth_id"];
+											?>
+											<a href=<?php echo '"'.$deleteComment .'"'?>><img src="../img/eliminar.png"/></a>
+										<?php
+										}
+									}
+									?>
+									</p>
+									<div id="contenido_respuesta">
+										<p><?php echo $respuesta['commth_content']?></p>
+									</div>
+								</div>
+								<!-- Respuestas de comentario -->
+							</div>
+						<?php
+						}
+					}
+					?>
+					<?php
 					if (isset($_SESSION["login"]) && $_SESSION["login"] === true){
 						$user = $userDao->getUser($_SESSION['id']);
 					?>
@@ -120,6 +129,8 @@ $commentsDao = new Comments();
 					<?php 
 					}
 					?>
+				<!-- Fin div que muestra/oculta todas las respuestas-->
+				</div>
 		<!-- Fin del bucle -->
 		<?php 
 			}	 
