@@ -23,7 +23,7 @@ if(isset($_SESSION["login"])){
 		<section class="center-user">
 			<h1 id="toUserSquare" ><?php echo $user['usr_usuario'];?></h1>
 			<?php
-			if($_SESSION["id"] !== $_GET["usr_id"]){ 
+			if($_SESSION["id"] !== $_GET["usr_id"]){
 				echo "<a href='../controller/Procesar_follow.php?id=".$_GET["usr_id"]."' class='button_follow'> Seguir +</a>";
 			}
 			if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["isAdmin"] == "1" && ($_GET["usr_id"] != $_SESSION["id"])){
@@ -33,13 +33,6 @@ if(isset($_SESSION["login"])){
 			<?php
 			}
 			?>
-		    <span> Ordenar por: </span>
-			<select>
-			  <option value="Mas actual">Mas actual</option>
-			  <option value="Mas antiguo">Mas antiguo</option>
-			    <option value="Mas likes">Mas Likes</option>
-			  <option value="Mas Dislikes">Mas Dislikes</option>
-			</select>
 
 		    <div id="square-list">
 		    	<?php
