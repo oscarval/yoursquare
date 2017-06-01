@@ -32,7 +32,7 @@ CREATE TABLE `comments` (
   `comm_content` varchar(100) NOT NULL,
   `comm_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`comm_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (45,3,19,19,' Me gusta tu comentario, toma tu like!','2017-05-29 17:34:30'),(46,5,19,18,' Toma tu like!','2017-05-29 17:34:47'),(53,20,18,18,'Primer comentario','2017-05-31 02:58:09'),(54,20,18,18,'Segundo comentario','2017-05-31 02:58:17');
+INSERT INTO `comments` VALUES (45,3,19,19,' Me gusta tu comentario, toma tu like!','2017-05-29 17:34:30'),(46,5,19,18,' Toma tu like!','2017-05-29 17:34:47'),(53,20,18,18,'Primer comentario','2017-05-31 02:58:09'),(54,20,18,18,'Segundo comentario','2017-05-31 02:58:17'),(55,18,22,22,'comentario 1','2017-06-01 16:07:23');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +67,7 @@ CREATE TABLE `comments_thread` (
 
 LOCK TABLES `comments_thread` WRITE;
 /*!40000 ALTER TABLE `comments_thread` DISABLE KEYS */;
-INSERT INTO `comments_thread` VALUES (18,22,53,'Primera respuesta','2017-05-31 02:58:38'),(19,22,54,'2 respuesta','2017-05-31 02:58:44'),(20,18,53,' segunda respuesta','2017-05-31 02:59:04'),(21,18,54,'3 respuesta','2017-05-31 02:59:14');
+INSERT INTO `comments_thread` VALUES (18,22,53,'Primera respuesta','2017-05-31 02:58:38'),(19,22,54,'2 respuesta','2017-05-31 02:58:44'),(20,18,53,' segunda respuesta','2017-05-31 02:59:04'),(21,18,54,'3 respuesta','2017-05-31 02:59:14'),(0,22,55,'respuesta 1','2017-06-01 16:07:34');
 /*!40000 ALTER TABLE `comments_thread` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +113,7 @@ CREATE TABLE `mensajes` (
   `men_createdate` datetime DEFAULT CURRENT_TIMESTAMP,
   `men_abierto` int(11) DEFAULT NULL,
   PRIMARY KEY (`men_mensajeid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +122,7 @@ CREATE TABLE `mensajes` (
 
 LOCK TABLES `mensajes` WRITE;
 /*!40000 ALTER TABLE `mensajes` DISABLE KEYS */;
-INSERT INTO `mensajes` VALUES (1,2,1,'Prueba1','Prueba1','entrada','2017-05-21 17:03:13',1);
+INSERT INTO `mensajes` VALUES (1,2,1,'Prueba1','Prueba1','entrada','2017-05-21 17:03:13',1),(2,18,22,'asunto 1','mensaje 1','entrada','2017-06-01 16:13:49',1),(3,19,22,'asunto 2','mensaje 2','entrada','2017-06-01 17:40:36',1),(4,19,22,'asunto 3','mensaje 3','entrada','2017-06-01 17:42:27',NULL);
 /*!40000 ALTER TABLE `mensajes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +142,7 @@ CREATE TABLE `relatedtags` (
   KEY `user_idx` (`retag_squareid`),
   CONSTRAINT `square` FOREIGN KEY (`retag_squareid`) REFERENCES `square` (`sq_squareid`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tag` FOREIGN KEY (`retag_tagid`) REFERENCES `tags` (`tag_tagid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +151,7 @@ CREATE TABLE `relatedtags` (
 
 LOCK TABLES `relatedtags` WRITE;
 /*!40000 ALTER TABLE `relatedtags` DISABLE KEYS */;
-INSERT INTO `relatedtags` VALUES (16,1,3),(17,2,3),(18,2,3),(19,3,10),(20,1,13),(21,1,15),(22,1,15),(23,2,16),(24,4,16),(25,3,16),(26,1,15),(27,2,15),(28,5,17),(29,2,17),(30,6,17),(31,7,17);
+INSERT INTO `relatedtags` VALUES (16,1,3),(17,2,3),(18,2,3),(19,3,10),(20,1,13),(21,1,15),(22,1,15),(23,2,16),(24,4,16),(25,3,16),(26,1,15),(27,2,15),(28,5,17),(29,2,17),(30,6,17),(31,7,17),(32,3,18),(33,1,18),(34,8,18),(35,5,18);
 /*!40000 ALTER TABLE `relatedtags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +176,7 @@ CREATE TABLE `square` (
   `sq_dislikes` int(11) DEFAULT NULL,
   `sq_image` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`sq_squareid`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +185,7 @@ CREATE TABLE `square` (
 
 LOCK TABLES `square` WRITE;
 /*!40000 ALTER TABLE `square` DISABLE KEYS */;
-INSERT INTO `square` VALUES (3,NULL,NULL,NULL,19,NULL,NULL,NULL,'El cielo es azúl',1,NULL,NULL),(4,NULL,NULL,NULL,19,NULL,NULL,NULL,'Nunca te rindas',NULL,NULL,NULL),(5,NULL,NULL,NULL,18,NULL,NULL,NULL,'Mi mejor square',NULL,NULL,NULL),(6,NULL,NULL,'',18,NULL,NULL,'Descripción poesía 2','Poesía 2',NULL,NULL,NULL),(7,NULL,NULL,NULL,18,NULL,NULL,NULL,'Cocina',NULL,NULL,NULL),(10,'2017-05-29 22:06:56','2017-05-29 23:16:18','',20,NULL,'<div id=\"wrapper-square\" class=\"bambu\">             <div id=\"dropzone\">              <h2 class=\"draggable Medium Medium-partial\" contenteditable=\"true\" data-x=\"170\" data-y=\"60\" style=\"transform: translate(170px, 60px); color: rgb(86, 41, 255);\">Header 2</h2><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"93\" data-y=\"112\" style=\"width: 259.641px; height: 22px; transform: translate(93px, 112px); font-family: Calibri; font-size: 23px; color: rgb(9, 0, 9);\">Tiene muchisimo mas texto</p></div>         </div>',NULL,NULL,NULL,NULL,NULL),(11,'2017-05-29 23:18:44','2017-05-30 00:34:56','',21,NULL,'<div id=\"wrapper-square\" class=\"mar\">\n            <div id=\"dropzone\">\n\n            <h1 class=\"draggable Medium Medium-partial\" contenteditable=\"true\" data-x=\"180\" data-y=\"29\" style=\"transform: translate(180px, 29px);\">Header 1</h1><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"194\" data-y=\"134\" style=\"width: 142.641px; height: 24px; transform: translate(194px, 134px);\">Un nuevo parrafo</p></div>\n        </div>',NULL,NULL,NULL,NULL,'11'),(12,'2017-05-29 23:54:06','2017-05-30 16:22:51',NULL,18,NULL,'<div id=\"wrapper-square\" class=\"bambu\">             <div id=\"dropzone\">              <h1 class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"112\" data-y=\"42\" style=\"transform: translate(112px, 42px);\">Título square con bambu</h1></div>         </div>','des','titu',NULL,NULL,NULL),(13,'2017-05-30 16:34:35','2017-05-30 17:34:05',NULL,18,NULL,'<div id=\"wrapper-square\" class=\"montanas\">             <div id=\"dropzone\">              <h3 class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"151\" data-y=\"37\" style=\"transform: translate(151px, 37px); color: rgb(255, 42, 210);\">La Cocina y sus virtudes</h3><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"131\" data-y=\"138\" style=\"transform: translate(131px, 138px); font-size: 22px; color: rgb(55, 29, 255);\">Cuando cocinas eres libre</p></div>         </div>','Breve descripción','Cocinar es un placer',NULL,NULL,'square_13.png'),(14,'2017-05-30 17:49:51','2017-05-30 18:30:26',NULL,18,NULL,'<div id=\"wrapper-square\" class=\"bosque\">\n            <div id=\"dropzone\">\n\n            </div>\n        </div>',NULL,NULL,NULL,NULL,NULL),(15,'2017-05-30 18:30:47','2017-06-01 01:49:35','',22,NULL,'<div id=\"wrapper-square\" class=\"bambu\">             <div id=\"dropzone\">              <h1 class=\"draggable Medium Medium-partial\" contenteditable=\"true\" data-x=\"198\" data-y=\"85\" style=\"transform: translate(198px, 85px);\">Header 1</h1><p class=\"draggable Medium Medium-partial\" contenteditable=\"true\" data-x=\"209\" data-y=\"176\" style=\"transform: translate(209px, 176px);\">Parrafo</p></div>         </div>','Descripción editada','Nuevo título editado',NULL,NULL,'square_15.png'),(16,'2017-05-31 22:34:10','2017-05-31 22:35:43',NULL,22,NULL,'<div id=\"wrapper-square\" class=\"mar\">\n            <div id=\"dropzone\">\n\n            <h3 class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"195\" data-y=\"35\" style=\"transform: translate(195px, 35px); font-family: Calibri; color: rgb(55, 255, 138);\">Mí poesía con su título</h3><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"92\" data-y=\"138\" style=\"width: 299.641px; height: 22px; transform: translate(92px, 138px);\">mucho texto dentro del square para poesía</p></div>\n        </div>','descripción poesía','este va de poesía',NULL,NULL,'square_16.png'),(17,'2017-05-31 23:40:58','2017-06-01 01:55:37',NULL,22,NULL,'<div id=\"wrapper-square\" class=\"montanas\">\n            <div id=\"dropzone\">\n\n            <h1 class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"100\" data-y=\"34\" style=\"transform: translate(100px, 34px); color: rgb(243, 255, 32);\">El amanecer en las montañas</h1><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"63\" data-y=\"60\" style=\"width: 408.641px; height: 24px; transform: translate(63px, 60px); color: rgb(255, 88, 74); font-family: Calibri; font-size: 17px;\">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas \"Letraset\", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p></div>\n        </div>','Un breve resumen del paso del alaba en las montañas','Cuando el alba',NULL,NULL,'square_17.png');
+INSERT INTO `square` VALUES (3,NULL,NULL,NULL,19,NULL,NULL,NULL,'El cielo es azúl',1,NULL,NULL),(4,NULL,NULL,NULL,19,NULL,NULL,NULL,'Nunca te rindas',NULL,NULL,NULL),(5,NULL,NULL,NULL,18,NULL,NULL,NULL,'Mi mejor square',8,NULL,NULL),(6,NULL,NULL,'',18,NULL,NULL,'Descripción poesía 2','Poesía 2',NULL,NULL,NULL),(7,NULL,NULL,NULL,18,NULL,NULL,NULL,'Cocina',NULL,NULL,NULL),(10,'2017-05-29 22:06:56','2017-05-29 23:16:18','',20,NULL,'<div id=\"wrapper-square\" class=\"bambu\">             <div id=\"dropzone\">              <h2 class=\"draggable Medium Medium-partial\" contenteditable=\"true\" data-x=\"170\" data-y=\"60\" style=\"transform: translate(170px, 60px); color: rgb(86, 41, 255);\">Header 2</h2><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"93\" data-y=\"112\" style=\"width: 259.641px; height: 22px; transform: translate(93px, 112px); font-family: Calibri; font-size: 23px; color: rgb(9, 0, 9);\">Tiene muchisimo mas texto</p></div>         </div>',NULL,NULL,NULL,NULL,NULL),(11,'2017-05-29 23:18:44','2017-05-30 00:34:56','',21,NULL,'<div id=\"wrapper-square\" class=\"mar\">\n            <div id=\"dropzone\">\n\n            <h1 class=\"draggable Medium Medium-partial\" contenteditable=\"true\" data-x=\"180\" data-y=\"29\" style=\"transform: translate(180px, 29px);\">Header 1</h1><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"194\" data-y=\"134\" style=\"width: 142.641px; height: 24px; transform: translate(194px, 134px);\">Un nuevo parrafo</p></div>\n        </div>',NULL,NULL,NULL,NULL,'11'),(12,'2017-05-29 23:54:06','2017-05-30 16:22:51',NULL,18,NULL,'<div id=\"wrapper-square\" class=\"bambu\">             <div id=\"dropzone\">              <h1 class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"112\" data-y=\"42\" style=\"transform: translate(112px, 42px);\">Título square con bambu</h1></div>         </div>','des','titu',NULL,NULL,NULL),(13,'2017-05-30 16:34:35','2017-05-30 17:34:05',NULL,18,NULL,'<div id=\"wrapper-square\" class=\"montanas\">             <div id=\"dropzone\">              <h3 class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"151\" data-y=\"37\" style=\"transform: translate(151px, 37px); color: rgb(255, 42, 210);\">La Cocina y sus virtudes</h3><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"131\" data-y=\"138\" style=\"transform: translate(131px, 138px); font-size: 22px; color: rgb(55, 29, 255);\">Cuando cocinas eres libre</p></div>         </div>','Breve descripción','Cocinar es un placer',NULL,NULL,'square_13.png'),(14,'2017-05-30 17:49:51','2017-05-30 18:30:26',NULL,18,NULL,'<div id=\"wrapper-square\" class=\"bosque\">\n            <div id=\"dropzone\">\n\n            </div>\n        </div>',NULL,NULL,NULL,NULL,NULL),(15,'2017-05-30 18:30:47','2017-06-01 01:49:35','',22,NULL,'<div id=\"wrapper-square\" class=\"bambu\">             <div id=\"dropzone\">              <h1 class=\"draggable Medium Medium-partial\" contenteditable=\"true\" data-x=\"198\" data-y=\"85\" style=\"transform: translate(198px, 85px);\">Header 1</h1><p class=\"draggable Medium Medium-partial\" contenteditable=\"true\" data-x=\"209\" data-y=\"176\" style=\"transform: translate(209px, 176px);\">Parrafo</p></div>         </div>','Descripción editada','Nuevo título editado',NULL,NULL,'square_15.png'),(16,'2017-05-31 22:34:10','2017-05-31 22:35:43',NULL,22,NULL,'<div id=\"wrapper-square\" class=\"mar\">\n            <div id=\"dropzone\">\n\n            <h3 class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"195\" data-y=\"35\" style=\"transform: translate(195px, 35px); font-family: Calibri; color: rgb(55, 255, 138);\">Mí poesía con su título</h3><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"92\" data-y=\"138\" style=\"width: 299.641px; height: 22px; transform: translate(92px, 138px);\">mucho texto dentro del square para poesía</p></div>\n        </div>','descripción poesía','este va de poesía',NULL,NULL,'square_16.png'),(17,'2017-05-31 23:40:58','2017-06-01 01:55:37',NULL,22,NULL,'<div id=\"wrapper-square\" class=\"montanas\">\n            <div id=\"dropzone\">\n\n            <h1 class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"100\" data-y=\"34\" style=\"transform: translate(100px, 34px); color: rgb(243, 255, 32);\">El amanecer en las montañas</h1><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"63\" data-y=\"60\" style=\"width: 408.641px; height: 24px; transform: translate(63px, 60px); color: rgb(255, 88, 74); font-family: Calibri; font-size: 17px;\">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas \"Letraset\", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p></div>\n        </div>','Un breve resumen del paso del alaba en las montañas','Cuando el alba',NULL,NULL,'square_17.png'),(18,'2017-06-01 15:20:34','2017-06-01 15:24:43',NULL,22,NULL,'<div id=\"wrapper-square\" class=\"bosque\">\n            <div id=\"dropzone\">\n\n            <h1 class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"171\" data-y=\"39\" style=\"transform: translate(171px, 39px); color: rgb(237, 255, 232);\">Me encanta los animales</h1><p class=\"Medium Medium-partial draggable\" contenteditable=\"true\" data-x=\"143\" data-y=\"129\" style=\"transform: translate(143px, 129px); color: rgb(255, 21, 24);\">Animaaaaaaaaaaaaaaaales<p style=\"color: rgb(255, 15, 32);\">cuanto me gustan</p></p></div>\n        </div>','sin descripción','Edición por Xuebo',1,NULL,'square_18.png'),(19,'2017-06-01 16:04:40','2017-06-01 16:30:41','fa8dkb12dai2bqnchq43hapbq1',NULL,NULL,'<div id=\"wrapper-square\" class=\"bosque\">\n            <div id=\"dropzone\">\n\n            </div>\n        </div>',NULL,NULL,NULL,NULL,NULL),(20,'2017-06-01 16:11:04','2017-06-01 16:11:04',NULL,22,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `square` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,7 +200,7 @@ CREATE TABLE `tags` (
   `tag_tagid` int(11) NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`tag_tagid`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,7 +209,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'poesia'),(2,'arte'),(3,'filosofía'),(4,'amor'),(5,'montañas'),(6,'alba'),(7,'cielo despejado');
+INSERT INTO `tags` VALUES (1,'poesia'),(2,'arte'),(3,'filosofía'),(4,'amor'),(5,'montañas'),(6,'alba'),(7,'cielo despejado'),(8,'animales');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -523,7 +523,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vsquareguest` AS select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_usersession` AS `sq_usersession`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes` from `square` where isnull(`square`.`sq_userid`) order by `square`.`sq_likes` desc */;
+/*!50001 VIEW `vsquareguest` AS select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_usersession` AS `sq_usersession`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes` from `square` where (isnull(`square`.`sq_usersession`) and (`square`.`sq_title` is not null)) order by `square`.`sq_likes` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -609,4 +609,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-01  2:00:15
+-- Dump completed on 2017-06-01 18:09:33
