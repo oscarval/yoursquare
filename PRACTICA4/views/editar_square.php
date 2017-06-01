@@ -6,7 +6,6 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] === true){
   $contentSq = $sq->getSquareDetail($_REQUEST["sq_squareid"]);
 }
 if($contentSq){
-  // var_dump($contentSq);
   $contentSq = $contentSq;
   $_SESSION["sq_squareid"] = $contentSq["sq_squareid"];
   echo "<script>var htmlSession='".str_replace(array("\r\n", "\n", "\r","'"), ' ', $contentSq["sq_htmlcontent"])."';</script>";
