@@ -23,6 +23,7 @@ class   MySQLFunctions{
       if($extras){
         $q .= " ".$extras;
       }
+
       $this->response["status"] = false;
       $this->response["data"] = [];
       $qResp = $this->conn->query($q) or die();

@@ -3,5 +3,4 @@
     include("indexsidebar.php");
     include("indexcontent.php");
     include("footer.php");
-    echo "hola";
 ?>
