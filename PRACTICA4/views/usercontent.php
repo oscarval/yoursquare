@@ -1,11 +1,14 @@
 <?php
+include_once('../controller/Follow.php');
 $squares = new Squares();
 $squaresList = null;
+$follow=new Follow();
 
 if(isset($_SESSION["login"])){
   $squaresList = $squares->getSquaresUserLogin($_GET["usr_id"], 10);
   $user = $daoUser->getUser($_GET["usr_id"]);
   $html = "<p><a href='square_detail.php?id=%s'><div class='square'><img src='../img/squaresthumb/%s'/></div><h4>%s</h4></a></p>";
+  $isFollowing = $follow->isFollowed($_SESSION["id"], $_GET["usr_id"]);
 ?>
   <!DOCTYPE html>
 	<html lang="es">
