@@ -67,7 +67,7 @@
         <li><a href='FAQ.php'>FAQ</a></li>
         <?php
         if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ){
-          echo "<li><a href='admin.php'>Admin</a></li>";
+          echo "<li><a href='Admin.php'>Admin</a></li>";
         }
         ?>
         <li><a href='contacto.php'>Contacto</a></li>

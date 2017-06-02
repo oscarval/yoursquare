@@ -44,9 +44,6 @@ $listTags = json_encode($tags);
     <a href='create_square.php' class='button_createSquare'>Crear Square!</a>
   </aside>
   <script type="text/javascript">
-  var word_array= <?php echo $listTags; ?>;
-  $(function() {
-    // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+    var word_array= <?php echo $listTags; ?>;
     $("#tags_container").jQCloud(word_array);
-  });
   </script>

@@ -13,9 +13,11 @@ $Avatar = new Avatar();
       <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
 	     <link href="css/style.css" rel="stylesheet" type="text/css" />
       <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" type="text/css" href="css/jqcloud.css" />
-        <script src= "js/lib/jquery-3.2.1.min.js"> </script>
-        <script src= "js/lib/jqcloud.js"> </script>
+      <link href="css/style-user.css" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="css/jqcloud.css" />
+      <script src= "js/lib/jquery-3.2.1.min.js"> </script>
+      <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script> -->
+      <script src= "js/lib/jqcloud.js"> </script>
      </head>
 <!-- Cabecera  -->
     <header id='header'>
@@ -44,7 +46,7 @@ if(isset($_SESSION["login"])){
       </div>";
   }
 else{
-    echo "<a href='SignUp.php' class='button_registrar'>REGÍSTRATE!!</a>";
+    echo "<a href='signUp.php' class='button_registrar'>REGÍSTRATE!!</a>";
 }
 ?>
 	  <!-- Main Menu  -->
@@ -56,7 +58,7 @@ else{
             <li><a href='FAQ.php'>FAQ</a></li>
 <?php
 if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]){
-    echo "<li><a href='admin.php'>Admin</a></li>";
+    echo "<li><a href='Admin.php'>Admin</a></li>";
 }
 ?>
 <li><a href='contacto.php'>Contacto</a></li>

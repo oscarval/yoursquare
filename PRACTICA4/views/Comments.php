@@ -53,7 +53,7 @@ $commentsDao = new Comments();
 					<?php
 					if (isset($_SESSION["login"])  && isset($_SESSION["id"])){
 						if($_SESSION["login"] === true && $_SESSION["isAdmin"] == "1" || ($comment["comm_idCreator"] === $_SESSION["id"]) ){
-							$deleteComment = "../controller/DeleteComment.php?comm_id=" . $comment["comm_id"];
+							$deleteComment = "../controller/deleteComment.php?comm_id=" . $comment["comm_id"];
 							?>
 							<a href=<?php echo '"'.$deleteComment .'"'?>><img src="../img/eliminar.png"/></a>
 						<?php

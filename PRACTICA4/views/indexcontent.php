@@ -4,32 +4,49 @@ $squares = new Squares();
 $squaresList = null;
 if(!isset($_SESSION["login"])){
   $squaresList = $squares->getSquaresGuest(10);
-  $html = "<a href='square_detail.php?id=%s'><div class='item'>%s invitado</div></a>";
 }
 else if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["isAdmin"] == "0"){
   $squaresList = $squares->getSquaresUser(10);
-  $html = "<a href='square_detail.php?id=%s'><div class='item'>%s usuario</div></a>";
 }
 else if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["isAdmin"] == "1"  ){
-  //var_dump($_SESSION);
   $squaresList = $squares->getSquaresAdmin(10);
-  $html = "<a href='square_detail.php?id=%s'><div class='item'>%s admin</div></a>";
 }
+$html = "<p><a href='square_detail.php?id=%s'><div class='square'><img src='../img/squaresthumb/%s'/></div><h4>%s</h4></a></p>";
 ?>
-<main id='main-withoutsidebar-right'>
-    <!-- <main id='main'> -->
-    <section class='intro'>
-    <div class='container'>
-        <?php
-            if($squaresList){
-              foreach($squaresList as $val){
-                echo sprintf($html,$val["sq_squareid"],$val["sq_title"]);
-                // echo "<a href='square_detail.php?id=".$val["sq_squareid"]."'><div class='item'>".$val["sq_title"]."</div></a>";
+<!-- Main Content cambiar de id #main-withoutsidebar-right si no tiene sidebar derecho-->
+<main id="main-withoutsidebar-right">
+  <!-- <main id="main"> -->
+  <section class="center-user">
+    <div id="square-list">
+      <?php
+      if($squaresList){
+        foreach($squaresList as $val){?>
+          <div class="user-square-preview">
+            <?php
+            $img = ($val["sq_image"]) ? "thumb_".$val["sq_image"] : "no-image.png";
+            echo sprintf($html,$val["sq_squareid"],$img,$val["sq_title"]);
+            ?>
+            <div class="like-dislike-container">
+              <?php
+              $likes = $val['sq_likes'];
+              $dislikes = $val['sq_dislikes'];
+              if($dislikes === null){
+                $dislikes = 0;
               }
-            }else{
-              echo "<p>Sin Contenido</p>";
-            }
-        ?>
-        </div>
-    </section>
-    </main>
+              if($likes === null){
+                $likes = 0;
+              }
+              echo "<img src='../img/like-flat.png' alt='Like' title='Mensaje' onclick = 'like(".$val["sq_squareid"].");'/>";
+              echo "<span class='like'>".$likes."</span>";
+              echo "<img src='../img/dislike-flat.png' alt='Like' title='Mensaje' onclick = 'dislike(".$val["sq_squareid"].");'/>";
+              echo "<span class='dislike'>".$dislikes."</span>";
+              ?>
+            </div>
+          </div>
+          <?php
+        }
+      }
+      ?>
+    </div>
+  </section>
+</main>

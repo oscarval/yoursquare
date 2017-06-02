@@ -15,6 +15,7 @@ class   MySQLFunctions{
   // realizar una query select en la base de datos
   public function select($query,$where,$extras=null){
     if($query){
+      $query = strtolower($query);
       $this->openBD();
       $q = $query;
       if($where){
@@ -26,7 +27,8 @@ class   MySQLFunctions{
 
       $this->response["status"] = false;
       $this->response["data"] = [];
-      $qResp = $this->conn->query($q) or die();
+      $this->conn->query("SET SESSION sql_mode = ''");
+      $qResp = $this->conn->query($q) or die("erro sql".$this->conn->error);
       while($result = $qResp->fetch_assoc()){
         //  $this->response["data"] = array_merge($this->response["data"],$result);
         array_push($this->response["data"],$result);
@@ -39,6 +41,7 @@ class   MySQLFunctions{
   // realizar una query insert en la base de datos
   public function insert($table,$data){
     if($table && $data){
+      $table = strtolower($table);
       $this->openBD();
       $q = "insert into ".$table;
       $fields = "(";
@@ -68,6 +71,7 @@ class   MySQLFunctions{
   // realizar un update de un registro en la base de datos
   public function update($query,$where){
     if($query){
+      $query = strtolower($query);
       $this->openBD();
       $q = $query;
       if($where){
@@ -83,6 +87,7 @@ class   MySQLFunctions{
   // realizar und elete enla base de datos
   public function delete($query,$where){
     if($query && $where){
+      $query = strtolower($query);
       $this->openBD();
       $q = $query;
       if($where){
@@ -91,6 +96,17 @@ class   MySQLFunctions{
       $this->response["status"] = false;
       $qResp = $this->conn->query($q);
       $this->response["status"] = true;
+      $this->closeBD();
+    }
+  }
+
+  // realizar und elete enla base de datos
+  public function extras($query){
+    if($query){
+      $query = strtolower($query);
+      $this->openBD();
+      $q = $query;
+      $qResp = $this->conn->query($q);
       $this->closeBD();
     }
   }
