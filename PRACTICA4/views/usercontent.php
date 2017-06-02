@@ -23,9 +23,11 @@ if(isset($_SESSION["login"])){
 		<section class="center-user">
 			<h1 id="toUserSquare" ><?php echo $user['usr_usuario'];?></h1>
 			<?php
-			if($_SESSION["id"] !== $_GET["usr_id"]){
-				echo "<a href='../controller/Procesar_follow.php?id=".$_GET["usr_id"]."' class='button_follow'> Seguir +</a>";
-			}
+			if(($_SESSION["id"] !== $_GET["usr_id"]) && !$isFollowing){ 
+				echo "<a href='../controller/Procesar_follow.php?idF=".$_GET["usr_id"]."' class='button_follow'> Seguir +</a>";
+			}else if($isFollowing){
+                		echo "<a href='../controller/Procesar_follow.php?idU=".$_GET["usr_id"]."' class='button_unfollow'> Dejar de Seguir</a>";
+            		}
 			if(isset($_SESSION["login"]) && $_SESSION["login"] === true && $_SESSION["isAdmin"] == "1" && ($_GET["usr_id"] != $_SESSION["id"])){
 				$delete = "../controller/DeleteUser.php?usr_id=" . $_GET["usr_id"];
 				?>
