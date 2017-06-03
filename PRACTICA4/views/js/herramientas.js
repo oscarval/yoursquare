@@ -5,14 +5,12 @@ $(function(){
     /* Funcionalidad para colapsar los elementos*/
     $(".header-collapse").click(function(event){
       var elem = event.target;
-      if($(elem).find(".collapse-hide").length > 0){
-        $(elem).find(".collapse-hide").html("&#8593;");
-        $(elem).find(".collapse-hide").addClass("collapse-show");
-        $(elem).find(".collapse-hide").removeClass("collapse-hide");
+      if($(elem).hasClass("arrowDown")){
+        $(elem).addClass("arrowUp");
+        $(elem).removeClass("arrowDown");
       }else{
-        $(elem).find(".collapse-show").html("&#8595;");
-        $(elem).find(".collapse-show").addClass("collapse-hide");
-        $(elem).find(".collapse-show").removeClass("collapse-show");
+        $(elem).addClass("arrowDown");
+        $(elem).removeClass("arrowUp");
       }
       $(elem).parent().find(".items").toggle();
     });

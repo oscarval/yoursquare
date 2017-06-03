@@ -60,7 +60,7 @@ if(isset($_SESSION["login"]) && isset($contentSq)){
   <!-- Sidebar de la derecha - comentar si no se quiere-->
   <?php
     if(isset($_SESSION["login"]) &&  $_SESSION["login"] !== true){
-      // incluir el login.php que tenga siempre el mismo codigo
-      include("login.php");
+      // incluir el Login.php que tenga siempre el mismo codigo
+      include("Login.php");
     }
   ?>

@@ -61,6 +61,21 @@ class Squares{
     public function deleteSquare($sq_squareid){
         return $this->dao->deleteSquare($sq_squareid);
     }
+
+    // Obtener los últimos Squares
+    public function getLastSquares(){
+        return $this->dao->getLastSquares();
+    }
+
+    // Obtner los Squares con mas dislikes
+    public function getMoreDislikes(){
+        return $this->dao->getMoreDislikes();
+    }
+
+    // Obtener los Squares con mas likes
+    public function getMoreLikes(){
+        return $this->dao->getMoreLikes();
+    }
 }
 
 ?>

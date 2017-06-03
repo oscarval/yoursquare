@@ -7,6 +7,7 @@
     YourSquare
   </title>
   <meta charset="UTF-8">
+  <link rel="icon" href="../img/ys_ico.ico?v=1.1">
   <!-- Link CSS -->
   <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -55,7 +56,7 @@
     </div>";
   }
   else{
-    echo "<a href='SignUp.php' class='button_registrar'>REGÍSTRATE!!</a>";
+    echo "<a href='signUp.php' class='button_registrar'>REGÍSTRATE!!</a>";
   }
   ?>
   <!-- Main Menu  -->
@@ -67,7 +68,7 @@
         <li><a href='FAQ.php'>FAQ</a></li>
         <?php
         if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ){
-          echo "<li><a href='Admin.php'>Admin</a></li>";
+          echo "<li><a href='admin.php'>Admin</a></li>";
         }
         ?>
         <li><a href='contacto.php'>Contacto</a></li>

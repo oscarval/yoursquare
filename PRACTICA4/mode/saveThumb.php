@@ -54,9 +54,9 @@ function resize($orig_file,$thumb_file,$prop){
 		}
 	}
 
-	$im = @ImageCreateFromJPEG ($img) or // Read JPEG Image
+	// $im = @ImageCreateFromJPEG ($img) or // Read JPEG Image
 	$im = @ImageCreateFromPNG ($img) or // or PNG Image
-	$im = @ImageCreateFromGIF ($img) or // or GIF Image
+	// $im = @ImageCreateFromGIF ($img) or // or GIF Image
 	$im = false; // If image is not JPEG, PNG, or GIF
 
 	if (!$im) {

@@ -154,7 +154,7 @@ function SaveSquareSession(squareid){
           type:"POST",
           data: {"image":img,"id":squareid},
           success: function(data){
-            window.location.href = "SignUp.php";
+            window.location.href = "signUp.php";
           },
           error: function(x,h,r){
             alert("problem");

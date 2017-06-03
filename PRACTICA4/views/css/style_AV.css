@@ -39,6 +39,22 @@
 .mar{
   background : transparent url('../../img/mar.jpg') no-repeat center center;
 }
+.papiro{
+  background : transparent url('../../img/papiro.jpg') no-repeat center center;
+}
+.futbol{
+  background : transparent url('../../img/futbol.jpg') no-repeat center center;
+}
+.flores{
+  background : transparent url('../../img/flores.jpg') no-repeat center center;
+}
+.amor{
+  background : transparent url('../../img/amor.jpg') no-repeat center center;
+}
+.musica{
+  background : transparent url('../../img/musica.jpg') no-repeat center center;
+}
+
 
 #dropzone{
   height: 450px;
@@ -72,13 +88,16 @@
 }
 #herramientas li{
   list-style-type: none;
-  color:#2F5C34;
+  color:#000;
 }
 
 #herramientas .seccion_h{
   color:#5D1314;
-  margin:5px;
+  margin:2px 5px 5px 0;
+  background-color: #B3E5FC;
+  padding: 5px;
 }
+
 #herramientas label{
   display:block;
 }
@@ -98,7 +117,23 @@
   cursor: move;
 }
 #herramientas .items{
-  margin-left: 5px;
+  margin: 0 5px 5px 0;
+  padding : 5px;
+  color : #000;
+  border : 1px solid #fff;
+}
+
+.arrowUp{
+    background-color: transparent;
+    background-image: url(../../img/up.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.arrowDown{
+    background-color: transparent;
+    background-image: url(../../img/down.png);
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
 /* para insertar tags*/

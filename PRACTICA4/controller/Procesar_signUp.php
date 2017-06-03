@@ -3,7 +3,7 @@ session_start();
 include_once("SignUp.php");
 include_once("Squares.php");
 
-$signUp = new SignUp($_REQUEST["uname"],$_REQUEST["psw"],$_REQUEST["pais"],$_REQUEST["email"], $_REQUEST["sex"]);
+$signUp = new SignUp($_REQUEST["uname"],$_REQUEST["psw"],$_REQUEST["pais"],$_REQUEST["campoEmail"], $_REQUEST["sex"]);
 if ($insertUser = $signUp->isSignUp()){
     if(isset($_SESSION["sq_squareid"])){
       $sq = new Squares();
@@ -21,5 +21,5 @@ if ($insertUser = $signUp->isSignUp()){
   	header("Location: ../views/index.php");
 }
 else
-	header("Location: ../views/error_signUp.php");
+	header("Location: ../views/error_signup.php");
 ?>

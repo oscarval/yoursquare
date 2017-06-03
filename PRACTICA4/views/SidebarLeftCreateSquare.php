@@ -8,20 +8,25 @@
 
   <ul id='herramientas'>
     <li>
-      <div class='seccion_h header-collapse'>Fondos<span class="collapse-hide">&#8595;</span></div>
+      <div class='seccion_h header-collapse arrowDown'>Fondos</div>
       <div class="items" style="display:none;">
         <div>Imágenes</div>
         <select id='fondo-background-square'>
           <option value='' selected>--ninguno--</option>
+          <option value='amor'>Amor</option>
+          <option value='flores'>Flores</option>
+          <option value='futbol'>Futbol</option>
           <option value='bosque'>Bosque</option>
           <option value='bambu' >Bambu</option>
           <option value='montanas'>Montañas</option>
+          <option value='musica'>Música</option>
           <option value='mar'>Mar</option>
+          <option value='papiro'>Papiro</option>
         </select>
       </div>
     </li>
     <li>
-      <div class='seccion_h header-collapse'>Cabeceras<span class="collapse-hide">&#8595;</span></div>
+      <div class='seccion_h header-collapse arrowDown'>Cabeceras</div>
       <div id="items" class="items" style="display:none;">
         <h1>Header 1</h1>
         <h2>Header 2</h2>
@@ -32,13 +37,15 @@
       </div>
     </li>
     <li>
-      <div class='seccion_h header-collapse'>Parrafos<span class="collapse-hide">&#8595;</span></div>
+      <div class='seccion_h header-collapse arrowDown'>Parrafos</div>
       <div id="items-p" class="items" style="display:none;">
         <p>Parrafo</p>
+        <p style="font-style:italic;">Parrafo Cursiva</p>
+        <p style="font-weight:bold;">Parrafo Negrita</p>
       </div>
     </li>
     <li>
-      <div class='seccion_h header-collapse'>Fuentes<span class="collapse-hide">&#8595;</span></div>
+      <div class='seccion_h header-collapse arrowDown'>Fuentes</div>
       <div class="items" style="display:none;">
         <ul>
           <li>

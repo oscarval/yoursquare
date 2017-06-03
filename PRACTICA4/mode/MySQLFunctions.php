@@ -24,7 +24,6 @@ class   MySQLFunctions{
       if($extras){
         $q .= " ".$extras;
       }
-
       $this->response["status"] = false;
       $this->response["data"] = [];
       $this->conn->query("SET SESSION sql_mode = ''");

@@ -9,6 +9,7 @@ $Avatar = new Avatar();
       YourSquare
       </title>
       <meta charset="UTF-8">
+      <link rel="icon" href="../img/ys_ico.ico?v=1.1">
       <!-- Link CSS -->
       <link href="https://fonts.googleapis.com/css?family=Monoton|PT+Sans" rel="stylesheet">
 	     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -16,7 +17,6 @@ $Avatar = new Avatar();
       <link href="css/style-user.css" rel="stylesheet" type="text/css" />
       <link rel="stylesheet" type="text/css" href="css/jqcloud.css" />
       <script src= "js/lib/jquery-3.2.1.min.js"> </script>
-      <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script> -->
       <script src= "js/lib/jqcloud.js"> </script>
      </head>
 <!-- Cabecera  -->
@@ -58,7 +58,7 @@ else{
             <li><a href='FAQ.php'>FAQ</a></li>
 <?php
 if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]){
-    echo "<li><a href='Admin.php'>Admin</a></li>";
+    echo "<li><a href='admin.php'>Admin</a></li>";
 }
 ?>
 <li><a href='contacto.php'>Contacto</a></li>

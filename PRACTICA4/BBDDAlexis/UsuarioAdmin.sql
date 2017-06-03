@@ -1,0 +1,2 @@
+USE `yoursquare`;
+INSERT INTO `usuarios` VALUES (1,'oscarval','$2y$10$QX6GOjy//5zGBrWRlzFo5.0coMZ7sCjcuC3/d7sLjMFnZJcgyoao6',1,'oscarval@ucm.es','España','2017-05-29 17:24:42','../img/avatar/avatar_man.png')

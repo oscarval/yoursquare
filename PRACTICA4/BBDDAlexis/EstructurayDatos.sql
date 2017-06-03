@@ -230,7 +230,7 @@ CREATE TABLE `usuarios` (
   `usr_registration_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `usr_avatar` varchar(30) NOT NULL,
   PRIMARY KEY (`usr_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,7 +239,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (18,'oscarval','$2y$10$QX6GOjy//5zGBrWRlzFo5.0coMZ7sCjcuC3/d7sLjMFnZJcgyoao6',1,'oscarval@ucm.es','España','2017-05-29 17:24:42','../img/avatar/avatar_man.png'),(19,'pablo','$2y$10$v/aU1D7gpP.CbGmxiCF1QOb11VFCAWyNZncmW.506cSf4Hx7B8peG',0,'pablo@ucm.es','España','2017-05-29 17:32:08','../img/avatar/avatar_none.png'),(20,'prueba','$2y$10$kpjL8oYg.Au3C/aWCWF0a.bXjXWHXPWP.nI6mXJDfVKaWy0pjbB3u',0,'prueba@gmail.com','españa','2017-05-29 23:16:18','../img/avatar/avatar_man.png'),(21,'prueba2','$2y$10$iB2gi82ikfMqjo9pKfEwjeQhDntom.LQ5GmwaZdDTRs2gNgTo30lS',0,'prueba2@gmail.com','españa','2017-05-30 00:34:56','../img/avatar/avatar_none.png'),(22,'maria','$2y$10$98kUo.WJUBPhLqJcVYtX/.jbpz9ZlmJKBI9JlJ0X9i.Z6GDV8kRG2',0,'maria@gmail.com','eeuu','2017-05-31 22:32:17','../img/avatar/avatar_woman.png');
+INSERT INTO `usuarios` VALUES (18,'oscarval','$2y$10$QX6GOjy//5zGBrWRlzFo5.0coMZ7sCjcuC3/d7sLjMFnZJcgyoao6',1,'oscarval@ucm.es','España','2017-05-29 17:24:42','../img/avatar/avatar_man.png'),(19,'pablo','$2y$10$v/aU1D7gpP.CbGmxiCF1QOb11VFCAWyNZncmW.506cSf4Hx7B8peG',0,'pablo@ucm.es','España','2017-05-29 17:32:08','../img/avatar/avatar_none.png'),(20,'prueba','$2y$10$kpjL8oYg.Au3C/aWCWF0a.bXjXWHXPWP.nI6mXJDfVKaWy0pjbB3u',0,'prueba@gmail.com','españa','2017-05-29 23:16:18','../img/avatar/avatar_man.png'),(21,'prueba2','$2y$10$iB2gi82ikfMqjo9pKfEwjeQhDntom.LQ5GmwaZdDTRs2gNgTo30lS',0,'prueba2@gmail.com','españa','2017-05-30 00:34:56','../img/avatar/avatar_none.png'),(22,'maria','$2y$10$98kUo.WJUBPhLqJcVYtX/.jbpz9ZlmJKBI9JlJ0X9i.Z6GDV8kRG2',0,'maria@gmail.com','eeuu','2017-05-31 22:32:17','../img/avatar/avatar_woman.png'),(23,'oscarval','$2y$10$KFbqzPnppq9RBdEdE2ioF.tlaDEjZuViyADW0V62fPdaIi.mDdOXG',0,'','España','2017-06-02 02:30:26','../img/avatar/avatar_none.png');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -608,4 +608,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-02  1:32:54
+-- Dump completed on 2017-06-02 20:31:01

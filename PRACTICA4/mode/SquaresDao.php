@@ -51,45 +51,45 @@ class SquaresDao{
   ** @id int id del square para obtener sus detalles
   */
   public function getSquareDetail($id){
-      $this->dao->select("select * from square",false,"where sq_squareid=$id");
-      $resp = $this->dao->getResponse();
-      if($resp["status"] && count($resp["data"]) > 0){
-        return $resp["data"][0];
-      }
-      return null;
+    $this->dao->select("select * from square",false,"where sq_squareid=$id");
+    $resp = $this->dao->getResponse();
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"][0];
+    }
+    return null;
   }
 
   /* Insertamos el square
   ** @dataSquare object json con campos y valores propios de la base de datos
   */
   public function insertSquare($dataSquare){
-      $this->dao->insert("Square",$dataSquare);
-      $resp = $this->dao->getResponse();
-      if($resp["status"]){
-        return $resp["idinsert"];
-      }
-      return null;
+    $this->dao->insert("Square",$dataSquare);
+    $resp = $this->dao->getResponse();
+    if($resp["status"]){
+      return $resp["idinsert"];
+    }
+    return null;
   }
   /* Actualizamos el square por el id
   ** @id id del square a actualizar
   ** @dataSquare array asociativo con campos y valores propios de la base de datos
   */
   public function updateSquare($id, $dataSquare){
-      if(is_array($dataSquare)){
-        $q = "update square set ";
-        foreach($dataSquare as $key => $val){
-          $q .= $key."='".$val."'";
-          if ($val != end($dataSquare)) {
-            $q .= ",";
-          }
-        }
-        $this->dao->update($q,"sq_squareid=$id");
-        $resp = $this->dao->getResponse();
-        if($resp["status"]){
-          return true;
+    if(is_array($dataSquare)){
+      $q = "update square set ";
+      foreach($dataSquare as $key => $val){
+        $q .= $key."='".$val."'";
+        if ($val != end($dataSquare)) {
+          $q .= ",";
         }
       }
-      return null;
+      $this->dao->update($q,"sq_squareid=$id");
+      $resp = $this->dao->getResponse();
+      if($resp["status"]){
+        return true;
+      }
+    }
+    return null;
   }
   /* Obtenemos los squares del usuario conectado
   ** @id id del square a actualizar
@@ -97,7 +97,7 @@ class SquaresDao{
   */
   public function getSquaresUserLogin($userid,$limit){
     if($limit <= 10){
-		$this->dao->select("select * from square",false,"where sq_userid=$userid","limit 0,10");
+      $this->dao->select("select * from square",false,"where sq_userid=$userid","limit 0,10");
     }else{
       $initLimit = ($limit/10)*10;
       $this->dao->select("select * from square","where sq_userid=$userid","limit $initLimit,$limit");
@@ -112,39 +112,86 @@ class SquaresDao{
 
 
 
-/*Busqueda de squares y users*/
-    public function userSearch($keyword,$start,$end){
+  /*Busqueda de squares y users*/
+  public function userSearch($keyword,$start,$end){
 
-        //echo "select usr_usuario from usuarios" . 'usr_usuario like %' . $keyword . '%' . "";
-        $this->dao->select("select * from usuarios","usr_usuario like '%". $keyword . "%'","");
-        $resp =  $this->dao->getResponse();
+    //echo "select usr_usuario from usuarios" . 'usr_usuario like %' . $keyword . '%' . "";
+    $this->dao->select("select * from usuarios","usr_usuario like '%". $keyword . "%'","");
+    $resp =  $this->dao->getResponse();
 
-        if($resp["status"] && count($resp["data"]) > 0){
-          return $resp["data"];
-        }else{
-          return false;
-        }
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
+    }else{
+      return false;
     }
+  }
+  /* Para realizar búsqueda de squares por titulo y tags
+  ** @keyword parlabra a busar
+  */
+  public function squareSearch($keyword,$start,$end){
 
-    public function squareSearch($keyword,$start,$end){
+    //echo "select usr_usuario from usuarios" . 'usr_usuario like %' . $keyword . '%' . "";
+    // $this->dao->select("select * from square","sq_title like '%". $keyword . "%'","");
+    $this->dao->select("select * from vSquareSearch","sq_title like '%". $keyword . "%' or tag_name like '%". $keyword . "%' ","group by sq_squareid");
+    // $this->dao->select("select * from vSquareSearch","sq_title like '%". $keyword . "%' or tag_name like '%". $keyword . "%' ");
+    $resp =  $this->dao->getResponse();
 
-        //echo "select usr_usuario from usuarios" . 'usr_usuario like %' . $keyword . '%' . "";
-        // $this->dao->select("select * from square","sq_title like '%". $keyword . "%'","");
-        $this->dao->select("select * from vSquareSearch","sq_title like '%". $keyword . "%' or tag_name like '%". $keyword . "%' ","group by sq_squareid");
-        // $this->dao->select("select * from vSquareSearch","sq_title like '%". $keyword . "%' or tag_name like '%". $keyword . "%' ");
-        $resp =  $this->dao->getResponse();
-
-        if($resp["status"] && count($resp["data"]) > 0){
-          return $resp["data"];
-        }else{
-          return false;
-        }
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
+    }else{
+      return false;
     }
+  }
 
-    public function deleteSquare($sq_squareid){
-      $this->dao->delete("delete from square","sq_squareid=$sq_squareid");
-      return $this->dao->getResponse();
+  /* Para borrar squares
+  ** @sq_squareid id del square
+  */
+  public function deleteSquare($sq_squareid){
+    $this->dao->delete("delete from square","sq_squareid=$sq_squareid");
+    return $this->dao->getResponse();
+  }
+
+  /* Para borrar squares
+  ** @sq_squareid id del square
+  */
+  // Obtener los últimos Squares
+  public function getLastSquares(){
+    $this->dao->select("select * from square","COALESCE(sq_usersession,'') = '' and COALESCE(sq_title,'') != '' ","order by sq_createdate desc limit 0,5");
+    $resp =  $this->dao->getResponse();
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
+    }else{
+      return false;
     }
+  }
+
+  /* Para borrar squares
+  ** @sq_squareid id del square
+  */
+  // Obtner los Squares con mas dislikes
+  public function getMoreDislikes(){
+    $this->dao->select("select * from square","COALESCE(sq_usersession,'') = '' and COALESCE(sq_title,'') != '' ","order by sq_dislikes asc limit 0,5");
+    $resp =  $this->dao->getResponse();
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
+    }else{
+      return false;
+    }
+  }
+
+  /* Para borrar squares
+  ** @sq_squareid id del square
+  */
+  // Obtener los Squares con mas likes
+  public function getMoreLikes(){
+    $this->dao->select("select * from square","COALESCE(sq_usersession,'') = '' and COALESCE(sq_title,'') != '' ","order by sq_likes desc limit 0,5");
+    $resp =  $this->dao->getResponse();
+    if($resp["status"] && count($resp["data"]) > 0){
+      return $resp["data"];
+    }else{
+      return false;
+    }
+  }
 
 }
 

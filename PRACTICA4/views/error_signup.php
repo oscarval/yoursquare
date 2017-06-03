@@ -4,7 +4,7 @@ include("cabecera.php");
 include("indexsidebar.php");
 ?>
 <h3>
-	Error: 
+	Error:
 
 </h3>
 	El nombre de usuario ya existe. Inténtalo otra vez!
