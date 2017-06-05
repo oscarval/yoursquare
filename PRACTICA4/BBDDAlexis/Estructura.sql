@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `yoursquare` /*!40100 DEFAULT CHARACTER SET utf8 
 USE `yoursquare`;
 -- MySQL dump 10.13  Distrib 5.6.24, for osx10.8 (x86_64)
 --
--- Host: 127.0.0.1    Database: yoursquare
+-- Host: localhost    Database: yoursquare
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.1.21-MariaDB
 
@@ -43,12 +43,13 @@ DROP TABLE IF EXISTS `comments_thread`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comments_thread` (
-  `commth_id` int(11) NOT NULL,
+  `commth_id` int(11) NOT NULL AUTO_INCREMENT,
   `commth_usr_id` int(11) NOT NULL,
   `commth_commId` int(11) NOT NULL,
   `commth_content` varchar(100) NOT NULL,
-  `commth_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `commth_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`commth_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,8 +194,6 @@ DROP TABLE IF EXISTS `vrelatedtagshot`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `vrelatedtagshot` AS SELECT 
- 1 AS `retag_relatedtagid`,
- 1 AS `retag_tagid`,
  1 AS `retag_squareid`,
  1 AS `count`*/;
 SET character_set_client = @saved_cs_client;
@@ -213,7 +212,6 @@ SET character_set_client = utf8;
  1 AS `sq_updatedate`,
  1 AS `sq_usersession`,
  1 AS `sq_userid`,
- 1 AS `sq_csscontent`,
  1 AS `sq_htmlcontent`,
  1 AS `sq_description`,
  1 AS `sq_title`,
@@ -240,7 +238,6 @@ SET character_set_client = utf8;
  1 AS `sq_updatedate`,
  1 AS `sq_usersession`,
  1 AS `sq_userid`,
- 1 AS `sq_csscontent`,
  1 AS `sq_htmlcontent`,
  1 AS `sq_description`,
  1 AS `sq_title`,
@@ -266,7 +263,6 @@ SET character_set_client = utf8;
  1 AS `sq_updatedate`,
  1 AS `sq_usersession`,
  1 AS `sq_userid`,
- 1 AS `sq_csscontent`,
  1 AS `sq_htmlcontent`,
  1 AS `sq_description`,
  1 AS `sq_title`,
@@ -289,7 +285,6 @@ SET character_set_client = utf8;
  1 AS `sq_updatedate`,
  1 AS `sq_usersession`,
  1 AS `sq_userid`,
- 1 AS `sq_csscontent`,
  1 AS `sq_htmlcontent`,
  1 AS `sq_description`,
  1 AS `sq_title`,
@@ -317,14 +312,11 @@ SET character_set_client = utf8;
  1 AS `sq_updatedate`,
  1 AS `sq_usersession`,
  1 AS `sq_userid`,
- 1 AS `sq_csscontent`,
  1 AS `sq_htmlcontent`,
  1 AS `sq_description`,
  1 AS `sq_title`,
  1 AS `sq_likes`,
  1 AS `sq_dislikes`,
- 1 AS `retag_relatedtagid`,
- 1 AS `retag_tagid`,
  1 AS `retag_squareid`,
  1 AS `count`,
  1 AS `usr_id`,
@@ -387,12 +379,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vrelatedtagshot` AS select `relatedtags`.`retag_relatedtagid` AS `retag_relatedtagid`,`relatedtags`.`retag_tagid` AS `retag_tagid`,`relatedtags`.`retag_squareid` AS `retag_squareid`,count(0) AS `count` from `relatedtags` group by `relatedtags`.`retag_squareid` order by count(0) desc */;
+/*!50001 VIEW `vrelatedtagshot` AS select `relatedtags`.`retag_squareid` AS `retag_squareid`,count(0) AS `count` from `relatedtags` group by `relatedtags`.`retag_squareid` order by count(0) desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -410,7 +402,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vsquareadmin` AS select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_usersession` AS `sq_usersession`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes`,`usuarios`.`usr_id` AS `usr_id`,`usuarios`.`usr_usuario` AS `usr_usuario`,`usuarios`.`usr_password` AS `usr_password`,`usuarios`.`usr_es_admin` AS `usr_es_admin`,`square`.`sq_image` AS `sq_image` from (`square` left join `usuarios` on((`square`.`sq_userid` = `usuarios`.`usr_id`))) order by `square`.`sq_createdate` desc */;
+/*!50001 VIEW `vsquareadmin` AS select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_usersession` AS `sq_usersession`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes`,`usuarios`.`usr_id` AS `usr_id`,`usuarios`.`usr_usuario` AS `usr_usuario`,`usuarios`.`usr_password` AS `usr_password`,`usuarios`.`usr_es_admin` AS `usr_es_admin`,`square`.`sq_image` AS `sq_image` from (`square` left join `usuarios` on((`square`.`sq_userid` = `usuarios`.`usr_id`))) where (isnull(`square`.`sq_usersession`) and (`square`.`sq_title` is not null)) order by `square`.`sq_createdate` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -482,7 +474,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vsquareuser` AS select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_usersession` AS `sq_usersession`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes`,`vrelatedtagshot`.`retag_relatedtagid` AS `retag_relatedtagid`,`vrelatedtagshot`.`retag_tagid` AS `retag_tagid`,`vrelatedtagshot`.`retag_squareid` AS `retag_squareid`,`vrelatedtagshot`.`count` AS `count`,`usuarios`.`usr_id` AS `usr_id`,`usuarios`.`usr_usuario` AS `usr_usuario`,`usuarios`.`usr_password` AS `usr_password`,`usuarios`.`usr_es_admin` AS `usr_es_admin`,`square`.`sq_image` AS `sq_image` from ((`square` left join `vrelatedtagshot` on((`square`.`sq_squareid` = `vrelatedtagshot`.`retag_squareid`))) left join `usuarios` on((`square`.`sq_userid` = `usuarios`.`usr_id`))) order by `vrelatedtagshot`.`count` desc,`square`.`sq_likes` desc */;
+/*!50001 VIEW `vsquareuser` AS select `square`.`sq_squareid` AS `sq_squareid`,`square`.`sq_createdate` AS `sq_createdate`,`square`.`sq_updatedate` AS `sq_updatedate`,`square`.`sq_usersession` AS `sq_usersession`,`square`.`sq_userid` AS `sq_userid`,`square`.`sq_csscontent` AS `sq_csscontent`,`square`.`sq_htmlcontent` AS `sq_htmlcontent`,`square`.`sq_description` AS `sq_description`,`square`.`sq_title` AS `sq_title`,`square`.`sq_likes` AS `sq_likes`,`square`.`sq_dislikes` AS `sq_dislikes`,`vrelatedtagshot`.`retag_squareid` AS `retag_squareid`,`vrelatedtagshot`.`count` AS `count`,`usuarios`.`usr_id` AS `usr_id`,`usuarios`.`usr_usuario` AS `usr_usuario`,`usuarios`.`usr_password` AS `usr_password`,`usuarios`.`usr_es_admin` AS `usr_es_admin`,`square`.`sq_image` AS `sq_image` from ((`square` left join `vrelatedtagshot` on((`square`.`sq_squareid` = `vrelatedtagshot`.`retag_squareid`))) left join `usuarios` on((`square`.`sq_userid` = `usuarios`.`usr_id`))) where (isnull(`square`.`sq_usersession`) and (`square`.`sq_title` is not null)) order by `vrelatedtagshot`.`count` desc,`square`.`sq_likes` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -532,4 +524,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-01 21:46:56
+-- Dump completed on 2017-06-04 11:30:34

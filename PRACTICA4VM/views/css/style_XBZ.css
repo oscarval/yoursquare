@@ -1,0 +1,158 @@
+#sidebar-left .title-sidebar-left{
+  text-align: center;
+}
+#main .intro .tooltip{
+  font-family: 'Calibri';
+  font-style: italic;
+  color: #6EDAB6;
+  text-decoration: underline;
+}
+
+.imgcontainer_detail {
+	display: inline;
+	margin-bottom: 15px;
+}
+
+img.avatar_detail {
+    width: 50px;
+    border-radius: 50px;
+	margin-top: 12px;
+	margin-left: 12px;
+}
+
+span#nombrePerfil_detail {
+	display: inline;
+	margin-left: 10px;
+	margin-right: 100px;
+	font-size: 40px;
+	margin-bottom: 20px;
+}
+
+span#fechaPerfil {
+	display: inline;
+	text-align: right;
+}
+
+#wrapper-square.nuevo{
+  height: auto;
+  border:2px solid grey;
+  border-radius: 10px;
+  background-color: transparent;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#wrapper-square.bambu{
+  height: auto;
+  border:2px solid grey;
+  border-radius: 10px;
+  background : transparent url('../img/bambu.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#wrapper-square.bosque{
+  height: auto;
+  border:2px solid grey;
+  border-radius: 10px;
+  background : transparent url('../img/bosque.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#wrapper-square.punteado{
+  border:2px dotted grey;
+}
+#wrapper-square.sinborde{
+  border:2px none grey;
+}
+#wrapper-square.lineal{
+  border:2px solid grey;
+  border-radius: 0px;
+}
+
+
+#wrapper-square .content-background-square{
+  min-height:400px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size:20px;
+}
+
+#wrapper-square .content-intro-square h1,#wrapper-square .content-intro-square p{
+  cursor:pointer;
+  text-align: center;
+}
+#wrapper-square.bambu .content-intro-square h1{
+  color: #ff0000;
+}
+#wrapper-square.bosque .content-intro-square h1{
+  color: #ff0000;
+  font-family: 'Arial';
+}
+#wrapper-square.bambu .content-intro-square p{
+  color: #3760AF;
+  text-align: center;
+}
+#wrapper-square.bosque .content-intro-square p{
+  color: #F7FE07;
+  text-align: center;
+}
+
+#footer-square{
+    margin-top:5px;
+}
+
+.like-dislike-container  {
+    display: inline;
+}
+
+.like {
+    color:#6495ED;
+}
+
+.dislike {
+    color:#FF0000;
+}
+
+#comment-link{
+    font-size:20px;
+    margin-left:15px;
+}
+
+
+img.avatar_comment {
+    width: 35px;
+    border-radius: 25px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+span.nombrePerfil_comment {
+	display: inline;
+	margin-left: 5px;
+	margin-right: 10px;
+	font-size: 25px;
+}
+
+.comment-user{
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+/*Barra lateral de herramientas*/
+#herramientas{
+  padding:0;
+}
+#herramientas ul{
+ padding-left:10px;
+}
+#herramientas li{
+  list-style-type: none;
+}

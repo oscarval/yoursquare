@@ -1,0 +1,28 @@
+#signUp{
+    font-size:15px;
+    padding: 0 40px;
+    height: auto;
+}
+#signUp h1{
+    padding-top: 20px;
+}
+
+#signUp label{
+    display: inline-block;
+    width:20%;
+    padding:10px;
+}
+#signUp input[type="text"],#signUp input[type="email"]{
+    width:250px;
+    height: 20px;
+}
+#signUp .button_enviar{
+  margin:20px;
+  padding: 20px;
+}
+#signUp .enviar{
+  padding: 10px;
+  width: 100px;
+  background-color: #4fc3f7;
+  border-color: #4fc3f7;
+}

@@ -1,0 +1,36 @@
+
+#sidebar-left ul li{
+  list-style: none;
+}
+
+#sidebar-left ul li a{
+  text-decoration: none;
+  }
+
+
+#listas_usuarios a{
+  text-decoration: none;
+}
+
+#listas_usuarios ul li{
+  list-style: none;
+  padding-bottom: 10px;
+}
+#listas_usuarios div{
+  display: inline-block;
+}
+
+#sidebar-left p{
+  font-weight: bold;
+}
+
+.intro h1{
+  padding-left: 35px;
+}
+
+.icon{
+	width: 40px;
+  border-radius: 50%;
+}
+
+

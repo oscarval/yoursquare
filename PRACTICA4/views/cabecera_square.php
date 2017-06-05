@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php
+session_start();
+include('../controller/Avatar.php');
+$Avatar = new Avatar();
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -13,6 +17,7 @@
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <link href="css/styleXuebo_index.css" rel="stylesheet" type="text/css" />
   <link href="css/style_AV.css" rel="stylesheet" type="text/css" />
+  <link href="css/style-user.css" rel="stylesheet" type="text/css" />
   <link href="css/medium.css" rel="stylesheet" type="text/css" />
   <link href="css/dragula.css" rel="stylesheet" type="text/css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -46,17 +51,18 @@
   </div>
   <?php
   if(isset($_SESSION["login"])){
-    echo "<div class='usuario'>
-    <a href='BandejaEntrada.php'><span class='icon'>📭</span></a>
-    <a href='user.php'><span class='icon'>🙎</span></a>
-    <span>Bienvenido, ";
-    echo $_SESSION["username"];
-    echo "</span>";
-    echo "<form action='../controller/Logout.php'><input type='submit' value='Salir' /></form>
-    </div>";
-  }
+      $pathAvatar = $Avatar->getAvatar($_SESSION["id"])['usr_avatar'];
+      echo "<div class='usuario'>
+              <a href='BandejaEntrada.php'><span class='icon'>📭</span></a>
+              <a href='user.php?usr_id=".$_SESSION["id"]."'><img class='icon' src='" . $pathAvatar ."'></img></a>
+            <span>Bienvenido, ";
+      echo $_SESSION["username"];
+      echo "</span>";
+      echo "<form action='../controller/Logout.php'><input type='submit' value='Salir' /></form>
+        </div>";
+    }
   else{
-    echo "<a href='signUp.php' class='button_registrar'>REGÍSTRATE!!</a>";
+      echo "<a href='signUp.php' class='button_registrar'>REGÍSTRATE!!</a>";
   }
   ?>
   <!-- Main Menu  -->

@@ -10,7 +10,7 @@ class SquaresDao{
   ** @userid id de usuraio
   */
   public function getSquaresPendiente($userid){
-    $this->dao->select("select * from square","sq_userid='".$userid."' and sq_title is null or sq_title=''");
+    $this->dao->select("select * from square","sq_userid='".$userid."' and sq_image is null");
     $resp = $this->dao->getResponse();
     if($resp["status"] && count($resp["data"]) > 0){
       return $resp["data"];
